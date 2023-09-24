@@ -39,7 +39,6 @@ def organiza_peso(lista_pesos):
   
   return lista_pesos
 
-
 #Conforme a lista de pesos cria uma nova lista com os atributos organizados
 def troca_elemento(lista_pesos, lista_atributos):
     # Cria uma lista de tuplas (peso, índice) e ordena por peso
