@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Ficha aleatória D&D 5e</title>
+    <style>
+        #positiveNumber {
+            width: 42px;
+        }
+
+        #rangeInput {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gerador de Ficha aleatória D&D 5e</h1><br>
+    <form method="POST" action="/generate_pdf" target="_blank">
+        <input type="range" id="rangeInput" name="level" min="1" max="20" value="1"> Nivel
+        <span id="rangeValue">1</span> <br>
+
+        <p>Pesos são a ordem de importância do atributo, quanto maior o peso mais importante o atributo.</p>
+        <input type="number" id="positiveNumber" name="Strength" value="0"> Strength <br>
+        <input type="number" id="positiveNumber" name="Dexterity" value="0"> Dexterity <br>
+        <input type="number" id="positiveNumber" name="Constitution" value="0"> Constitution <br>
+        <input type="number" id="positiveNumber" name="Intelligence" value="0"> Intelligence <br>
+        <input type="number" id="positiveNumber" name="Wisdom" value="0"> Wisdom <br>
+        <input type="number" id="positiveNumber" name="Charisma" value="0"> Charisma <br>
+        <input type="checkbox" name="sub_class"> Usar sub classe <br>
+        <input type="checkbox" name="sub_race"> Usar sub raça <br>
+        <input type="submit" id="Gerar" value="Gerar">
+    </form>
+    <script>
+        const rangeInput = document.getElementById('rangeInput');
+        const rangeValue = document.getElementById('rangeValue');
+
+        // Atualiza o valor exibido ao lado do slider quando o valor do input range muda
+        rangeInput.addEventListener('input', function() {
+            rangeValue.textContent = rangeInput.value;
+        });
+    </script>
+</body>
+</html>
