@@ -4,6 +4,8 @@ from atributos import gera_atributos, teste_resistencia, modificador, proeficien
 from informacao_classe import *
 from pdf_editor import *
 from PyPDF2 import PdfReader, PdfWriter
+from PyPDF2.generic import NameObject, TextStringObject
+import pdfrw 
 import tempfile
 
 # Criando o personagem
@@ -81,9 +83,10 @@ def define_caracteristicas_basicas(lista_atributos):
 
 def define_teste_resistencia(lista_modificadores):
     lista_atributos_relevantes = atributos_teste_resistencia(personagem.basicas.classe)
+    dict_checkbox_teste_resistencia = checkbox_teste_resistencia(lista_atributos_relevantes)
     lista_teste_resistencia = teste_resistencia(lista_atributos_relevantes, lista_modificadores, personagem.basicas.proeficience_bonus)
 
-    return lista_teste_resistencia
+    return lista_teste_resistencia, dict_checkbox_teste_resistencia
 
 
 def define_pericias(lista_modificadores):
@@ -97,14 +100,15 @@ def define_pericias(lista_modificadores):
         lista_modificadores_pericias[posicao] = elemento
 
     lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe)
+    dict_checkbox_pericias = checkbox_pericias(lista_posicao_pericias)
+
     for posicao_pericias in lista_posicao_pericias:
-        print(posicao_pericias)
         lista_modificadores_pericias[posicao_pericias] += personagem.basicas.proeficience_bonus
 
     define_valor_objetos(personagem.pericias, lista_modificadores_pericias)
     lista_pericias = gera_lista_valor_objetos(personagem.pericias)
 
-    return lista_pericias
+    return lista_pericias, dict_checkbox_pericias
 
 
 def caracteristicas_basicas(lista_atributos):
@@ -124,7 +128,7 @@ def caracteristicas_basicas(lista_atributos):
     return caracteristicas_basicas_dict(lista_caracteristicas_basicas)
 
 
-def preencher_pdf(dict_form_field_pdf):
+def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
     original_pdf_path = 'CharacterSheet_DnD5e.pdf'
     
     # Cria um arquivo temporário para o novo PDF
@@ -138,8 +142,18 @@ def preencher_pdf(dict_form_field_pdf):
         pagina = reader.pages[pagina_numero]
         writer.add_page(pagina)
 
-    writer.update_page_form_field_values(writer.pages[0], dict_form_field_pdf)
+    for pagina in writer.pages:
+        for campo_preenchivel in pagina["/Annots"]:
+            objeto_campo_preenchivel = campo_preenchivel.get_object()
+            nome_campo_preenchivel = objeto_campo_preenchivel.get("/T")
+            if nome_campo_preenchivel:
+                    nome_campo_preenchivel = nome_campo_preenchivel.strip()  # Remove espaços do nome
+                    objeto_campo_preenchivel.update({NameObject("/T"): TextStringObject(nome_campo_preenchivel)})
 
+    writer.update_page_form_field_values(writer.pages[0], dict_form_field_pdf)
+    writer.update_page_form_field_values(writer.pages[0], dict_checkbox_pdf)
+
+    # Salva o novo PDF
     with open(new_pdf_path, "wb") as output_stream:
         writer.write(output_stream)
 
@@ -151,10 +165,10 @@ def page_1():
     lista_atributos = define_atributos_organizados(lista_pesos)
     lista_modificadores = define_modificadores()
     dict_caracteristicas_basicas = caracteristicas_basicas(lista_atributos)
-    lista_pericias = define_pericias(lista_modificadores)
-    lista_teste_resistencia = define_teste_resistencia(lista_modificadores)
+    lista_pericias, dict_checkbox_pericias = define_pericias(lista_modificadores)
+    lista_teste_resistencia, dict_checkbox_teste_resistencia = define_teste_resistencia(lista_modificadores)
 
-    dict_final_pdf = soma_dicionarios(
+    dict_fields_pdf = soma_dicionarios(
             dict_caracteristicas_basicas,
             atributos_base_pdf(lista_atributos),
             atributo_modificador_pdf(lista_modificadores),
@@ -162,7 +176,13 @@ def page_1():
             pericias_pdf(lista_pericias)
             )
     
-    caminho_pdf = preencher_pdf(dict_final_pdf)
+    dict_checkbox_pdf = soma_dicionarios(
+            dict_checkbox_teste_resistencia,
+            dict_checkbox_pericias
+    )
+    
+    print(dict_fields_pdf, dict_checkbox_pdf)
+    caminho_pdf = preencher_pdf(dict_fields_pdf, dict_checkbox_pdf)
 
     return caminho_pdf
 

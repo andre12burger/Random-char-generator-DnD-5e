@@ -1,213 +1,336 @@
-PÁGINA 1
-
-ClassLevel
-Background
-PlayerName
-CharacterName
-Race
-Alignment
-XP
-Inspiration
-STR
-ProfBonus
-AC
-Initiative
-Speed
-PersonalityTraits
-STRmod
-ST Strength
-DEX
-Ideals
-DEXmod
-Bonds
-CON
-HDTotal
-CONmod
-HD
-Flaws
-INT
-ST Dexterity
-ST Constitution
-ST Intelligence
-ST Wisdom
-ST Charisma
-Acrobatics
-Animal
-Athletics
-Deception 
-History
-Wpn Name
-Wpn1 AtkBonus
-Wpn1 Damage
-Insight
-Intimidation
-Wpn Name 2
-Wpn2 AtkBonus
-Wpn Name 3
-Wpn3 AtkBonus
-INTmod
-Wpn2 Damage
-Investigation
-WIS
-Arcana
-Perception 
-WISmod
-CHA
-Nature
-Performance
-Medicine
-Religion
-Stealth
-Persuasion
-HPMax
-HPCurrent
-HPTemp
-Wpn3 Damage
-SleightofHand
-CHamod
-Survival
-AttacksSpellcasting
-Passive
-CP
-ProficienciesLang
-SP
-EP
-GP
-PP
-Equipment
-Features and Traits
-
-PÁGINA 2
-
-Skin
-Hair
-Allies
-FactionName
-Backstory
-Feat+Traits
-Treasure
-
-PÁGINA 3
-
-Spellcasting Class 2
-SpellcastingAbility 2
-SpellSaveDC  2       
-SpellAtkBonus 2
-SlotsTotal 19
-SlotsRemaining 19
-Spells 1014
-Spells 1015
-Spells 1016
-Spells 1017
-Spells 1018
-Spells 1019
-Spells 1020
-Spells 1021
-Spells 1022
-Spells 1023
-Spells 1024
-Spells 1025
-Spells 1026
-Spells 1027
-Spells 1028
-Spells 1029
-Spells 1030
-Spells 1031
-Spells 1032
-Spells 1033
-SlotsTotal 20
-SlotsRemaining 20
-Spells 1034
-Spells 1035
-Spells 1036
-Spells 1037
-Spells 1038
-Spells 1039
-Spells 1040
-Spells 1041
-Spells 1042
-Spells 1043
-Spells 1044
-Spells 1045
-Spells 1046
-SlotsTotal 21
-SlotsRemaining 21
-Spells 1047
-Spells 1048
-Spells 1049
-Spells 1050
-Spells 1051
-Spells 1052
-Spells 1053
-Spells 1054
-Spells 1055
-Spells 1056
-Spells 1057
-Spells 1058
-Spells 1059
-SlotsTotal 22
-SlotsRemaining 22
-Spells 1060
-Spells 1061
-Spells 1062
-Spells 1063
-Spells 1064
-Spells 1065
-Spells 1066
-Spells 1067
-Spells 1068
-Spells 1069
-Spells 1070
-Spells 1071
-Spells 1072
-SlotsTotal 23
-SlotsRemaining 23
-Spells 1073
-Spells 1074
-Spells 1075
-Spells 1076
-Spells 1077
-Spells 1078
-Spells 1079
-Spells 1080
-Spells 1081
-SlotsTotal 24
-SlotsRemaining 24
-Spells 1082
-Spells 1083
-Spells 1084
-Spells 1085
-Spells 1086
-Spells 1087
-Spells 1088
-Spells 1089
-Spells 1090
-SlotsTotal 25
-SlotsRemaining 25
-Spells 1091
-Spells 1092
-Spells 1093
-Spells 1094
-Spells 1095
-Spells 1096
-Spells 1097
-Spells 1098
-Spells 1099
-SlotsTotal 26
-SlotsRemaining 26
-Spells 10100
-Spells 10101
-Spells 10102
-Spells 10103
-Spells 10104
-Spells 10105
-Spells 10106
-SlotsTotal 27
-SlotsRemaining 27
-Spells 10107
-Spells 10108
-Spells 10109
-Spells 101010
-Spells 101011
-Spells 101012
-Spells 101013
+Página 1:
+  Campo de texto: ClassLevel        
+  Campo de texto: Background        
+  Campo de texto: PlayerName        
+  Campo de texto: CharacterName     
+  Campo de texto: Race 
+  Campo de texto: Alignment
+  Campo de texto: XP
+  Campo de texto: Inspiration       
+  Campo de texto: STR
+  Campo de texto: ProfBonus
+  Campo de texto: AC
+  Campo de texto: Initiative        
+  Campo de texto: Speed
+  Campo de texto: PersonalityTraits 
+  Campo de texto: STRmod
+  Campo de texto: ST Strength
+  Campo de texto: DEX
+  Campo de texto: Ideals
+  Campo de texto: DEXmod
+  Campo de texto: Bonds
+  Campo de texto: CON
+  Campo de texto: HDTotal
+  Caixa de seleção: Check Box 12
+  Caixa de seleção: Check Box 13
+  Caixa de seleção: Check Box 14
+  Campo de texto: CONmod
+  Caixa de seleção: Check Box 15
+  Caixa de seleção: Check Box 16
+  Caixa de seleção: Check Box 17
+  Campo de texto: HD
+  Campo de texto: Flaws
+  Campo de texto: INT
+  Campo de texto: ST Dexterity
+  Campo de texto: ST Constitution
+  Campo de texto: ST Intelligence
+  Campo de texto: ST Wisdom
+  Campo de texto: ST Charisma
+  Campo de texto: Acrobatics
+  Campo de texto: Animal
+  Campo de texto: Athletics
+  Campo de texto: Deception
+  Campo de texto: History
+  Campo de texto: Wpn Name
+  Campo de texto: Wpn1 AtkBonus
+  Campo de texto: Wpn1 Damage
+  Campo de texto: Insight
+  Campo de texto: Intimidation
+  Campo de texto: Wpn Name 2
+  Campo de texto: Wpn2 AtkBonus
+  Campo de texto: Wpn Name 3
+  Campo de texto: Wpn3 AtkBonus
+  Caixa de seleção: Check Box 11
+  Caixa de seleção: Check Box 18
+  Caixa de seleção: Check Box 19
+  Caixa de seleção: Check Box 20
+  Caixa de seleção: Check Box 21
+  Caixa de seleção: Check Box 22
+  Campo de texto: INTmod
+  Campo de texto: Wpn2 Damage
+  Campo de texto: Investigation 
+  Campo de texto: WIS
+  Campo de texto: Arcana
+  Campo de texto: Perception
+  Campo de texto: WISmod
+  Campo de texto: CHA
+  Campo de texto: Nature
+  Campo de texto: Performance
+  Campo de texto: Medicine
+  Campo de texto: Religion
+  Campo de texto: Stealth
+  Caixa de seleção: Check Box 23
+  Caixa de seleção: Check Box 24
+  Caixa de seleção: Check Box 25
+  Caixa de seleção: Check Box 26
+  Caixa de seleção: Check Box 27
+  Caixa de seleção: Check Box 28
+  Caixa de seleção: Check Box 29
+  Caixa de seleção: Check Box 30
+  Caixa de seleção: Check Box 31
+  Caixa de seleção: Check Box 32
+  Caixa de seleção: Check Box 33
+  Caixa de seleção: Check Box 34
+  Caixa de seleção: Check Box 35
+  Caixa de seleção: Check Box 36
+  Caixa de seleção: Check Box 37
+  Caixa de seleção: Check Box 38
+  Caixa de seleção: Check Box 39
+  Caixa de seleção: Check Box 40
+  Campo de texto: Persuasion
+  Campo de texto: HPMax
+  Campo de texto: HPCurrent
+  Campo de texto: HPTemp
+  Campo de texto: Wpn3 Damage
+  Campo de texto: SleightofHand
+  Campo de texto: CHamod
+  Campo de texto: Survival
+  Campo de texto: AttacksSpellcasting
+  Campo de texto: Passive
+  Campo de texto: CP
+  Campo de texto: ProficienciesLang
+  Campo de texto: SP
+  Campo de texto: EP
+  Campo de texto: GP
+  Campo de texto: PP
+  Campo de texto: Equipment
+  Campo de texto: Features and Traits
+Página 2:
+  Campo de texto: CharacterName 2
+  Campo de texto: Age
+  Campo de texto: Height
+  Campo de texto: Weight
+  Campo de texto: Eyes
+  Campo de texto: Skin
+  Campo de texto: Hair
+  Caixa de seleção: Faction Symbol Image
+  Campo de texto: Allies
+  Campo de texto: FactionName
+  Campo de texto: Backstory
+  Campo de texto: Feat+Traits
+  Campo de texto: Treasure
+Página 3:
+  Campo de texto: Spellcasting Class 2
+  Campo de texto: SpellcastingAbility 2
+  Campo de texto: SpellSaveDC  2
+  Campo de texto: SpellAtkBonus 2
+  Campo de texto: SlotsTotal 19
+  Campo de texto: SlotsRemaining 19
+  Campo de texto: Spells 1014
+  Campo de texto: Spells 1015
+  Campo de texto: Spells 1016
+  Campo de texto: Spells 1017
+  Campo de texto: Spells 1018
+  Campo de texto: Spells 1019
+  Campo de texto: Spells 1020
+  Campo de texto: Spells 1021
+  Campo de texto: Spells 1022
+  Caixa de seleção: Check Box 314
+  Caixa de seleção: Check Box 3031
+  Caixa de seleção: Check Box 3032
+  Caixa de seleção: Check Box 3033
+  Caixa de seleção: Check Box 3034
+  Caixa de seleção: Check Box 3035
+  Caixa de seleção: Check Box 3036
+  Caixa de seleção: Check Box 3037
+  Caixa de seleção: Check Box 3038
+  Caixa de seleção: Check Box 3039
+  Caixa de seleção: Check Box 3040
+  Caixa de seleção: Check Box 321
+  Caixa de seleção: Check Box 320
+  Caixa de seleção: Check Box 3060
+  Caixa de seleção: Check Box 3061
+  Caixa de seleção: Check Box 3062
+  Caixa de seleção: Check Box 3063
+  Caixa de seleção: Check Box 3064
+  Caixa de seleção: Check Box 3065
+  Caixa de seleção: Check Box 3066
+  Caixa de seleção: Check Box 315
+  Caixa de seleção: Check Box 3041
+  Campo de texto: Spells 1023
+  Caixa de seleção: Check Box 251
+  Caixa de seleção: Check Box 309
+  Caixa de seleção: Check Box 3010
+  Caixa de seleção: Check Box 3011
+  Caixa de seleção: Check Box 3012
+  Caixa de seleção: Check Box 3013
+  Caixa de seleção: Check Box 3014
+  Caixa de seleção: Check Box 3015
+  Caixa de seleção: Check Box 3016
+  Caixa de seleção: Check Box 3017
+  Caixa de seleção: Check Box 3018
+  Caixa de seleção: Check Box 3019
+  Campo de texto: Spells 1024
+  Campo de texto: Spells 1025
+  Campo de texto: Spells 1026
+  Campo de texto: Spells 1027
+  Campo de texto: Spells 1028
+  Campo de texto: Spells 1029
+  Campo de texto: Spells 1030
+  Campo de texto: Spells 1031
+  Campo de texto: Spells 1032
+  Campo de texto: Spells 1033
+  Campo de texto: SlotsTotal 20
+  Campo de texto: SlotsRemaining 20
+  Campo de texto: Spells 1034
+  Campo de texto: Spells 1035
+  Campo de texto: Spells 1036
+  Campo de texto: Spells 1037
+  Campo de texto: Spells 1038
+  Campo de texto: Spells 1039
+  Campo de texto: Spells 1040
+  Campo de texto: Spells 1041
+  Campo de texto: Spells 1042
+  Campo de texto: Spells 1043
+  Campo de texto: Spells 1044
+  Campo de texto: Spells 1045
+  Campo de texto: Spells 1046
+  Campo de texto: SlotsTotal 21
+  Campo de texto: SlotsRemaining 21
+  Campo de texto: Spells 1047
+  Campo de texto: Spells 1048
+  Campo de texto: Spells 1049
+  Campo de texto: Spells 1050
+  Campo de texto: Spells 1051
+  Campo de texto: Spells 1052
+  Campo de texto: Spells 1053
+  Campo de texto: Spells 1054
+  Campo de texto: Spells 1055
+  Campo de texto: Spells 1056
+  Campo de texto: Spells 1057
+  Campo de texto: Spells 1058
+  Campo de texto: Spells 1059
+  Campo de texto: SlotsTotal 22
+  Campo de texto: SlotsRemaining 22
+  Campo de texto: Spells 1060
+  Campo de texto: Spells 1061
+  Campo de texto: Spells 1062
+  Campo de texto: Spells 1063
+  Campo de texto: Spells 1064
+  Caixa de seleção: Check Box 323
+  Caixa de seleção: Check Box 322
+  Caixa de seleção: Check Box 3067
+  Caixa de seleção: Check Box 3068
+  Caixa de seleção: Check Box 3069
+  Caixa de seleção: Check Box 3070
+  Caixa de seleção: Check Box 3071
+  Caixa de seleção: Check Box 3072
+  Caixa de seleção: Check Box 3073
+  Campo de texto: Spells 1065
+  Campo de texto: Spells 1066
+  Campo de texto: Spells 1067
+  Campo de texto: Spells 1068
+  Campo de texto: Spells 1069
+  Campo de texto: Spells 1070
+  Campo de texto: Spells 1071
+  Caixa de seleção: Check Box 317
+  Campo de texto: Spells 1072
+  Campo de texto: SlotsTotal 23
+  Campo de texto: SlotsRemaining 23
+  Campo de texto: Spells 1073
+  Campo de texto: Spells 1074
+  Campo de texto: Spells 1075
+  Campo de texto: Spells 1076
+  Campo de texto: Spells 1077
+  Campo de texto: Spells 1078
+  Campo de texto: Spells 1079
+  Campo de texto: Spells 1080
+  Campo de texto: Spells 1081
+  Campo de texto: SlotsTotal 24
+  Campo de texto: SlotsRemaining 24
+  Campo de texto: Spells 1082
+  Campo de texto: Spells 1083
+  Campo de texto: Spells 1084
+  Campo de texto: Spells 1085
+  Campo de texto: Spells 1086
+  Campo de texto: Spells 1087
+  Campo de texto: Spells 1088
+  Campo de texto: Spells 1089
+  Campo de texto: Spells 1090
+  Campo de texto: SlotsTotal 25
+  Campo de texto: SlotsRemaining 25
+  Campo de texto: Spells 1091
+  Campo de texto: Spells 1092
+  Campo de texto: Spells 1093
+  Campo de texto: Spells 1094
+  Campo de texto: Spells 1095
+  Campo de texto: Spells 1096
+  Campo de texto: Spells 1097
+  Campo de texto: Spells 1098
+  Campo de texto: Spells 1099
+  Campo de texto: SlotsTotal 26
+  Campo de texto: SlotsRemaining 26
+  Campo de texto: Spells 10100
+  Campo de texto: Spells 10101
+  Campo de texto: Spells 10102
+  Campo de texto: Spells 10103
+  Caixa de seleção: Check Box 316
+  Caixa de seleção: Check Box 3042
+  Caixa de seleção: Check Box 3043
+  Caixa de seleção: Check Box 3044
+  Caixa de seleção: Check Box 3045
+  Caixa de seleção: Check Box 3046
+  Caixa de seleção: Check Box 3047
+  Caixa de seleção: Check Box 3048
+  Caixa de seleção: Check Box 3049
+  Caixa de seleção: Check Box 3050
+  Caixa de seleção: Check Box 3051
+  Caixa de seleção: Check Box 3052
+  Campo de texto: Spells 10104
+  Caixa de seleção: Check Box 325
+  Caixa de seleção: Check Box 324
+  Caixa de seleção: Check Box 3074
+  Caixa de seleção: Check Box 3075
+  Caixa de seleção: Check Box 3076
+  Caixa de seleção: Check Box 3077
+  Campo de texto: Spells 10105
+  Campo de texto: Spells 10106
+  Caixa de seleção: Check Box 3078
+  Campo de texto: SlotsTotal 27
+  Campo de texto: SlotsRemaining 27
+  Caixa de seleção: Check Box 313
+  Caixa de seleção: Check Box 310
+  Caixa de seleção: Check Box 3020
+  Caixa de seleção: Check Box 3021
+  Caixa de seleção: Check Box 3022
+  Caixa de seleção: Check Box 3023
+  Caixa de seleção: Check Box 3024
+  Caixa de seleção: Check Box 3025
+  Caixa de seleção: Check Box 3026
+  Caixa de seleção: Check Box 3027
+  Caixa de seleção: Check Box 3028
+  Caixa de seleção: Check Box 3029
+  Caixa de seleção: Check Box 3030
+  Campo de texto: Spells 10107
+  Campo de texto: Spells 10108
+  Campo de texto: Spells 10109
+  Campo de texto: Spells 101010
+  Campo de texto: Spells 101011
+  Campo de texto: Spells 101012
+  Caixa de seleção: Check Box 319
+  Caixa de seleção: Check Box 318
+  Caixa de seleção: Check Box 3053
+  Caixa de seleção: Check Box 3054
+  Caixa de seleção: Check Box 3055
+  Caixa de seleção: Check Box 3056
+  Caixa de seleção: Check Box 3057
+  Caixa de seleção: Check Box 3058
+  Caixa de seleção: Check Box 3059
+  Caixa de seleção: Check Box 327
+  Caixa de seleção: Check Box 326
+  Caixa de seleção: Check Box 3079
+  Caixa de seleção: Check Box 3080
+  Caixa de seleção: Check Box 3081
+  Caixa de seleção: Check Box 3082
+  Campo de texto: Spells 101013
+  Caixa de seleção: Check Box 3083

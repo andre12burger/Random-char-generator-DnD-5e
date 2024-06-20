@@ -7,6 +7,7 @@ def explorar_pdf(pdf_path):
         
         for i, pagina in enumerate(pdf.pages):
             print(f"Página {i + 1}:")
+            print(pagina)
             explorar_pagina(pagina)
 
 
