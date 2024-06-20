@@ -65,6 +65,7 @@ def extract_information_from_div(url):
 def cria_excel(dict_links, nome_excel):
     wb = openpyxl.Workbook()
     ws = wb.active
+    ws.append([""])
 
     for url, classe in dict_links.items():
         print(f'Extraindo informações de {classe} ({url})')

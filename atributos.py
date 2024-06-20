@@ -80,17 +80,12 @@ def positivo_lista(lista):
   return lista_positivo
 
 
-def teste_resistencia(lista_peso_classe, lista_modificadores, bonus_proeficiencia):
-  maior_peso = max(lista_peso_classe)
-  copia_lista_peso = lista_peso_classe.copy()
-  copia_lista_peso[lista_peso_classe.index(max(lista_peso_classe))] = (min(lista_peso_classe) - 1)
-  maior_peso2 = max(copia_lista_peso)
+def teste_resistencia(lista_atributos_relevantes, lista_modificadores, bonus_proeficiencia):
+  lista_modificadores_teste_resistencia = lista_modificadores.copy()
+  for elemento in lista_atributos_relevantes:
+    lista_modificadores_teste_resistencia[elemento] += bonus_proeficiencia
 
-  for elemento in lista_peso_classe:
-    if elemento == maior_peso or elemento == maior_peso2:
-      lista_modificadores[lista_peso_classe.index(elemento)] += bonus_proeficiencia
-
-  return lista_modificadores
+  return lista_modificadores_teste_resistencia
 
 
 def proeficiencia(nivel): 

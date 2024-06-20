@@ -31,20 +31,11 @@ def teste_resistencia_pdf(lista_modificadores_teste_resistencia):
     return dict_teste_resistencia_pdf
 
 def caracteristicas_basicas_dict(lista_valores):
-    lista_indices = ['CharacterName', 'ClassLevel']
+    lista_indices = ['CharacterName', 'ClassLevel', 'HDTotal', 'HD', 'HPMax', 'HPCurrent', 'HPTemp', 'Initiative', 'Passive', 'ProfBonus']
 
     dict_caracteristicas_basicas_pdf = criando_dicionario(lista_indices, lista_valores)   
 
     return dict_caracteristicas_basicas_pdf
-
-
-def bonus_proeficiencia_dict(nivel):
-    proeficiencia_calculada = positivo(proeficiencia(nivel))
-    dict_bonus_proeficiencia_pdf = {
-            "ProfBonus": proeficiencia_calculada
-        }
-
-    return dict_bonus_proeficiencia_pdf
 
 
 def pericias_pdf(lista_pericias):

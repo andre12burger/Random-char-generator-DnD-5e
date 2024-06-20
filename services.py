@@ -1,6 +1,7 @@
 from flask import request
 from char import Char
 from atributos import gera_atributos, teste_resistencia, modificador, proeficiencia
+from informacao_classe import *
 from pdf_editor import *
 from PyPDF2 import PdfReader, PdfWriter
 import tempfile
@@ -62,21 +63,25 @@ def define_modificadores():
     define_valor_objetos(personagem.modificadores, lista_atributos)
     lista_modificadores = gera_lista_valor_objetos(personagem.modificadores)
 
+    personagem.modificadores.proeficience_bonus = proeficiencia(personagem.basicas.level)
+
     return lista_modificadores
 
 
-def define_caracteristicas_basicas():
+def define_caracteristicas_basicas(lista_atributos):
     personagem.basicas.name = 'Nome Teste'
     personagem.basicas.level = valor_form_html('level')
+    personagem.basicas.classe = escolhe_classe(lista_atributos)
+    personagem.basicas.dado_vida = dado_vida(personagem.basicas.classe, personagem.basicas.level)
+    personagem.basicas.vida = calcula_vida(personagem.basicas.dado_vida, personagem.modificadores.constitution)
+    personagem.basicas.initiative = personagem.modificadores.dexterity
+    personagem.basicas.passive_wisdow = 10 + personagem.pericias.perception
+    personagem.basicas.proeficience_bonus = proeficiencia(personagem.basicas.level)
 
-def bonus_proeficiencia():
-    bonus_proeficiencia = proeficiencia(personagem.basicas.level)
 
-    return bonus_proeficiencia
-
-
-def define_teste_resistencia(lista_pesos, lista_modificadores):
-    lista_teste_resistencia = teste_resistencia(lista_pesos, lista_modificadores, bonus_proeficiencia())
+def define_teste_resistencia(lista_modificadores):
+    lista_atributos_relevantes = atributos_teste_resistencia(personagem.basicas.classe)
+    lista_teste_resistencia = teste_resistencia(lista_atributos_relevantes, lista_modificadores, personagem.basicas.proeficience_bonus)
 
     return lista_teste_resistencia
 
@@ -91,19 +96,31 @@ def define_pericias(lista_modificadores):
     for posicao, elemento in enumerate(lista_modificadores_pericias):
         lista_modificadores_pericias[posicao] = elemento
 
+    lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe)
+    for posicao_pericias in lista_posicao_pericias:
+        print(posicao_pericias)
+        lista_modificadores_pericias[posicao_pericias] += personagem.basicas.proeficience_bonus
+
     define_valor_objetos(personagem.pericias, lista_modificadores_pericias)
     lista_pericias = gera_lista_valor_objetos(personagem.pericias)
 
-    print(lista_pericias)
     return lista_pericias
 
 
-def caracteristicas_basicas():
+def caracteristicas_basicas(lista_atributos):
     lista_caracteristicas_basicas = []
-    define_caracteristicas_basicas()
+    define_caracteristicas_basicas(lista_atributos)
 
     lista_caracteristicas_basicas.append(personagem.basicas.name)
-    lista_caracteristicas_basicas.append(personagem.basicas.level)
+    lista_caracteristicas_basicas.append(f'{personagem.basicas.classe} {personagem.basicas.level}')
+    lista_caracteristicas_basicas.append(personagem.basicas.dado_vida)
+    lista_caracteristicas_basicas.append(personagem.basicas.dado_vida)
+    lista_caracteristicas_basicas.append(personagem.basicas.vida)
+    lista_caracteristicas_basicas.append(personagem.basicas.vida)
+    lista_caracteristicas_basicas.append(0)
+    lista_caracteristicas_basicas.append(positivo(personagem.basicas.initiative))
+    lista_caracteristicas_basicas.append(personagem.basicas.passive_wisdow)
+    lista_caracteristicas_basicas.append(positivo(personagem.basicas.proeficience_bonus))
     return caracteristicas_basicas_dict(lista_caracteristicas_basicas)
 
 
@@ -133,14 +150,15 @@ def page_1():
     lista_pesos = define_pesos()
     lista_atributos = define_atributos_organizados(lista_pesos)
     lista_modificadores = define_modificadores()
+    dict_caracteristicas_basicas = caracteristicas_basicas(lista_atributos)
     lista_pericias = define_pericias(lista_modificadores)
+    lista_teste_resistencia = define_teste_resistencia(lista_modificadores)
 
     dict_final_pdf = soma_dicionarios(
-            caracteristicas_basicas(),
+            dict_caracteristicas_basicas,
             atributos_base_pdf(lista_atributos),
             atributo_modificador_pdf(lista_modificadores),
-            bonus_proeficiencia_dict(personagem.basicas.level),
-            teste_resistencia_pdf(define_teste_resistencia(lista_pesos, lista_modificadores)),
+            teste_resistencia_pdf(lista_teste_resistencia),
             pericias_pdf(lista_pericias)
             )
     
