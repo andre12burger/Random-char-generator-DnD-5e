@@ -1,5 +1,6 @@
 from random import randint, choice
 
+
 #retorna uma lista com 6 números aleatórios e com a soma total >=72
 def gera_num():
     num_iteracoes = 0
@@ -99,3 +100,4 @@ def proeficiencia(nivel):
 if __name__ == '__main__':
   lista_teste = [0] * 6
   print(gera_atributos(lista_teste))
+

@@ -1,5 +1,6 @@
 import PyPDF2
 
+
 def explorar_pdf(pdf_path):
     with open(pdf_path, "rb") as arquivo_pdf:
         pdf = PyPDF2.PdfReader(arquivo_pdf)
@@ -7,6 +8,7 @@ def explorar_pdf(pdf_path):
         for i, pagina in enumerate(pdf.pages):
             print(f"Página {i + 1}:")
             explorar_pagina(pagina)
+
 
 def explorar_pagina(pagina):
     if "/Annots" in pagina:
