@@ -14,6 +14,19 @@ for classe in pages_sufix:
     pages[pages_prefix + classe] = classe
 
 
+def formatar_texto(texto):
+    if isinstance(texto, str):
+        return texto.lower().replace(' ', '-')
+    return texto
+    
+
+def formata_dict(dicionario):
+    return {
+        formatar_texto(k): list(map(formatar_texto, v)) if isinstance(v, list) else formatar_texto(v)
+        for k, v in dicionario.items()
+    }
+
+
 def extract_information_from_div(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -49,6 +62,9 @@ def extract_information_from_div(url):
                 table_data.append([col.get_text().strip() for col in cols])
             data.append(('table', table_data))
         elif element.name == 'div':
+            # Verificar se a div tem a classe 'floatright'
+            if 'floatright' in element.get('class', []):
+                return  # Ignorar esta div e não processá-la
             for child in element.children:
                 tratando_div(child, data)
         elif element.get_text().strip():
@@ -118,20 +134,6 @@ def cria_link_sub_classe(dict_sub_classe):
     dict_links = {}
     pages_prefix = 'http://dnd5e.wikidot.com/'
 
-
-    def formatar_texto(texto):
-        if isinstance(texto, str):
-            return texto.lower().replace(' ', '-')
-        return texto
-    
-
-    def formata_dict(dicionario):
-        return {
-            formatar_texto(k): list(map(formatar_texto, v)) if isinstance(v, list) else formatar_texto(v)
-            for k, v in dicionario.items()
-        }
-    
-
     dict_sub_classe_formatado = formata_dict(dict_sub_classe)
 
     for sub_classe, classe in dict_sub_classe_formatado.items():
@@ -181,8 +183,22 @@ def classe_e_sub_classe():
     edita_excel('teste2.xlsx')
 
 
+def itens():
+    dict_items_links = {}
+    dict_items_links_formatado = {}
+    lista_itens = ['Adventuring Gear', 'Armor', 'Trinkets', 'Weapons', 'Firearms', 'Explosives', 'Wondrous Items', 'Currency', 'Poisons', 'Tools', 'Siege Equipment']
+    
+    for pages in lista_itens:
+        dict_items_links[f'{pages_prefix}{pages}'] = pages
+
+    dict_items_links_formatado = formata_dict(dict_items_links)
+
+    cria_excel(dict_items_links_formatado, 'items')
+
+
 if __name__ == "__main__":
     #classe_e_sub_classe()
+    itens()
     pass
 
 

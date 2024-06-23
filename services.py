@@ -125,7 +125,20 @@ def caracteristicas_basicas(lista_atributos):
     lista_caracteristicas_basicas.append(positivo(personagem.basicas.initiative))
     lista_caracteristicas_basicas.append(personagem.basicas.passive_wisdow)
     lista_caracteristicas_basicas.append(positivo(personagem.basicas.proeficience_bonus))
+
     return caracteristicas_basicas_dict(lista_caracteristicas_basicas)
+
+
+def define_equipamentos():
+    lista_equipamentos = equipamentos(personagem.basicas.classe)
+
+    return equipamentos_pdf(lista_equipamentos)
+
+
+def define_proficiencies():
+    lista_proficiencies = proficiences(personagem.basicas.classe)
+
+    return proficiencies_pdf(lista_proficiencies)
 
 
 def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
@@ -173,7 +186,9 @@ def page_1():
             atributos_base_pdf(lista_atributos),
             atributo_modificador_pdf(lista_modificadores),
             teste_resistencia_pdf(lista_teste_resistencia),
-            pericias_pdf(lista_pericias)
+            pericias_pdf(lista_pericias),
+            define_equipamentos(),
+            define_proficiencies()
             )
     
     dict_checkbox_pdf = soma_dicionarios(
@@ -181,7 +196,7 @@ def page_1():
             dict_checkbox_pericias
     )
     
-    print(dict_fields_pdf, dict_checkbox_pdf)
+    #print(dict_fields_pdf, dict_checkbox_pdf)
     caminho_pdf = preencher_pdf(dict_fields_pdf, dict_checkbox_pdf)
 
     return caminho_pdf

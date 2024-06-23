@@ -15,7 +15,7 @@ def atributos_base_pdf(lista_atr):
 
 
 def atributo_modificador_pdf(lista_modificadores):
-    lista_indices = ['STRmod', 'DEXmod ', 'CONmod', 'INTmod', 'WISmod', 'CHamod']
+    lista_indices = ['STRmod', 'DEXmod', 'CONmod', 'INTmod', 'WISmod', 'CHamod']
     lista_modificadores_sinal = positivo_lista(lista_modificadores)
 
     dict_modificadores_pdf = criando_dicionario(lista_indices, lista_modificadores_sinal)
@@ -86,6 +86,26 @@ def checkbox_pericias(lista_posicao_pericias):
             dict_checkbox_pericias[lista_indices[posicao]] = '/Yes'
 
     return dict_checkbox_pericias
+
+
+def equipamentos_pdf(lista_equipamentos):
+     lista_indices = ['Equipment']
+
+     equipamentos_string = ', '.join(lista_equipamentos)
+
+     dict_equipamentos = {lista_indices[0]: equipamentos_string}
+
+     return dict_equipamentos
+
+
+def proficiencies_pdf(lista_proficiencies):
+    lista_indices = ['ProficienciesLang']
+
+    proficiencies_string = '\n'.join(lista_proficiencies)
+
+    dict_proficiencies = {lista_indices[0]: proficiencies_string}
+
+    return dict_proficiencies
 
 
 def soma_dicionarios(*args):

@@ -30,6 +30,7 @@ dict_changes = {'Strength': 0, #atributos
                 }
 
 dict_quantidades = {
+                'one': 1,
                 'two': 2,
                 'three': 3,
                 'four': 4
@@ -152,7 +153,7 @@ def pericias_escolhidas(classe):
     numero_sorteios = 0
     verificador = False
 
-    # Padrão regex para capturar qualquer palavra ou texto após "You must have an"
+    # Padrão regex para capturar qualquer palavra ou texto após "Skills: Choose "
     padrao = r"Skills: Choose (.+?)(?:\.|$)"
 
     for celula in df_classes.iloc[:, 0]:
@@ -194,13 +195,196 @@ def pericias_escolhidas(classe):
     return lista_pericias_sorteadas
 
 
+def equipamentos(classe):
+    df_classes = pd.read_excel('Classes.xlsx')
+    padrao = r"\((\w)\) (.*?)(?:\.| or |$)"
+    lista_equipamentos = []
+    verificador = False
+    verificador2 = False
 
+    for celula in df_classes.iloc[:, 0]:
+        # Verifica se a classe está na célula
+        if classe in celula:
+            verificador = True
+
+        # Verifica se estamos na seção de equipamentos da classe
+        if verificador:
+            if 'You start with the following equipment, in addition to the equipment granted by your background:' in celula:
+                verificador2 = True
+                continue  # Pula a linha com a descrição do equipamento
+
+        # Adiciona os equipamentos à lista
+        if verificador2:
+            if 'TITLE' in celula:
+                break  # Encerra a busca quando um novo título é encontrado
+
+            matches = re.findall(padrao, celula)
+            if matches:
+                # Extrai as opções encontradas
+                opcoes = [match[1] for match in matches]
+                # Adiciona uma das opções aleatoriamente
+                lista_equipamentos.append(choice(opcoes))
+            else:
+                lista_equipamentos.append(celula)
+
+    return lista_equipamentos
+
+
+def tool_proficience(classe):
+    df_classes = pd.read_excel('classes.xlsx')
+    df_itens = pd.read_excel('itens.xlsx')
+    verificador = False
+    lista_tool_proficience = []
+
+    for celula in df_classes.iloc[:, 0]:
+        # Verifica se a classe está na célula
+        if classe in celula:
+            verificador = True
+
+        if verificador:
+            if 'Tools: ' in celula:
+                lista_tool_proficience.append(celula)
+
+    if not lista_tool_proficience:
+        return None
+
+    # Substituir palavras numéricas
+    texto_formatado = lista_tool_proficience[0]
+    for chave, valor in dict_quantidades.items():
+        texto_formatado = re.sub(r'\b' + re.escape(chave) + r'\b', str(valor), texto_formatado, flags=re.IGNORECASE)
+
+    # Regex para capturar o padrão desejado
+    padrao = re.compile(r'\b\d+\b|\b[\w’\']+?\s+(?:tools|kit|instruments)\b|musical instrument|None')
+
+    correspondencias = padrao.findall(texto_formatado)
+
+    # Montar a frase final mantendo vírgulas onde necessário
+    frase_final = []
+    for i, palavra in enumerate(correspondencias):
+        if i < len(correspondencias) - 1:  # Verifica se não é a última palavra
+            if re.search(r'(tools|kit|instruments|instrument)$', palavra, re.IGNORECASE):
+                frase_final.append(palavra + ',')
+            else:
+                frase_final.append(palavra)
+        else:
+            frase_final.append(f'{palavra}.')
+
+    frase_formatada = ' '.join(frase_final)
+    print(frase_formatada)
+ 
+    verificador2 = False
+    dict_itens = {}
+    lista_itens = []
+    nome_indice = None
+    for index, celula in df_itens.iloc[:, 0].items():
+        if 'TITLE' in celula and verificador2:
+            break
+
+        if 'Tool Set' in celula:
+            verificador2 = True
+            continue
+
+        if verificador2:
+            if pd.isna(df_itens.iloc[index, 1]):
+                if lista_itens:
+                    dict_itens[nome_indice] = lista_itens
+
+                nome_indice = celula
+                lista_itens = []
+
+            else:
+                lista_itens.append(celula)
+
+    resultado = {}
+    lista_sorteio = []
+    padrao2 = re.compile(r'(\d+)\s*([\w\s’\'\-]+?)(?:,|\.|$)')
+    
+    correspondencias = padrao2.findall(frase_formatada)
+
+    for numero, texto in correspondencias:
+        chave = texto.strip()
+        valor = int(numero)
+        resultado[chave] = valor
+
+    # Criar uma lista vazia para armazenar os itens já presentes na frase formatada
+    itens_presentes = []
+
+    # Iterar sobre os itens na frase formatada e adicionar na lista de itens presentes
+    for item in frase_formatada.split(','):
+        itens_presentes.append(item.strip())
+
+    for nome_item, lista in dict_itens.items():
+        nome_item_lower = nome_item.lower()
+
+        for elemento in lista:
+            if elemento.lower() in itens_presentes:
+                lista.remove(elemento)
+
+
+        if nome_item_lower in resultado:
+            lista_sorteio.extend(sample(lista, resultado[nome_item_lower]))
+        elif nome_item_lower + 's' in resultado:
+            lista_sorteio.extend(sample(lista, resultado[nome_item_lower + 's']))
+
+
+    if lista_sorteio:
+        # Iterar sobre as correspondências na frase formatada
+        for i in range(len(correspondencias)):
+            numero, texto = correspondencias[i]
+            texto = texto.strip()
+            
+            # Substituir na frase formatada
+            frase_formatada = re.sub(rf'\b{numero}\b\s*{re.escape(texto)}', ', '.join(lista_sorteio[:int(numero)]), frase_formatada, count=1)
+            
+            # Remover o item sorteado da lista
+            del lista_sorteio[:int(numero)]
+
+    # Adicionar os itens restantes da lista_sorteio à frase formatada
+    frase_formatada += ', '.join(lista_sorteio)
+
+
+    return 'Tools: ' + frase_formatada
+
+
+def proficiences(classe):
+    df_classes = pd.read_excel('classes.xlsx')
+    verificador = False
+    verificador2 = False
+    lista_proficiences = []
+
+    texto_tool_proficience = tool_proficience(classe)
+
+    for celula in df_classes.iloc[:, 0]:
+        # Verifica se a classe está na célula
+        if classe in celula:
+            verificador = True
+
+
+        if verificador:
+            if 'Tools: ' in celula:
+                lista_proficiences.append(texto_tool_proficience)
+                break
+
+            if 'Proficiencies' in celula:
+                lista_proficiences.append('Proficiencies')
+                verificador2 = True
+                continue
+
+            if verificador2:
+                lista_proficiences.append(celula)
+
+    return lista_proficiences
 
 
 if __name__ == "__main__":
+    classes = ['artificer', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
     #escolhe_classe([12, 17, 11, 10, 15, 14])
     #dado_vida('Cleric', 12)
     #print(calcula_vida('3d8+5d10+3d8', [0, 2, 10, 2, 1, 2]))
     #print(atributos_teste_resistencia('Wizard'))
-    print(pericias_escolhidas('Rogue'))
+    #print(pericias_escolhidas('Rogue'))
+    for classe in classes:
+        #print(equipamentos(classe.capitalize()))
+        print(classe, tool_proficience(classe.capitalize()))
+
     pass
