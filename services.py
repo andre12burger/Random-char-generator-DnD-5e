@@ -132,13 +132,20 @@ def caracteristicas_basicas(lista_atributos):
 def define_equipamentos():
     lista_equipamentos = equipamentos(personagem.basicas.classe)
 
-    return equipamentos_pdf(lista_equipamentos)
+    return lista_equipamentos
 
 
 def define_proficiencies():
-    lista_proficiencies = proficiences(personagem.basicas.classe)
+    lista_proficiencies = proficiencies(personagem.basicas.classe)
 
-    return proficiencies_pdf(lista_proficiencies)
+    return lista_proficiencies
+
+
+def define_ataques(lista_proficiencias, lista_equipamentos, lista_modificadores):
+    lista_ataques = ataques(lista_proficiencias, lista_equipamentos, lista_modificadores, personagem.basicas.proeficience_bonus)
+    dict_ataques = ataques_pdf(lista_ataques)
+
+    return dict_ataques
 
 
 def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
@@ -180,6 +187,8 @@ def page_1():
     dict_caracteristicas_basicas = caracteristicas_basicas(lista_atributos)
     lista_pericias, dict_checkbox_pericias = define_pericias(lista_modificadores)
     lista_teste_resistencia, dict_checkbox_teste_resistencia = define_teste_resistencia(lista_modificadores)
+    lista_proficiencies = define_proficiencies()
+    lista_equipamentos = define_equipamentos()
 
     dict_fields_pdf = soma_dicionarios(
             dict_caracteristicas_basicas,
@@ -187,8 +196,9 @@ def page_1():
             atributo_modificador_pdf(lista_modificadores),
             teste_resistencia_pdf(lista_teste_resistencia),
             pericias_pdf(lista_pericias),
-            define_equipamentos(),
-            define_proficiencies()
+            equipamentos_pdf(lista_equipamentos),
+            proficiencies_pdf(lista_proficiencies),
+            define_ataques(lista_proficiencies, lista_equipamentos, lista_modificadores)
             )
     
     dict_checkbox_pdf = soma_dicionarios(

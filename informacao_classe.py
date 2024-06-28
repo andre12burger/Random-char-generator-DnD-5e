@@ -29,12 +29,8 @@ dict_changes = {'Strength': 0, #atributos
                 'Persuasion': 17
                 }
 
-dict_quantidades = {
-                'one': 1,
-                'two': 2,
-                'three': 3,
-                'four': 4
-}
+dict_quantidades = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 
+                    'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10}
 
 
 def escolhe_classe(lista_atributos):
@@ -195,9 +191,64 @@ def pericias_escolhidas(classe):
     return lista_pericias_sorteadas
 
 
+def cria_dict_armas_completo():
+    df_itens = pd.read_excel('itens.xlsx')
+
+    dict_weapons = {
+        'simple weapon': {
+            'melee weapon': [],
+            'ranged weapon': []
+        },
+        'martial weapon': {
+            'melee weapon': [],
+            'ranged weapon': []
+        }
+    }
+    
+    nome_tipo = None
+    verificador_melee = False
+    verificador_ranged = False
+
+    for index, row in df_itens.iterrows():
+        celula = row.iloc[0]
+        
+        if 'Ammunition' in celula:
+            break
+
+        if 'Simple Weapons' in celula:
+            nome_tipo = 'simple weapon'
+            verificador_melee = False
+            verificador_ranged = False
+            continue
+
+        if 'Martial Weapons' in celula:
+            nome_tipo = 'martial weapon'
+            verificador_melee = False
+            verificador_ranged = False
+            continue
+
+        if 'Simple Melee Weapons' in celula or 'Martial Melee Weapons' in celula:
+            verificador_melee = True
+            verificador_ranged = False
+            continue
+
+        if 'Simple Ranged Weapons' in celula or 'Martial Ranged Weapons' in celula:
+            verificador_melee = False
+            verificador_ranged = True
+            continue
+
+        if verificador_melee and nome_tipo:
+            dict_weapons[nome_tipo]['melee weapon'].append((celula, row.iloc[2], row.iloc[4]))
+
+        if verificador_ranged and nome_tipo:
+            dict_weapons[nome_tipo]['ranged weapon'].append((celula, row.iloc[2], row.iloc[4]))
+
+    return dict_weapons
+
+
 def equipamentos(classe):
     df_classes = pd.read_excel('Classes.xlsx')
-    padrao = r"\((\w)\) (.*?)(?:\.| or |$)"
+    padrao = r"\((\w)\) ([^,]+?)(?:\.| or |$)"
     lista_equipamentos = []
     verificador = False
     verificador2 = False
@@ -225,9 +276,217 @@ def equipamentos(classe):
                 # Adiciona uma das opções aleatoriamente
                 lista_equipamentos.append(choice(opcoes))
             else:
-                lista_equipamentos.append(celula)
+                # Remover "(a)" ou "(b)" no início de celula
+                celula = re.sub(r'^\(\w\) ', '', celula)
+                lista_equipamentos.append(celula.strip())
 
-    return lista_equipamentos
+    def cria_dict_armas_nome():
+        dict_weapons_completo = cria_dict_armas_completo()
+        dict_weapons_nome = {
+            'simple weapon': {
+                'melee weapon': [arma[0] for arma in dict_weapons_completo['simple weapon']['melee weapon']],
+                'ranged weapon': [arma[0] for arma in dict_weapons_completo['simple weapon']['ranged weapon']]
+            },
+            'martial weapon': {
+                'melee weapon': [arma[0] for arma in dict_weapons_completo['martial weapon']['melee weapon']],
+                'ranged weapon': [arma[0] for arma in dict_weapons_completo['martial weapon']['ranged weapon']]
+            }
+        }
+        return dict_weapons_nome
+
+    def sortear_armas_equipamentos(equipamentos, dict_weapons):
+        resultado = []
+
+        padrao = re.compile(r'(\d+|one|two|three|four|five|six|seven|eight|nine|ten)?\s*(any|a|an)?\s*(simple|martial)?\s*(melee|ranged)?\s*weapons?', re.IGNORECASE)
+        
+        for equipamento in equipamentos:
+            match = padrao.search(equipamento)
+            if match:
+                quantidade_str = match.group(1).lower() if match.group(1) else '1'
+                quantidade = int(quantidade_str) if quantidade_str.isdigit() else dict_quantidades.get(quantidade_str, 1)
+                tipo = match.group(3).lower() if match.group(3) else ''
+                categoria = match.group(4).lower() if match.group(4) else ''
+                
+                if 'simple' in tipo:
+                    arma_tipo = 'simple weapon'
+                elif 'martial' in tipo:
+                    arma_tipo = 'martial weapon'
+                else:
+                    arma_tipo = None
+                
+                if arma_tipo:
+                    if 'melee' in categoria:
+                        armas = dict_weapons[arma_tipo]['melee weapon']
+                    elif 'ranged' in categoria:
+                        armas = dict_weapons[arma_tipo]['ranged weapon']
+                    else:
+                        armas = dict_weapons[arma_tipo]['melee weapon'] + dict_weapons[arma_tipo]['ranged weapon']
+                    
+                    sorteio = sample(armas, quantidade)
+                    resultado.extend(sorteio)
+                else:
+                    resultado.append(equipamento)
+            else:
+                resultado.append(equipamento)
+
+        return resultado
+
+    dict_weapons_nome = cria_dict_armas_nome()
+    lista_resultado = sortear_armas_equipamentos(lista_equipamentos, dict_weapons_nome)
+
+    return lista_resultado
+
+
+def equipamentos(classe):
+    df_classes = pd.read_excel('Classes.xlsx')
+    padrao = r"\((\w)\) ([^,]+?)(?:\.| or |$)"
+    lista_equipamentos = []
+    verificador = False
+    verificador2 = False
+
+    for celula in df_classes.iloc[:, 0]:
+        # Verifica se a classe está na célula
+        if classe in celula:
+            verificador = True
+
+        # Verifica se estamos na seção de equipamentos da classe
+        if verificador:
+            if 'You start with the following equipment, in addition to the equipment granted by your background:' in celula:
+                verificador2 = True
+                continue  # Pula a linha com a descrição do equipamento
+
+        # Adiciona os equipamentos à lista
+        if verificador2:
+            if 'TITLE' in celula:
+                break  # Encerra a busca quando um novo título é encontrado
+
+            matches = re.findall(padrao, celula)
+            if matches:
+                # Extrai as opções encontradas
+                opcoes = [match[1] for match in matches]
+                # Adiciona uma das opções aleatoriamente
+                lista_equipamentos.append(choice(opcoes))
+            else:
+                # Remover "(a)" ou "(b)" no início de celula
+                celula = re.sub(r'^\(\w\) ', '', celula)
+                lista_equipamentos.append(celula.strip())
+
+    def cria_dict_armas_nome():
+        dict_weapons_completo = cria_dict_armas_completo()
+        dict_weapons_nome = {
+            'simple weapon': {
+                'melee weapon': [arma[0] for arma in dict_weapons_completo['simple weapon']['melee weapon']],
+                'ranged weapon': [arma[0] for arma in dict_weapons_completo['simple weapon']['ranged weapon']]
+            },
+            'martial weapon': {
+                'melee weapon': [arma[0] for arma in dict_weapons_completo['martial weapon']['melee weapon']],
+                'ranged weapon': [arma[0] for arma in dict_weapons_completo['martial weapon']['ranged weapon']]
+            }
+        }
+        return dict_weapons_nome
+
+    def sortear_armas_equipamentos(equipamentos, dict_weapons):
+        resultado = []
+
+        padrao = re.compile(r'(\d+|one|two|three|four|five|six|seven|eight|nine|ten)?\s*(any|a|an)?\s*(simple|martial)?\s*(melee|ranged)?\s*weapons?', re.IGNORECASE)
+        
+        for equipamento in equipamentos:
+            match = padrao.search(equipamento)
+            if match:
+                quantidade_str = match.group(1).lower() if match.group(1) else '1'
+                quantidade = int(quantidade_str) if quantidade_str.isdigit() else dict_quantidades.get(quantidade_str, 1)
+                tipo = match.group(3).lower() if match.group(3) else ''
+                categoria = match.group(4).lower() if match.group(4) else ''
+                
+                if 'simple' in tipo:
+                    arma_tipo = 'simple weapon'
+                elif 'martial' in tipo:
+                    arma_tipo = 'martial weapon'
+                else:
+                    arma_tipo = None
+                
+                if arma_tipo:
+                    if 'melee' in categoria:
+                        armas = dict_weapons[arma_tipo]['melee weapon']
+                    elif 'ranged' in categoria:
+                        armas = dict_weapons[arma_tipo]['ranged weapon']
+                    else:
+                        armas = dict_weapons[arma_tipo]['melee weapon'] + dict_weapons[arma_tipo]['ranged weapon']
+                    
+                    sorteio = sample(armas, quantidade)
+                    resultado.extend(sorteio)
+                else:
+                    resultado.append(equipamento)
+            else:
+                resultado.append(equipamento)
+
+        return resultado
+
+    dict_weapons_nome = cria_dict_armas_nome()
+    lista_resultado = sortear_armas_equipamentos(lista_equipamentos, dict_weapons_nome)
+
+    return lista_resultado
+
+
+def ataques(lista_proficiencias, lista_equipamentos, lista_modificadores, bonus_de_proficiencia):
+    dict_armas = cria_dict_armas_completo()
+    resultado = []
+    count = 0  # Contador para limitar a saída a duas armas
+    
+    # Normalizar as proficiências para serem case-insensitive e singular/plural
+    proficiencias_set = set()
+    for prof in lista_proficiencias:
+        if 'Weapons' in prof:
+            armas = prof.split(': ')[1].lower().replace('all ', '').replace('weapons', 'weapon').replace('light crossbows', 'crossbow, light').split(', ')
+            # Remover plural das palavras
+            armas = [arma[:-1] if arma.endswith('s') else arma for arma in armas]
+            proficiencias_set.update(armas)
+
+
+    # Função para buscar nomes de armas nos equipamentos usando regex
+    def buscar_armas(equipamento):
+        lista_final = []
+        bonus_proficiencia = 0
+        armas_encontradas = []
+        equipamento_normalizado = equipamento.lower()
+        equipamento_normalizado = equipamento_normalizado[:-1] if equipamento_normalizado.endswith('s') and not equipamento_normalizado.endswith('ss') else equipamento_normalizado
+        #print(equipamento_normalizado)  # Debug print para verificar a normalização
+
+        for categoria, tipos in dict_armas.items():
+            for tipo, lista_armas in tipos.items():
+                for item in lista_armas:
+                    nome_arma = item[0].lower()
+                    nome_arma_normalizado = nome_arma.replace('crossbow, light', 'light crossbow').replace('crossbow, hand', 'hand crossbow').replace('crossbow, ligth', 'crossbow')
+                    nome_arma_normalizado = nome_arma_normalizado[:-1] if nome_arma_normalizado.endswith('s') and not nome_arma_normalizado.endswith('ss') else nome_arma_normalizado
+                    
+                    if re.search(r'\b{}\b'.format(re.escape(nome_arma_normalizado)), equipamento_normalizado):
+                        if 'melee' in tipo:
+                            modificador = lista_modificadores[0]
+                        if 'ranged' in tipo:
+                            modificador = lista_modificadores[1]
+
+                        armas_encontradas.append(item)
+
+                        if categoria in proficiencias_set or tipo in proficiencias_set or item[0].lower() in proficiencias_set:
+                            bonus_proficiencia = bonus_de_proficiencia
+
+                        dano_formatado = f"{item[1].split()[0]}+{modificador} ({item[1].split()[1]})"
+                        lista_final.append((item[0], f'+{bonus_proficiencia + modificador}', dano_formatado))
+
+        print(lista_final)
+        return lista_final
+
+
+    for equipamento in lista_equipamentos:
+        armas_encontradas = buscar_armas(equipamento)
+        if armas_encontradas:
+            if len(resultado) >= 2:
+                break
+
+            resultado.append(armas_encontradas)
+        
+
+    return resultado
 
 
 def tool_proficience(classe):
@@ -270,7 +529,6 @@ def tool_proficience(classe):
             frase_final.append(f'{palavra}.')
 
     frase_formatada = ' '.join(frase_final)
-    print(frase_formatada)
  
     verificador2 = False
     dict_itens = {}
@@ -346,7 +604,7 @@ def tool_proficience(classe):
     return 'Tools: ' + frase_formatada
 
 
-def proficiences(classe):
+def proficiencies(classe):
     df_classes = pd.read_excel('classes.xlsx')
     verificador = False
     verificador2 = False
@@ -383,8 +641,13 @@ if __name__ == "__main__":
     #print(calcula_vida('3d8+5d10+3d8', [0, 2, 10, 2, 1, 2]))
     #print(atributos_teste_resistencia('Wizard'))
     #print(pericias_escolhidas('Rogue'))
+    #print(ataques())
     for classe in classes:
-        #print(equipamentos(classe.capitalize()))
-        print(classe, tool_proficience(classe.capitalize()))
+        lista_proficiencies = proficiencies(classe.capitalize())
+        #print(classe, lista_proficiencies[2])
+        lista_equipamentos = equipamentos(classe.capitalize())
+        print(classe, lista_equipamentos)
+        print(ataques(lista_proficiencies, lista_equipamentos, [2, 1, 2, 1, 2, 0], 5))
+        pass
 
     pass

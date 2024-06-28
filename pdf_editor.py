@@ -108,6 +108,19 @@ def proficiencies_pdf(lista_proficiencies):
     return dict_proficiencies
 
 
+def ataques_pdf(lista_ataques):
+    lista_indices = [('Wpn Name', 'Wpn1 AtkBonus', 'Wpn1 Damage'), ('Wpn Name 2', 'Wpn2 AtkBonus', 'Wpn2 Damage')]
+    dict_ataques = {}
+
+    for i, ataque_tupla in enumerate(lista_ataques):
+        ataque = ataque_tupla[0]  # Obter a tupla interna
+        if i < len(lista_indices):
+            for j, valor in enumerate(ataque):
+                dict_ataques[lista_indices[i][j]] = valor
+
+    return dict_ataques
+
+
 def soma_dicionarios(*args):
     dicionario_final = {}
     for dicionario in args:
