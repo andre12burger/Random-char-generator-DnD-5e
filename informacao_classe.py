@@ -450,7 +450,6 @@ def ataques(lista_proficiencias, lista_equipamentos, lista_modificadores, bonus_
         armas_encontradas = []
         equipamento_normalizado = equipamento.lower()
         equipamento_normalizado = equipamento_normalizado[:-1] if equipamento_normalizado.endswith('s') and not equipamento_normalizado.endswith('ss') else equipamento_normalizado
-        #print(equipamento_normalizado)  # Debug print para verificar a normalização
 
         for categoria, tipos in dict_armas.items():
             for tipo, lista_armas in tipos.items():
@@ -473,7 +472,6 @@ def ataques(lista_proficiencias, lista_equipamentos, lista_modificadores, bonus_
                         dano_formatado = f"{item[1].split()[0]}+{modificador} ({item[1].split()[1]})"
                         lista_final.append((item[0], f'+{bonus_proficiencia + modificador}', dano_formatado))
 
-        print(lista_final)
         return lista_final
 
 
@@ -485,7 +483,6 @@ def ataques(lista_proficiencias, lista_equipamentos, lista_modificadores, bonus_
 
             resultado.append(armas_encontradas)
         
-
     return resultado
 
 

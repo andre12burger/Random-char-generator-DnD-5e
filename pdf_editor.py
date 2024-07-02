@@ -121,6 +121,18 @@ def ataques_pdf(lista_ataques):
     return dict_ataques
 
 
+def alinhamento_pdf(alinhamento_escolhido):
+    indice = 'Alignment'
+    dict_alinhamento = {indice: alinhamento_escolhido}
+    return dict_alinhamento
+
+
+def experiencia_pdf(xp_atual, xp_proximo_nivel):
+    indice = 'XP'
+    dict_experiencia = {indice: f'{xp_atual}/{xp_proximo_nivel}'}
+    return dict_experiencia
+
+
 def soma_dicionarios(*args):
     dicionario_final = {}
     for dicionario in args:

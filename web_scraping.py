@@ -196,9 +196,126 @@ def itens():
     cria_excel(dict_items_links_formatado, 'items')
 
 
+def cria_link_background():
+    pages_prefix = 'http://dnd5e.wikidot.com/background'
+    lista_backgrounds = [
+    "acolyte",
+    "anthropologist",
+    "archaeologist",
+    "athlete",
+    "charlatan",
+    "city-watch",
+    "clan-crafter",
+    "cloistered-scholar",
+    "courtier",
+    "criminal",
+    "entertainer",
+    "faceless",
+    "faction-agent",
+    "far-traveler",
+    "feylost",
+    "fisher",
+    "folk-hero",
+    "giant-foundling",
+    "gladiator",
+    "guild-artisan",
+    "guild-merchant",
+    "haunted-one",
+    "hermit",
+    "house-agent",
+    "inheritor",
+    "investigator-scag",
+    "investigator-vrgr",
+    "knight",
+    "knight-of-the-order",
+    "marine",
+    "mercenary-veteran",
+    "noble",
+    "outlander",
+    "pirate",
+    "rewarded",
+    "ruined",
+    "rune-carver",
+    "sage",
+    "sailor",
+    "shipwright",
+    "smuggler",
+    "soldier",
+    "spy",
+    "urban-bounty-hunter",
+    "urchin",
+    "uthgardt-tribe-member",
+    "waterdhavian-noble",
+    "witchlight-hand",
+    "black-fist-double-agent",
+    "dragon-casualty",
+    "iron-route-bandit",
+    "phlan-insurgent",
+    "stojanow-prisoner",
+    "ticklebelly-nomad",
+    "caravan-specialist",
+    "earthspur-miner",
+    "harborfolk",
+    "mulmaster-aristocrat",
+    "phlan-refugee",
+    "cormanthor-refugee",
+    "gate-urchin",
+    "hillsfar-merchant",
+    "hillsfar-smuggler",
+    "secret-identity",
+    "shade-fanatic",
+    "trade-sheriff",
+    "celebrity-adventurers-scion",
+    "failed-merchant",
+    "gambler",
+    "plaintiff",
+    "rival-intern",
+    "dissenter",
+    "initiate",
+    "vizier",
+    "knight-of-solamnia",
+    "mage-of-high-sorcery",
+    "inquisitor",
+    "gate-warden",
+    "planar-philosopher",
+    "azorius-functionary",
+    "boros-legionnaire",
+    "dimir-operative",
+    "golgari-agent",
+    "gruul-anarch",
+    "izzet-engineer",
+    "orzhov-representative",
+    "rakdos-cultist",
+    "selesnya-initiate",
+    "simic-scientist",
+    "lorehold-student",
+    "prismari-student",
+    "quandrix-student",
+    "silverquill-student",
+    "witherbloom-student",
+    "grinner",
+    "volstrucker-agent",
+    "astral-drifter",
+    "wildspacer"
+    ]
+
+    dict_links = {}
+
+    for index, background in enumerate(lista_backgrounds):
+        dict_links[f'{pages_prefix}:{background}'] = index
+
+    return dict_links
+
+
+def background():
+    dict_links = cria_link_background()
+    cria_excel(dict_links, 'background')
+
+
 if __name__ == "__main__":
     #classe_e_sub_classe()
-    itens()
+    #itens()
+    background()
     pass
 
 

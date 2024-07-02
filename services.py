@@ -3,9 +3,9 @@ from char import Char
 from atributos import gera_atributos, teste_resistencia, modificador, proeficiencia
 from informacao_classe import *
 from pdf_editor import *
+from random import choice
 from PyPDF2 import PdfReader, PdfWriter
 from PyPDF2.generic import NameObject, TextStringObject
-import pdfrw 
 import tempfile
 
 # Criando o personagem
@@ -148,6 +148,48 @@ def define_ataques(lista_proficiencias, lista_equipamentos, lista_modificadores)
     return dict_ataques
 
 
+def define_alinhamento():
+    lista_alinhamentos = ['Lawful good', 'Neutral good', 'Chaotic good',
+                          'Lawful neutral', '(True) neutral', 'Chaotic neutral',
+                          'Lawful evil', 'Neutral evil', 'Chaotic evil']
+    
+    alinhamento_escolhido = choice(lista_alinhamentos)
+    dict_alinhamento = alinhamento_pdf(alinhamento_escolhido)
+
+    return dict_alinhamento
+
+
+def define_experiencia():
+    lista_xp_por_nivel = [
+    0,        # Nível 1
+    300,      # Nível 2
+    900,      # Nível 3
+    2700,     # Nível 4
+    6500,     # Nível 5
+    14000,    # Nível 6
+    23000,    # Nível 7
+    34000,    # Nível 8
+    48000,    # Nível 9
+    64000,    # Nível 10
+    85000,    # Nível 11
+    100000,   # Nível 12
+    120000,   # Nível 13
+    140000,   # Nível 14
+    165000,   # Nível 15
+    195000,   # Nível 16
+    225000,   # Nível 17
+    265000,   # Nível 18
+    305000,   # Nível 19
+    355000    # Nível 20
+    ]
+    xp_atual = lista_xp_por_nivel[personagem.basicas.level - 1]
+    xp_proximo_nivel = lista_xp_por_nivel[personagem.basicas.level]
+
+    dict_experiencia = experiencia_pdf(xp_atual, xp_proximo_nivel)
+
+    return dict_experiencia
+
+
 def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
     original_pdf_path = 'CharacterSheet_DnD5e.pdf'
     
@@ -198,7 +240,9 @@ def page_1():
             pericias_pdf(lista_pericias),
             equipamentos_pdf(lista_equipamentos),
             proficiencies_pdf(lista_proficiencies),
-            define_ataques(lista_proficiencies, lista_equipamentos, lista_modificadores)
+            define_ataques(lista_proficiencies, lista_equipamentos, lista_modificadores),
+            define_alinhamento(),
+            define_experiencia()
             )
     
     dict_checkbox_pdf = soma_dicionarios(
