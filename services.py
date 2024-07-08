@@ -1,7 +1,7 @@
 from flask import request
 from char import Char
 from atributos import gera_atributos, teste_resistencia, modificador, proeficiencia
-from informacao_classe import *
+from informacoes_banco_dados import *
 from pdf_editor import *
 from random import choice
 from PyPDF2 import PdfReader, PdfWriter
@@ -12,9 +12,9 @@ import tempfile
 personagem = Char()
 
 
-def valor_form_html(nome_valor_form_html):
-    valor_num_box = request.form.get(nome_valor_form_html)
-    return int(valor_num_box)
+def valor_form_html(nome_form_html):
+    valor_form = request.form.get(nome_form_html)
+    return valor_form
 
 
 def gera_lista_valor_objetos(objeto):
@@ -40,7 +40,7 @@ def define_pesos():
     lista_pesos = ['Strength', 'Dexterity', 'Constitution', 'Intelligence', 'Wisdom', 'Charisma']
 
     for posicao, elemento in enumerate(lista_pesos):
-        lista_pesos[posicao] = valor_form_html(elemento)
+        lista_pesos[posicao] = int(valor_form_html(elemento))
 
     define_valor_objetos(personagem.pesos, lista_pesos)
 
@@ -72,7 +72,7 @@ def define_modificadores():
 
 def define_caracteristicas_basicas(lista_atributos):
     personagem.basicas.name = 'Nome Teste'
-    personagem.basicas.level = valor_form_html('level')
+    personagem.basicas.level = int(valor_form_html('level'))
     personagem.basicas.classe = escolhe_classe(lista_atributos)
     personagem.basicas.dado_vida = dado_vida(personagem.basicas.classe, personagem.basicas.level)
     personagem.basicas.vida = calcula_vida(personagem.basicas.dado_vida, personagem.modificadores.constitution)
@@ -99,7 +99,7 @@ def define_pericias(lista_modificadores):
     for posicao, elemento in enumerate(lista_modificadores_pericias):
         lista_modificadores_pericias[posicao] = elemento
 
-    lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe)
+    lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe, personagem.basicas.background)
     dict_checkbox_pericias = checkbox_pericias(lista_posicao_pericias)
 
     for posicao_pericias in lista_posicao_pericias:
@@ -190,6 +190,42 @@ def define_experiencia():
     return dict_experiencia
 
 
+def verifica_livro_background():
+    lista_livros_background = [
+    "Player's Handbook",
+    "Curse of Strahd",
+    "Mulmaster Bonds and Backgrounds",
+    "State of Hillsfar",
+    "Acquisitions Incorporated",
+    "Plane Shift - Amonkhet",
+    "Dragonlance: Shadow of the Dragon Queen",
+    "Plane Shift - Innistrad",
+    "Guildmaster's Guide to Ravnica",
+    "Strixhaven: A Curriculum of Chaos",
+    "Explorer's Guide to Wildemount",
+    "Spelljammer: Adventures in Space - Astral Adventurer's Guide"
+]
+
+    lista_livros_ativos = []
+
+    for elemento in lista_livros_background:
+        valor = valor_form_html(elemento)
+        if valor == 'on':
+            lista_livros_ativos.append(elemento)
+
+    return lista_livros_ativos
+
+
+def define_background():
+    lista_livros_ativos = verifica_livro_background()
+    background = escolhe_background(lista_livros_ativos)
+
+    personagem.basicas.background = background
+    lista_informacoes_background = [personagem.basicas.background]
+
+    return lista_informacoes_background
+
+
 def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
     original_pdf_path = 'CharacterSheet_DnD5e.pdf'
     
@@ -227,6 +263,7 @@ def page_1():
     lista_atributos = define_atributos_organizados(lista_pesos)
     lista_modificadores = define_modificadores()
     dict_caracteristicas_basicas = caracteristicas_basicas(lista_atributos)
+    lista_informacoes_background = define_background()
     lista_pericias, dict_checkbox_pericias = define_pericias(lista_modificadores)
     lista_teste_resistencia, dict_checkbox_teste_resistencia = define_teste_resistencia(lista_modificadores)
     lista_proficiencies = define_proficiencies()
@@ -242,7 +279,8 @@ def page_1():
             proficiencies_pdf(lista_proficiencies),
             define_ataques(lista_proficiencies, lista_equipamentos, lista_modificadores),
             define_alinhamento(),
-            define_experiencia()
+            define_experiencia(),
+            background_pdf(lista_informacoes_background)
             )
     
     dict_checkbox_pdf = soma_dicionarios(

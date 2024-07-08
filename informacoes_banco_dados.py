@@ -140,7 +140,36 @@ def atributos_teste_resistencia(classe):
     return lista_posicao_modificadores_teste_resistencia
 
 
-def pericias_escolhidas(classe):
+def pericias_numericas(lista_texto_pericias):
+    lista_pericias = []
+    numero_sorteios = None
+    lista_texto_separado_pericias = lista_texto_pericias[0].split()
+    for index, palavra in enumerate(lista_texto_separado_pericias):
+        lista_texto_separado_pericias[index] = palavra.strip(',')
+
+    for chave, valor in dict_changes.items():
+        if chave in lista_texto_separado_pericias:
+            index = lista_texto_separado_pericias.index(chave)
+            lista_texto_separado_pericias[index] = valor
+
+    for chave, valor in dict_quantidades.items():
+        if chave in lista_texto_separado_pericias:
+            numero_sorteios = valor
+
+    for elemento in lista_texto_separado_pericias:
+        if type(elemento) == int:
+            lista_pericias.append(elemento)
+
+    if 'any' in lista_texto_separado_pericias:
+        lista_pericias.extend(range(1, 18))
+
+    if not numero_sorteios:
+        numero_sorteios = len(lista_pericias)
+
+    return lista_pericias, numero_sorteios
+
+
+def pericias_escolhidas(classe, nome_background):
     df_classes = pd.read_excel('Classes.xlsx')
 
     lista_texto_pericias = []
@@ -163,30 +192,23 @@ def pericias_escolhidas(classe):
                 break
     
 
-    lista_texto_separado_pericias = lista_texto_pericias[0].split()
-    for index, palavra in enumerate(lista_texto_separado_pericias):
-        lista_texto_separado_pericias[index] = palavra.strip(',')
+    lista_pericias, numero_sorteios = pericias_numericas(lista_texto_pericias)
+    print(lista_pericias, numero_sorteios)
+    lista_informacao_background = informacoes_background(nome_background)
+    print(nome_background, lista_informacao_background)
+    lista_pericias_background = [lista_informacao_background[1]]
+    print(lista_pericias_background)
+    lista_pericias_background_convertida, numero_sorteios_background = pericias_numericas(lista_pericias_background)
+    print(lista_pericias_background_convertida, numero_sorteios_background)
 
-
-    for chave, valor in dict_changes.items():
-        if chave in lista_texto_separado_pericias:
-            index = lista_texto_separado_pericias.index(chave)
-            lista_texto_separado_pericias[index] = valor
-
-    for chave, valor in dict_quantidades.items():
-        if chave in lista_texto_separado_pericias:
-            index = lista_texto_separado_pericias.index(chave)
-            numero_sorteios = valor
-
-
-    for elemento in lista_texto_separado_pericias:
-        if type(elemento) == int:
-            lista_pericias.append(elemento)
-
-    if 'any' in lista_texto_separado_pericias:
-        lista_pericias.extend(range(1, 18))
-
+    for elemento in lista_pericias_background_convertida:
+        if elemento in lista_pericias:
+            lista_pericias.remove(elemento)
+    
     lista_pericias_sorteadas = sample(lista_pericias, numero_sorteios)
+
+    lista_pericias_sorteadas.extend(lista_pericias_background_convertida)
+    print(lista_pericias_sorteadas)
 
     return lista_pericias_sorteadas
 
@@ -631,6 +653,66 @@ def proficiencies(classe):
     return lista_proficiences
 
 
+
+def escolhe_background(lista_livros_ativos):
+    df_backgrounds = pd.read_excel('backgrounds.xlsx')
+    lista_backgrounds_disponiveis = []
+
+    for celula in df_backgrounds.iloc[:, 0]:
+        # Expressão regular para extrair o texto entre ':' e 'INICIO'
+        match_nome = re.search(r'Background:\s*(.*?)\s*INICIO', celula)
+        match_livro = re.search(r'Source:\s*(.*)', celula)
+        
+        if match_nome:
+            nome_background = match_nome.group(1)
+
+        if match_livro:
+            nome_livro = match_livro.group(1)
+            
+            if nome_livro in lista_livros_ativos:
+                lista_backgrounds_disponiveis.append((nome_background))
+    
+    background_escolhido = choice(lista_backgrounds_disponiveis)
+    return background_escolhido
+
+
+def informacoes_background(nome_background):
+    df_backgrounds = pd.read_excel('backgrounds.xlsx')
+    lista_informacoes_background = []
+    verificador = False
+
+    # Dicionário para armazenar se uma informação já foi capturada
+    info_capturada = {
+        'Source:': False,
+        'Skill Proficiencies:': False,
+        'Tool Proficiencies:': False,
+        'Languages:': False,
+        'Equipment:': False
+    }
+
+    def verifica_conteudo(item, celula, lista_conteudo):
+        if item in celula and not info_capturada[item]:
+            conteudo = celula.split(item, 1)[1].strip()
+            lista_conteudo.append(conteudo)
+            info_capturada[item] = True
+
+    for celula in df_backgrounds.iloc[:, 0]:
+        if 'INICIO' in celula and verificador:
+            break
+
+        if f'Background: {nome_background}' in celula:
+            verificador = True
+
+        if verificador:
+            verifica_conteudo('Source:', celula, lista_informacoes_background)
+            verifica_conteudo('Skill Proficiencies:', celula, lista_informacoes_background)
+            verifica_conteudo('Tool Proficiencies:', celula, lista_informacoes_background)
+            verifica_conteudo('Languages:', celula, lista_informacoes_background)
+            verifica_conteudo('Equipment:', celula, lista_informacoes_background)
+
+    return lista_informacoes_background
+
+
 if __name__ == "__main__":
     classes = ['artificer', 'barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
     #escolhe_classe([12, 17, 11, 10, 15, 14])
@@ -639,12 +721,13 @@ if __name__ == "__main__":
     #print(atributos_teste_resistencia('Wizard'))
     #print(pericias_escolhidas('Rogue'))
     #print(ataques())
+    print(informacoes_background('Criminal'))
     for classe in classes:
-        lista_proficiencies = proficiencies(classe.capitalize())
+        #lista_proficiencies = proficiencies(classe.capitalize())
         #print(classe, lista_proficiencies[2])
-        lista_equipamentos = equipamentos(classe.capitalize())
-        print(classe, lista_equipamentos)
-        print(ataques(lista_proficiencies, lista_equipamentos, [2, 1, 2, 1, 2, 0], 5))
+        #lista_equipamentos = equipamentos(classe.capitalize())
+        #print(classe, lista_equipamentos)
+        #print(ataques(lista_proficiencies, lista_equipamentos, [2, 1, 2, 1, 2, 0], 5))
         pass
 
     pass

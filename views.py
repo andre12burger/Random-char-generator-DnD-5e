@@ -4,10 +4,8 @@ from pdf_editor import *
 
 
 def homepage():
-    if request.method == 'POST':
-        pass
-
     return render_template('index.html')
+
 
 def generate_pdf():
     if request.method == 'POST':
