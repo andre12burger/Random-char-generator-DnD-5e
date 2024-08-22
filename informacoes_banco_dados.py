@@ -55,8 +55,10 @@ def escolhe_classe(lista_atributos):
             else:
                 dict_classes_atributos[classe] = dict_changes[atributo]
 
+    maior_atributo = max(lista_atributos)
+
     for nome_classe, index_atributo in dict_classes_atributos.items():
-        if lista_atributos[index_atributo] >= 13:
+        if lista_atributos[index_atributo] == maior_atributo:
             lista_classes_sorteio.append(nome_classe)
 
     classe_sorteada = choice(lista_classes_sorteio)
@@ -169,7 +171,7 @@ def pericias_numericas(lista_texto_pericias):
     return lista_pericias, numero_sorteios
 
 
-def pericias_escolhidas(classe, nome_background):
+def pericias_escolhidas(classe, lista_informacao_background):
     df_classes = pd.read_excel('Classes.xlsx')
 
     lista_texto_pericias = []
@@ -193,13 +195,8 @@ def pericias_escolhidas(classe, nome_background):
     
 
     lista_pericias, numero_sorteios = pericias_numericas(lista_texto_pericias)
-    print(lista_pericias, numero_sorteios)
-    lista_informacao_background = informacoes_background(nome_background)
-    print(nome_background, lista_informacao_background)
     lista_pericias_background = [lista_informacao_background[1]]
-    print(lista_pericias_background)
     lista_pericias_background_convertida, numero_sorteios_background = pericias_numericas(lista_pericias_background)
-    print(lista_pericias_background_convertida, numero_sorteios_background)
 
     for elemento in lista_pericias_background_convertida:
         if elemento in lista_pericias:
@@ -208,7 +205,6 @@ def pericias_escolhidas(classe, nome_background):
     lista_pericias_sorteadas = sample(lista_pericias, numero_sorteios)
 
     lista_pericias_sorteadas.extend(lista_pericias_background_convertida)
-    print(lista_pericias_sorteadas)
 
     return lista_pericias_sorteadas
 
@@ -393,6 +389,7 @@ def equipamentos(classe):
                 celula = re.sub(r'^\(\w\) ', '', celula)
                 lista_equipamentos.append(celula.strip())
 
+
     def cria_dict_armas_nome():
         dict_weapons_completo = cria_dict_armas_completo()
         dict_weapons_nome = {
@@ -406,6 +403,7 @@ def equipamentos(classe):
             }
         }
         return dict_weapons_nome
+
 
     def sortear_armas_equipamentos(equipamentos, dict_weapons):
         resultado = []
@@ -673,6 +671,7 @@ def escolhe_background(lista_livros_ativos):
                 lista_backgrounds_disponiveis.append((nome_background))
     
     background_escolhido = choice(lista_backgrounds_disponiveis)
+
     return background_escolhido
 
 
@@ -689,6 +688,7 @@ def informacoes_background(nome_background):
         'Languages:': False,
         'Equipment:': False
     }
+
 
     def verifica_conteudo(item, celula, lista_conteudo):
         if item in celula and not info_capturada[item]:
@@ -709,6 +709,7 @@ def informacoes_background(nome_background):
             verifica_conteudo('Tool Proficiencies:', celula, lista_informacoes_background)
             verifica_conteudo('Languages:', celula, lista_informacoes_background)
             verifica_conteudo('Equipment:', celula, lista_informacoes_background)
+
 
     return lista_informacoes_background
 

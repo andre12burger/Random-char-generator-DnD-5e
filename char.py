@@ -1,4 +1,5 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
+from typing import List
 
 @dataclass
 class CaracteristicasBasicas:
@@ -7,6 +8,7 @@ class CaracteristicasBasicas:
     sub_classe: str = ""
     level: int = 0
     background: str = ""
+    lista_informacao_background: List[str] = field(default_factory=list)
     player_name: str = ""
     race: str = ""
     sub_race: str = ""

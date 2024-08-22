@@ -99,7 +99,7 @@ def define_pericias(lista_modificadores):
     for posicao, elemento in enumerate(lista_modificadores_pericias):
         lista_modificadores_pericias[posicao] = elemento
 
-    lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe, personagem.basicas.background)
+    lista_posicao_pericias = pericias_escolhidas(personagem.basicas.classe, personagem.basicas.lista_informacao_background)
     dict_checkbox_pericias = checkbox_pericias(lista_posicao_pericias)
 
     for posicao_pericias in lista_posicao_pericias:
@@ -219,11 +219,13 @@ def verifica_livro_background():
 def define_background():
     lista_livros_ativos = verifica_livro_background()
     background = escolhe_background(lista_livros_ativos)
+    lista_informacoes_background = informacoes_background(personagem.basicas.background)
 
     personagem.basicas.background = background
-    lista_informacoes_background = [personagem.basicas.background]
+    personagem.basicas.lista_informacao_background = lista_informacoes_background
+    dict_background = background_pdf(personagem.basicas.background)
 
-    return lista_informacoes_background
+    return dict_background
 
 
 def preencher_pdf(dict_form_field_pdf, dict_checkbox_pdf):
@@ -263,7 +265,7 @@ def page_1():
     lista_atributos = define_atributos_organizados(lista_pesos)
     lista_modificadores = define_modificadores()
     dict_caracteristicas_basicas = caracteristicas_basicas(lista_atributos)
-    lista_informacoes_background = define_background()
+    dict_background = define_background()
     lista_pericias, dict_checkbox_pericias = define_pericias(lista_modificadores)
     lista_teste_resistencia, dict_checkbox_teste_resistencia = define_teste_resistencia(lista_modificadores)
     lista_proficiencies = define_proficiencies()
@@ -280,7 +282,7 @@ def page_1():
             define_ataques(lista_proficiencies, lista_equipamentos, lista_modificadores),
             define_alinhamento(),
             define_experiencia(),
-            background_pdf(lista_informacoes_background)
+            dict_background
             )
     
     dict_checkbox_pdf = soma_dicionarios(

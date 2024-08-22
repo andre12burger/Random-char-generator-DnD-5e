@@ -28,7 +28,7 @@
         <input type="number" id="positiveNumber" name="Wisdom" value="0"> Wisdom <br>
         <input type="number" id="positiveNumber" name="Charisma" value="0"> Charisma <br>
         <input type="submit" id="Gerar" value="Gerar"> <br>
-        <input type="checkbox" name="all" id="selectAll"> Usar TODO CONTEÚDO <br>
+        <input type="checkbox" name="all" id="selectAll" checked> Usar TODO CONTEÚDO <br>
         <input type="checkbox" class="content" name="sub_class"> Usar sub classe <br>
         <input type="checkbox" class="content" name="sub_race"> Usar sub raça <br>
         <input type="checkbox" class="content" name="Player's Handbook"> Player's Handbook <br>
@@ -61,6 +61,11 @@
                 checkboxes[i].checked = this.checked;
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+        // Dispara o evento change no checkbox principal ao carregar a página
+        document.getElementById('selectAll').dispatchEvent(new Event('change'));
+        });   
     </script>
 </body>
 </html>

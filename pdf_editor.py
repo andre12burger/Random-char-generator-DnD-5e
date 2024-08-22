@@ -133,14 +133,12 @@ def experiencia_pdf(xp_atual, xp_proximo_nivel):
     return dict_experiencia
 
 
-def background_pdf(lista_informacoes_background):
+def background_pdf(nome_background):
     lista_indices = ['Background']
-    dict_informacao_background_pdf = {}
+    dict_background_pdf = {lista_indices[0]: nome_background}
 
-    for indice, elemento in zip(lista_indices, lista_informacoes_background):
-        dict_informacao_background_pdf[indice] = elemento
+    return dict_background_pdf
 
-    return dict_informacao_background_pdf
 
 def soma_dicionarios(*args):
     dicionario_final = {}
