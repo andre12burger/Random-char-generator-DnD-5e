@@ -1,4 +1,25 @@
-__pycache__
-.idea
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ambiente virtual
+.env
+.venv/
+env/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Arquivos do projeto
 Ficha.pdf
 teste.py
+
+# Banco de dados
+*.db
+
+# Arquivos temporários
+*.bak
+*.tmp
