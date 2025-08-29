@@ -104,8 +104,5 @@ python main.py
 
 Acesse em: `http://localhost:5000`  
 Aqui você poderá configurar parâmetros e gerar sua ficha PDF.
-<<<<<<< HEAD
 
 ---
-=======
->>>>>>> bc7461e775134490372fc51e6b4856ef354dcb0d
