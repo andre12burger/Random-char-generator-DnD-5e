@@ -72,7 +72,8 @@ class DatabaseInitializer:
             "items/schema_weapons.sql",       # Armas (dependem de items, units, books e damage_types)
             "items/schema_weapons_additional.sql",  # Armas de outros livros (dependem de weapons)
             "items/schema_ammunition.sql",    # Munições (dependem de items, units, books e damage_types)
-            "items/schema_armors.sql"         # Armaduras (dependem de items, units e books)
+            "items/schema_armors.sql",        # Armaduras (dependem de items, units e books)
+            "items/schema_trinkets.sql"       # Trinkets (dependem de books)
         ]
 
         # Configuração de logging
