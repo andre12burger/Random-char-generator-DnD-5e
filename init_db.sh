@@ -1,0 +1,1 @@
+python scripts/init_db/init_database.py

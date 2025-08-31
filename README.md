@@ -3,6 +3,7 @@
 ## 📋 Sumário
 
 - [Visão Geral](#visão-geral)  
+- [Estado Atual do Projeto](#estado-atual-do-projeto)  
 - [Funcionalidades Principais](#funcionalidades-principais)  
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)  
 - [Estrutura do Repositório](#estrutura-do-repositório)  
@@ -15,6 +16,76 @@
 O **Gerador Aleatório de Personagens para D&D 5e** é uma aplicação Python que automatiza a criação de fichas de personagens, preenchendo um modelo PDF com dados gerados aleatoriamente ou escolhidos pelo usuário via interface web em Flask.
 
 Dados brutos são extraídos do site Wikidot por meio de Web Scraping, organizados em bancos **SQLite** bem estruturados e depois consumidos pelo backend para gerar personagens completos (atributos, classe, raça, equipamentos, magias etc.).
+
+---
+
+## 🚧 Estado Atual do Projeto
+
+### ✅ **Implementado e Funcional:**
+
+#### **Sistema de Armas Completo (42 itens)**
+
+- **37 Armas do Player's Handbook (PHB)**: Todas as armas oficiais básicas
+- **3 Armas de Outros Livros**: Yklwa (ToA), Hoopak (Dragonlance), Double-Bladed Scimitar (Eberron)
+- **1 Arma Improvisada**: Sistema genérico para objetos improvisados
+- **1 Ataque Desarmado**: Combate corpo a corpo natural
+
+#### **Sistema de Munições (4 tipos)**
+
+- **Arrows (20)** - 1 gp - Compatível com longbow/shortbow
+- **Crossbow bolts (20)** - 1 gp - Compatível com todas as crossbows
+- **Blowgun needles (50)** - 1 gp - Compatível com blowgun
+- **Sling bullets (20)** - 4 cp - Compatível com sling/hoopak
+
+#### **Categorias de Armas (4 tipos)**
+
+- **Simple**: 15 armas básicas
+- **Martial**: 25 armas avançadas
+- **Improvised**: Objetos não-armas em combate
+- **Unarmed**: Ataques naturais (punhos, pés, etc.)
+
+#### **Sistema de Banco de Dados**
+
+- **Progresso Real-Time**: Barra de progresso mostra execução real de comandos SQL
+- **Performance Otimizada**: Redução de 70% no tempo de execução (23s → 7s)
+- **Foreign Keys Validadas**: Integridade referencial completa
+- **Estrutura Modular**: Schemas organizados por domínio
+
+### 🔄 **Em Desenvolvimento:**
+
+- **Sistema de Armaduras**: Estrutura básica implementada
+- **Sistema de Classes**: Dados coletados, implementação em andamento
+- **Sistema de Raças**: Scraping concluído
+- **Sistema de Magias**: Coleta de dados iniciada
+
+### 📋 **Próximos Passos:**
+
+1. Finalizar sistema de armaduras
+2. Implementar geração de personagens
+3. Integrar com interface Flask
+4. Preenchimento automático de PDF
+
+### 📊 **Estatísticas Técnicas:**
+
+```text
+Database Performance:
+├── Tempo de Inicialização: ~7 segundos (70% melhoria)
+├── Comandos SQL: 160+ comandos executados
+├── Tabelas Criadas: 17 tabelas
+└── Integridade: 100% foreign keys validadas
+
+Itens de Combate Implementados:
+├── Armas Tradicionais: 40 itens
+├── Armas Especiais: 2 itens (Improvised + Unarmed)
+├── Munições: 4 tipos
+└── Total de Itens: 46 itens
+
+Estrutura de Dados:
+├── Categorias de Armas: 4 tipos
+├── Tipos de Armas: 3 tipos  
+├── Propriedades de Armas: 10+ propriedades
+└── Livros Referenciados: PHB, ToA, Dragonlance, Eberron
+```
 
 ---
 

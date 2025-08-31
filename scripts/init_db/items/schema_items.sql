@@ -1,7 +1,10 @@
 -- schema_items.sql
 
--- Apaga tabelas se existirem
+-- Remove tabelas antigas (sem prefixo)
 DROP TABLE IF EXISTS items;
+
+-- Apaga tabelas se existirem
+DROP TABLE IF EXISTS core_items;
 
 -- Categorias principais de itens
 CREATE TABLE items (
@@ -13,6 +16,7 @@ CREATE TABLE items (
 -- Inserir categorias base
 INSERT INTO items (name, description) VALUES
 ('adventuring-gear', 'The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.'),
+('ammunitions', 'Items used as projectiles for ranged weapons'),
 ('armor', 'Protective equipment worn to prevent damage'),
 ('currency', 'The most basic type of treasure is money, including copper pieces (cp), silver pieces (sp), electrum pieces (ep), gold pieces (gp), and platinum pieces (pp). Fifty coins of any type weigh 1 pound.'),
 ('explosives', 'A campaign might include explosives from the Renaissance or the modern world (the latter are priceless), as presented in the Explosives table.'),

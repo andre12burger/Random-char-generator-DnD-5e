@@ -1,11 +1,15 @@
 -- schema_units.sql
 
--- Apaga tabelas se existirem
+-- Remove tabelas antigas (sem prefixo)
 DROP TABLE IF EXISTS currency_types;
 DROP TABLE IF EXISTS measurement_units;
 
+-- Apaga tabelas se existirem
+DROP TABLE IF EXISTS core_currency_types;
+DROP TABLE IF EXISTS core_measurement_units;
+
 -- Tipos de moeda (cp é a moeda base para conversões)
-CREATE TABLE currency_types (
+CREATE TABLE core_currency_types (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     code TEXT NOT NULL UNIQUE,         -- 'cp', 'sp', 'ep', 'gp', 'pp'
     name TEXT NOT NULL,               -- 'Copper', 'Silver', 'Electrum', 'Gold', 'Platinum'
@@ -13,14 +17,14 @@ CREATE TABLE currency_types (
 );
 
 -- Unidades de medida
-CREATE TABLE measurement_units (
+CREATE TABLE core_measurement_units (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     code TEXT NOT NULL UNIQUE,         -- 'lb', 'oz'
     name TEXT NOT NULL                -- 'Pounds', 'Ounces'
 );
 
 -- Inserir tipos de moeda e suas taxas de conversão
-INSERT INTO currency_types (code, name, conversion_rate) VALUES
+INSERT INTO core_currency_types (code, name, conversion_rate) VALUES
 ('cp', 'Copper', 1),        -- Base: 1 cp = 1 cp
 ('sp', 'Silver', 10),       -- 1 sp = 10 cp
 ('ep', 'Electrum', 50),     -- 1 ep = 50 cp
@@ -28,6 +32,7 @@ INSERT INTO currency_types (code, name, conversion_rate) VALUES
 ('pp', 'Platinum', 1000);   -- 1 pp = 1000 cp
 
 -- Inserir unidades de medida
-INSERT INTO measurement_units (code, name) VALUES
+INSERT INTO core_measurement_units (code, name) VALUES
 ('lb', 'Pounds'),
-('oz', 'Ounces');
+('oz', 'Ounces'),
+('ft', 'Feet');
