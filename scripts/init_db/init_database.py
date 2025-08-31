@@ -51,7 +51,7 @@ class DatabaseInitializer:
         """Inicializa as configurações do banco de dados."""
         # Configuração de diretórios
         self.base_dir: Path = Path(__file__).resolve().parent
-        self.db_dir: Path = self.base_dir.parent.parent / 'data' / 'db'
+        self.db_dir: Path = self.base_dir.parent.parent / 'data' / 'database'
         self.sql_dir: Path = self.base_dir
 
         # Nome do banco de dados

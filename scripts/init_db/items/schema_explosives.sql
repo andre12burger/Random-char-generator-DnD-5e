@@ -12,10 +12,7 @@
 CREATE TABLE IF NOT EXISTS item_explosive_categories (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE, -- 'Renaissance' ou 'Modern'
-    description TEXT,
-    item_id INTEGER NOT NULL, -- Relação com items(id=5) para explosivos
-    
-    FOREIGN KEY (item_id) REFERENCES items(id)
+    description TEXT
 );
 
 -- ================================================================================================
@@ -26,6 +23,7 @@ CREATE TABLE IF NOT EXISTS item_explosives (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE,
     category_id INTEGER NOT NULL,
+    item_id INTEGER NOT NULL, -- Relação com items(id=5) para explosivos
     cost DECIMAL(10,2), -- Custo (NULL para itens modernos)
     cost_currency_id INTEGER, -- Referência à moeda
     weight DECIMAL(10,2) NOT NULL, -- Peso
@@ -42,6 +40,7 @@ CREATE TABLE IF NOT EXISTS item_explosives (
     description TEXT NOT NULL, -- Descrição completa com regras e efeitos
     
     FOREIGN KEY (category_id) REFERENCES item_explosive_categories(id),
+    FOREIGN KEY (item_id) REFERENCES items(id),
     FOREIGN KEY (cost_currency_id) REFERENCES core_currency_types(id),
     FOREIGN KEY (weight_unit_id) REFERENCES core_measurement_units(id),
     FOREIGN KEY (damage_type_id) REFERENCES core_damage_types(id),
@@ -57,15 +56,15 @@ CREATE TABLE IF NOT EXISTS item_explosives (
 
 CREATE INDEX IF NOT EXISTS idx_explosives_category ON item_explosives(category_id);
 CREATE INDEX IF NOT EXISTS idx_explosives_cost ON item_explosives(cost);
-CREATE INDEX IF NOT EXISTS idx_explosive_categories_item ON item_explosive_categories(item_id);
+CREATE INDEX IF NOT EXISTS idx_explosives_item ON item_explosives(item_id);
 
 -- ================================================================================================
 -- DADOS DAS CATEGORIAS (RELACIONADAS COM ITEMS)
 -- ================================================================================================
 
-INSERT OR IGNORE INTO item_explosive_categories (id, name, description, item_id) VALUES
-(1, 'Renaissance', 'Explosives from the Renaissance period with established costs', 5),
-(2, 'Modern', 'Modern explosives that are considered priceless in fantasy settings', 5);
+INSERT OR IGNORE INTO item_explosive_categories (id, name, description) VALUES
+(1, 'Renaissance', 'Explosives from the Renaissance period with established costs'),
+(2, 'Modern', 'Modern explosives that are considered priceless in fantasy settings');
 
 -- ================================================================================================
 -- DADOS DOS EXPLOSIVOS (ESTRUTURA INTEGRADA CORRIGIDA)
@@ -73,26 +72,26 @@ INSERT OR IGNORE INTO item_explosive_categories (id, name, description, item_id)
 
 -- EXPLOSIVOS RENAISSANCE
 INSERT OR IGNORE INTO item_explosives VALUES
-(1, 'Bomb', 1, 150.00, 4, 1.0, 1, '3d6', 6, 12, 2, 60, 3, 5, 3, 3,
+(1, 'Bomb', 1, 5, 150.00, 4, 1.0, 1, '3d6', 6, 12, 2, 60, 3, 5, 3, 3,
  'As an action, a character can light this bomb and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must succeed on a DC 12 Dexterity saving throw or take 3d6 fire damage.'),
 
-(2, 'Gunpowder, keg', 1, 250.00, 4, 20.0, 1, '7d6', 6, 12, 2, 0, NULL, 10, 3, 3,
+(2, 'Gunpowder, keg', 1, 5, 250.00, 4, 20.0, 1, '7d6', 6, 12, 2, 0, NULL, 10, 3, 3,
  'Gunpowder is chiefly used to propel a bullet out of the barrel of a pistol or rifle, or it is formed into a bomb. Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (7d6 for a keg). A successful DC 12 Dexterity saving throw halves the damage.'),
 
-(3, 'Gunpowder, powder horn', 1, 35.00, 4, 2.0, 1, '3d6', 6, 12, 2, 0, NULL, 10, 3, 3,
+(3, 'Gunpowder, powder horn', 1, 5, 35.00, 4, 2.0, 1, '3d6', 6, 12, 2, 0, NULL, 10, 3, 3,
  'Gunpowder is sold in small wooden kegs and in water-resistant powder horns. Setting fire to a container full of gunpowder can cause it to explode, dealing fire damage to creatures within 10 feet of it (3d6 for a powder horn). A successful DC 12 Dexterity saving throw halves the damage. Setting fire to an ounce of gunpowder causes it to flare for 1 round, shedding bright light in a 30-foot radius and dim light for an additional 30 feet.'),
 
 -- EXPLOSIVOS MODERNOS (SEM PREÇO)
-(4, 'Dynamite (stick)', 2, NULL, NULL, 1.0, 1, '3d6', 1, 12, 2, 60, 3, 5, 3, 3,
+(4, 'Dynamite (stick)', 2, 5, NULL, NULL, 1.0, 1, '3d6', 1, 12, 2, 60, 3, 5, 3, 3,
  'As an action, a creature can light a stick of dynamite and throw it at a point up to 60 feet away. Each creature within 5 feet of that point must make a DC 12 Dexterity saving throw, taking 3d6 bludgeoning damage on a failed save, or half as much damage on a successful one. A character can bind sticks of dynamite together so they explode at the same time. Each additional stick increases the damage by 1d6 (to a maximum of 10d6) and the burst radius by 5 feet (to a maximum of 20 feet). Dynamite can be rigged with a longer fuse to explode after a set amount of time, usually 1 to 6 rounds. Roll initiative for the dynamite. After the set number of rounds goes by, the dynamite explodes on that initiative.'),
 
-(5, 'Grenade, fragmentation', 2, NULL, NULL, 1.0, 1, '5d6', 2, 15, 2, 60, 3, 20, 3, 3,
+(5, 'Grenade, fragmentation', 2, 5, NULL, NULL, 1.0, 1, '5d6', 2, 15, 2, 60, 3, 20, 3, 3,
  'As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away. Each creature within 20 feet of an exploding fragmentation grenade must make a DC 15 Dexterity saving throw, taking 5d6 piercing damage on a failed save, or half as much damage on a successful one.'),
 
-(6, 'Grenade, smoke', 2, NULL, NULL, 2.0, 1, NULL, NULL, NULL, NULL, 60, 3, 20, 3, 3,
+(6, 'Grenade, smoke', 2, 5, NULL, NULL, 2.0, 1, NULL, NULL, NULL, NULL, 60, 3, 20, 3, 3,
  'As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away. One round after a smoke grenade lands, it emits a cloud of smoke that creates a heavily obscured area in a 20-foot radius. A moderate wind (at least 10 miles per hour) disperses the smoke in 4 rounds; a strong wind (20 or more miles per hour) disperses it in 1 round.'),
 
-(7, 'Grenade Launcher', 2, NULL, NULL, 7.0, 1, NULL, NULL, NULL, NULL, 120, 3, NULL, NULL, 3,
+(7, 'Grenade Launcher', 2, 5, NULL, NULL, 7.0, 1, NULL, NULL, NULL, NULL, 120, 3, NULL, NULL, 3,
  'A weapon used to propel grenades up to 120 feet away instead of the normal 60 feet throwing range. As an action, a character can throw a grenade at a point up to 60 feet away. With a grenade launcher, the character can propel the grenade up to 120 feet away.');
 
 -- ================================================================================================
