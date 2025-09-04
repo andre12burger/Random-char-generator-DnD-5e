@@ -74,7 +74,20 @@ class DatabaseInitializer:
             "items/schema_ammunition.sql",    # Munições (dependem de items, units, books e damage_types)
             "items/schema_armors.sql",        # Armaduras (dependem de items, units e books)
             "items/schema_trinkets.sql",      # Trinkets (dependem de books)
-            "items/schema_firearms.sql"       # Firearms (dependem de items, weapons_properties, damage_types e books)
+            "items/schema_firearms.sql",      # Firearms (dependem de items, weapons_properties, damage_types e books)
+            "items/schema_poisons.sql",       # Poisons (dependem de items, currency_types e books)
+            "items/schema_spellcasting_focuses.sql",  # Spellcasting Focuses (dependem de items, currency_types, units e books)
+            
+            # Items - Componentes de kits e subcategorias
+            "items/schema_clothes.sql",       # Roupas e vestimentas (dependem de items, currency_types, units e books)
+            "items/schema_common_items.sql",  # Itens comuns diversos (dependem de items, currency_types, units e books)
+            "items/schema_containers.sql",    # Containers e recipientes (dependem de items, currency_types, units e books)
+            "items/schema_usable_items.sql",  # Itens utilizáveis/consumíveis (dependem de items, currency_types, units e books)
+            "items/schema_adventure_gear.sql", # Adventure Gear (dependem de items, currency_types, units e books)
+            "items/schema_gemstones.sql",     # Gemstones (dependem de items, currency_types e books)
+            "items/schema_tools.sql",         # Tools and Kits (dependem de items, currency_types, units, books e skills)
+            "items/schema_tools_skills.sql",  # Tool skills advantages (XGE - depende de tools e skills)
+            "items/schema_magic_items.sql"    # Magic Items com descrições (dependem de books)
         ]
 
         # Configuração de logging

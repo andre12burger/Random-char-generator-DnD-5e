@@ -13,7 +13,7 @@ CREATE TABLE items (
     description TEXT
 );
 
--- Inserir categorias base
+-- Inserir categorias base (12 categorias originais)
 INSERT INTO items (name, description) VALUES
 ('adventuring-gear', 'The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.'),
 ('ammunitions', 'Items used as projectiles for ranged weapons'),
@@ -26,5 +26,13 @@ INSERT INTO items (name, description) VALUES
 ('tools', 'Items used for various activities and professions'),
 ('trinkets', 'When you make your character, you can roll once on the Trinkets table to gain a trinket, a simple item lightly touched by mystery.'),
 ('weapons', 'Items used to deal damage in combat'),
-('wondrous-items', 'Wondrous items include worn items such as boots, belts, capes, gloves, and various pieces of jewelry and decoration.');
+('wondrous-items', 'Wondrous items include worn items such as boots, belts, capes, gloves, and various pieces of jewelry and decoration.'),
+-- Novas categorias adicionadas (spellcasting focuses e componentes de kits)
+('arcane-focus', 'An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus.'),
+('druid-focus', 'A druid focus is a spellcasting focus for druids. It might be a sprig of mistletoe, a yew wand, a staff, or some other focus.'),
+('holy-symbol', 'A holy symbol is a representation of a deity or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.'),
+('clothes', 'Clothing and garments worn for protection, comfort, or appearance.'),
+('common-items', 'Common everyday items and miscellaneous equipment used in daily life and adventures.'),
+('containers', 'Bags, boxes, cases, and other items used to store and transport equipment.'),
+('usable-items', 'Items that can be consumed, activated, or used to perform specific functions.');
 
