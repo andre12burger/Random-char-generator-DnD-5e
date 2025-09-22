@@ -15,16 +15,16 @@ INSERT INTO item_weapons (
     item_id, book_id, special_rules
 ) VALUES (
     'Yklwa',
-    (SELECT id FROM item_weapons_categories WHERE name = 'Simple'),  -- Simple weapon
-    (SELECT id FROM item_weapons_types WHERE name = 'Melee'),        -- Melee weapon
+    1 /* Simple */,  -- Simple weapon
+    1 /* Melee */,        -- Melee weapon
     '1d8',                                                           -- Damage dice
-    (SELECT id FROM core_damage_types WHERE name = 'Piercing'),      -- Piercing damage
+    8 /* Piercing */,      -- Piercing damage
     1.00,                                                            -- 1 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),    -- Currency: GP
+    4 /* Gold */,    -- Currency: GP
     3.00,                                                            -- 3 lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),    -- Weight unit: Pound
-    (SELECT id FROM items WHERE name = 'weapons'),                   -- Item category: weapons
-    (SELECT id FROM core_books WHERE code = 'ToA'),          -- Book: Tomb of Annihilation
+    2 /* Pounds */,    -- Weight unit: Pound
+    1 /* weapons */,                   -- Item category: weapons
+    16 /* ToA */,          -- Book: Tomb of Annihilation
     NULL                                                             -- No special rules text
 );
 
@@ -35,16 +35,16 @@ INSERT INTO item_weapons (
     item_id, book_id, special_rules
 ) VALUES (
     'Hoopak',
-    (SELECT id FROM item_weapons_categories WHERE name = 'Martial'),  -- Martial weapon
-    (SELECT id FROM item_weapons_types WHERE name = 'Melee'),         -- Melee weapon (primary)
+    2 /* Martial */,  -- Martial weapon
+    1 /* Melee */,         -- Melee weapon (primary)
     '1d6',                                                            -- Damage dice (melee)
-    (SELECT id FROM core_damage_types WHERE name = 'Piercing'),       -- Piercing damage (melee)
+    8 /* Piercing */,       -- Piercing damage (melee)
     1.00,                                                             -- 1 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),  -- Currency: GP
+    4 /* Gold */,  -- Currency: GP
     2.00,                                                             -- 2 lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),     -- Weight unit: Pound
-    (SELECT id FROM items WHERE name = 'weapons'),                    -- Item category: weapons
-    (SELECT id FROM core_books WHERE code = 'D:SDQ'),         -- Book: Dragonlance Shadow of the Dragon Queen
+    2 /* Pounds */,     -- Weight unit: Pound
+    1 /* weapons */,                    -- Item category: weapons
+    17 /* D:SDQ */,         -- Book: Dragonlance Shadow of the Dragon Queen
     'A hoopak is a sturdy stick with a sling at one end and a pointed tip at the other.'  -- Description
 );
 
@@ -55,16 +55,16 @@ INSERT INTO item_weapons (
     item_id, book_id, special_rules
 ) VALUES (
     'Double-Bladed Scimitar',
-    (SELECT id FROM item_weapons_categories WHERE name = 'Martial'),  -- Martial weapon
-    (SELECT id FROM item_weapons_types WHERE name = 'Melee'),         -- Melee weapon
+    2 /* Martial */,  -- Martial weapon
+    1 /* Melee */,         -- Melee weapon
     '2d4',                                                            -- Damage dice
-    (SELECT id FROM core_damage_types WHERE name = 'Slashing'),       -- Slashing damage
+    12 /* Slashing */,       -- Slashing damage
     100.00,                                                           -- 100 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),  -- Currency: GP
+    4 /* Gold */,  -- Currency: GP
     6.00,                                                             -- 6 lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),     -- Weight unit: Pound
-    (SELECT id FROM items WHERE name = 'weapons'),                    -- Item category: weapons
-    (SELECT id FROM core_books WHERE code = 'E:RLW'),         -- Book: Eberron Rising from the Last War
+    2 /* Pounds */,     -- Weight unit: Pound
+    1 /* weapons */,                    -- Item category: weapons
+    9 /* E:RLW */,         -- Book: Eberron Rising from the Last War
     NULL                                                              -- No special rules text in main table
 );
 
@@ -78,7 +78,7 @@ SELECT
     w.id,
     10,   -- Normal range: 10 feet
     30,   -- Maximum range: 30 feet
-    (SELECT id FROM core_measurement_units WHERE name = 'Feet')
+    1 /* Feet */
 FROM item_weapons w 
 WHERE w.name = 'Yklwa';
 
@@ -88,7 +88,7 @@ SELECT
     w.id,
     40,   -- Normal range: 40 feet
     160,  -- Maximum range: 160 feet
-    (SELECT id FROM core_measurement_units WHERE name = 'Feet')
+    1 /* Feet */
 FROM item_weapons w 
 WHERE w.name = 'Hoopak';
 
@@ -143,7 +143,7 @@ INSERT INTO item_weapons_alt_damage (weapon_id, damage_dice, damage_type_id, con
 SELECT 
     w.id,
     '1d4',
-    (SELECT id FROM core_damage_types WHERE name = 'Bludgeoning'),
+    2 /* Bludgeoning */,
     'ranged'
 FROM item_weapons w 
 WHERE w.name = 'Hoopak';

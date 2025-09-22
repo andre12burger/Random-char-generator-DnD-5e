@@ -65,5 +65,9 @@ INSERT OR REPLACE INTO core_books (code, name, release_date) VALUES
 ('PS:AiM', 'Planescape: Adventures in the Multiverse', '2023-10-17'),
 ('BOMT', 'The Book of Many Things', '2023-11-14'),
 ('VEOR', 'Vecna: Eve of Ruin', '2024-05-21'),
-('QIS', 'Quests from the Infinite Staircase', '2024-07-16');
+('QIS', 'Quests from the Infinite Staircase', '2024-07-16'),
+('DDB', 'Dungeons & Dragons Beyound', '2020-04-09'),
+('BPTG', 'Bigby Presents - Glory of the Giants', '2023-08-15'),
+('GGR', 'Guildmaster''s Guide to Ravnica', '2018-11-20'),
+('UA', 'Unearthed Arcana', NULL);
 

@@ -53,51 +53,51 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Padded
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Light Armor'),
+    2 /* armor */,
+    1 /* Light Armor */,
     'Padded',
     11,
     5.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     8.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     NULL,
     NULL,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Leather
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Light Armor'),
+    2 /* armor */,
+    1 /* Light Armor */,
     'Leather',
     11,
     10.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     10.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     NULL,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Studded Leather
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Light Armor'),
+    2 /* armor */,
+    1 /* Light Armor */,
     'Studded Leather',
     12,
     45.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     13.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     NULL,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 );
 
 -- Inserção das armaduras médias (Medium Armor)
@@ -109,99 +109,99 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Hide
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Hide',
     12,
     10.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     12.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Chain Shirt
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Chain Shirt',
     13,
     50.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     20.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Scale Mail
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Scale Mail',
     14,
     50.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     45.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Spiked Armor
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Spiked Armor',
     14,
     75.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     45.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Breastplate
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Breastplate',
     14,
     400.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     20.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Half Plate
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Medium Armor'),
+    2 /* armor */,
+    2 /* Medium Armor */,
     'Half Plate',
     15,
     750.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     40.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     1,
     2,
     NULL,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 );
 
 -- Inserção das armaduras pesadas (Heavy Armor)
@@ -213,67 +213,67 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Ring Mail
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Heavy Armor'),
+    2 /* armor */,
+    3 /* Heavy Armor */,
     'Ring Mail',
     14,
     30.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     40.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     0,
     NULL,
     NULL,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Chain Mail
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Heavy Armor'),
+    2 /* armor */,
+    3 /* Heavy Armor */,
     'Chain Mail',
     16,
     75.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     55.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     0,
     NULL,
     13,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Splint
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Heavy Armor'),
+    2 /* armor */,
+    3 /* Heavy Armor */,
     'Splint',
     17,
     200.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     60.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     0,
     NULL,
     15,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 ),
 -- Plate
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Heavy Armor'),
+    2 /* armor */,
+    3 /* Heavy Armor */,
     'Plate',
     18,
     1500.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     65.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     0,
     NULL,
     15,
     1,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 );
 
 -- Inserção do escudo (Shield)
@@ -284,17 +284,17 @@ INSERT INTO item_armors (
     book_id
 ) VALUES 
 (
-    (SELECT id FROM items WHERE name = 'armor'),
-    (SELECT id FROM item_armor_types WHERE name = 'Shield'),
+    2 /* armor */,
+    4 /* Shield */,
     'Shield',
     2,
     10.00,
-    (SELECT id FROM core_currency_types WHERE code = 'gp'),
+    4 /* gp */,
     6.0,
-    (SELECT id FROM core_measurement_units WHERE code = 'lb'),
+    2 /* lb */,
     0,
     NULL,
     NULL,
     0,
-    (SELECT id FROM core_books WHERE code = 'PHB')
+    1 /* PHB */
 );

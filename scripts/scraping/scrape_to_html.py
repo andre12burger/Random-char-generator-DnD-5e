@@ -4,6 +4,7 @@ import logging
 from suffix_pages import *
 from tqdm import tqdm
 from colorama import Fore, Style
+from extract_subclass_suffixes import extract_subclass_suffixes
 
 def scrape_page_html(url, output_dir="data/raw_pages/"):
     """
@@ -88,20 +89,26 @@ if __name__ == "__main__":
     #scrape classes
     scrape_pages(class_suffixes, "classes", create_subfolders=True, use_topic_in_url=False)
 
-    #scrape sublcasses
-    scrape_pages(subclass_suffixes, "classes")
+    #scrape sublcasses dinamicamente
+    classes_dir = os.path.join(os.path.dirname(__file__), '../../data/raw_pages/classes')
+    classes = [d for d in os.listdir(classes_dir) if os.path.isdir(os.path.join(classes_dir, d))]
+    subclass_suffixes_dynamic = {}
+    for class_name in classes:
+        suffixes = extract_subclass_suffixes(class_name)
+        subclass_suffixes_dynamic[class_name] = suffixes
+    scrape_pages(subclass_suffixes_dynamic, "classes")
 
     #scrape spells
-    scrape_pages(spell_suffixes, "spells", create_subfolders=True, use_topic_in_url=True)
+    #scrape_pages(spell_suffixes, "spells", create_subfolders=True, use_topic_in_url=True)
 
     #scrape lineages
-    scrape_pages(lineage_suffixes, "lineage", create_subfolders=False, use_topic_in_url=True)
+    #scrape_pages(lineage_suffixes, "lineage", create_subfolders=False, use_topic_in_url=True)
 
     #scrape backgrounds
-    scrape_pages(background_suffixes, "background", create_subfolders=False, use_topic_in_url=True)
+    #scrape_pages(background_suffixes, "background", create_subfolders=False, use_topic_in_url=True)
 
     #scrape feats
-    scrape_pages(feats_suffixes, "feat", create_subfolders=False, use_topic_in_url=True)
+    #scrape_pages(feats_suffixes, "feat", create_subfolders=False, use_topic_in_url=True)
 
     #scrape items
-    scrape_pages(items_sulfixes, "items", create_subfolders=False, use_topic_in_url=False)
+    #scrape_pages(items_sulfixes, "items", create_subfolders=False, use_topic_in_url=False)

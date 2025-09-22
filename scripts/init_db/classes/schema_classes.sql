@@ -1,60 +1,57 @@
--- Apaga tabelas se existirem
-DROP TABLE IF EXISTS class_subclasses;
-DROP TABLE IF EXISTS class_equipment;
-DROP TABLE IF EXISTS class_proficiency;
-DROP TABLE IF EXISTS class_info;
-DROP TABLE IF EXISTS class_attributes;
-DROP TABLE IF EXISTS classes;
+-- =============================================================================
+-- SCHEMA: D&D 5e Classes (Tabela Principal Simplificada)
+-- =============================================================================
+-- 
+-- Tabela principal minimalista das classes do D&D 5e
+-- 
+-- DEPENDÊNCIAS: core_dice
+-- RELACIONAMENTOS: class_initial_gold, class_proficiencies_*, class_spell_slots, class_books
+--
+-- ESTRUTURA SIMPLIFICADA:
+-- - Apenas dados essenciais na tabela principal
+-- - Equipamento inicial em tabela separada (class_starting_equipment)  
+-- - Primary abilities em tabela de proficiências
+-- - Hit points calculados via fórmula padrão (hit_dice + CON modifier)
+-- - ASI levels padrão (4,8,12,16,19) com exceções nas habilidades de classe
+-- - Gold inicial gerenciado pela tabela class_initial_gold sem FK direta
+-- - Referências a livros gerenciadas pela tabela class_books (many-to-many)
+--
+-- =============================================================================
 
--- Cria tabela de classes
+-- =============================================================================
+-- TABELA PRINCIPAL: CLASSES
+-- =============================================================================
+
+DROP TABLE IF EXISTS classes;
 CREATE TABLE classes (
+    -- Identificação
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE,
-    description TEXT,
-    hit_dice TEXT,
-    gold TEXT,
-    id_info_classe INTEGER,
-    id_proficiencia INTEGER,
-    id_equipamento INTEGER,
-    FOREIGN KEY (id_info_classe) REFERENCES class_info(id),
-    FOREIGN KEY (id_proficiencia) REFERENCES class_proficiency(id),
-    FOREIGN KEY (id_equipamento) REFERENCES class_equipment(id)
+    hit_dice_id INTEGER NOT NULL,
+    is_spellcaster INTEGER CHECK(is_spellcaster IN (0, 1)) DEFAULT 0,
+    main_book_id INTEGER,
+    level_subclass INTEGER DEFAULT 3,  -- Nível em que a subclasse é escolhida (padrão 3)
+    FOREIGN KEY (hit_dice_id) REFERENCES core_dice(id),
+    FOREIGN KEY (main_book_id) REFERENCES core_books(id)
 );
 
--- Cria tabela de atributos mínimos por classe
-CREATE TABLE class_attributes (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    class_id INTEGER NOT NULL,
-    attribute_id INTEGER NOT NULL,
-    min_value INTEGER NOT NULL,
-    FOREIGN KEY (class_id) REFERENCES classes(id),
-    FOREIGN KEY (attribute_id) REFERENCES attributes(id)
-);
+-- =============================================================================
+-- DADOS: INSERÇÃO DAS CLASSES
+-- =============================================================================
 
--- Cria tabela de informações adicionais da classe
-CREATE TABLE class_info (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    info TEXT NOT NULL
-);
-
--- Cria tabela de proficiências iniciais
-CREATE TABLE class_proficiency (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    armors TEXT NOT NULL,
-    weapons TEXT NOT NULL,
-    tools TEXT NOT NULL
-);
-
--- Cria tabela de equipamentos iniciais
-CREATE TABLE class_equipment (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    equipment TEXT NOT NULL
-);
-
--- Cria tabela de subclasses
-CREATE TABLE class_subclasses (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    class_id INTEGER NOT NULL,
-    subclass TEXT NOT NULL,
-    FOREIGN KEY (class_id) REFERENCES classes(id)
-);
+-- Classes principais do D&D 5e (em ordem alfabética)
+INSERT INTO classes (name, hit_dice_id, is_spellcaster, main_book_id, level_subclass) VALUES 
+('Artificer', 3 /* d8 */, 1, (SELECT id FROM core_books WHERE code = 'TCE'), 3),
+('Barbarian', 5 /* d12 */, 0, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Bard', 3 /* d8 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Blood Hunter', 4 /* d10 */, 0, (SELECT id FROM core_books WHERE code = 'DDB'), 3),
+('Cleric', 3 /* d8 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 1),
+('Druid', 3 /* d8 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 2),
+('Fighter', 4 /* d10 */, 0, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Monk', 3 /* d8 */, 0, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Paladin', 4 /* d10 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Ranger', 4 /* d10 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Rogue', 3 /* d8 */, 0, (SELECT id FROM core_books WHERE code = 'PHB'), 3),
+('Sorcerer', 2 /* d6 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 1),
+('Warlock', 3 /* d8 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 2),
+('Wizard', 2 /* d6 */, 1, (SELECT id FROM core_books WHERE code = 'PHB'), 2);

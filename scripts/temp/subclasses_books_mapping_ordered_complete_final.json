@@ -1,0 +1,1535 @@
+[
+  {
+    "name": "Alchemist",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer-alchemist.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Armorer",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer-armorer.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Artillerist",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer-artillerist.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Battle Smith",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer-battle-smith.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Archivist (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/artificer/artificer-archivist.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Armorer (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer-armorer.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Path of the Ancestral Guardian",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/barbarian/barbarian-ancestral-guardian.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Path of the Battlerager",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/barbarian/barbarian-battlerager.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Path Of The Beast",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/barbarian/barbarian-beast-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Path of the Berserker",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/barbarian/barbarian-berserker.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Path of the Giant",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/barbarian/barbarian-giant-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Path of the Storm Herald",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/barbarian/barbarian-storm-herald.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Path of the Totem Warrior",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/barbarian/barbarian-totem-warrior.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Path of Wild Magic",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/barbarian/barbarian-wild-magic.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Path of the Zealot",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/barbarian/barbarian-zealot.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Path of the Beast (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/barbarian/barbarian-beast-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Path of the Giant (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/barbarian/barbarian-giant-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Path of the Wild Soul (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/barbarian/barbarian-wild-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "College of Creation",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/bard-creation-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "College of Eloquence",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/bard/bard-eloquence.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "College of Glamour",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/bard/bard-glamour.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "College of Lore",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/bard/bard-lore.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "College of Spirits",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/bard-spirits-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "College of Swords",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/bard/bard-swords.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "College of Valor",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/bard/bard-valor.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "College of Whispers",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/bard/bard-whispers.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "College of Creation (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/bard-creation-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "College of Spirits (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/bard-spirits-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "College of Satire (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/bard-satire-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Lorehold (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/bard/bard.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Silverquill (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/mage-of-silverquill-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Order of the Ghostslayer",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/blood-hunter/blood-hunter-blood-curse.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Order of the Lycan",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/blood-hunter/blood-hunter-lycan.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Order of the Mutant",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/blood-hunter/blood-hunter-mutant.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Order of the Profane Soul",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/blood-hunter/blood-hunter-profane-soul.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Arcana Domain",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/cleric/cleric-arcana.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Death Domain",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/cleric/cleric-death.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Forge Domain",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/cleric/cleric-forge.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Grave Domain",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/cleric/cleric-grave.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Knowledge Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-knowledge.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Life Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-life.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Light Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-light.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Nature Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-nature.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Order Domain",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/cleric/cleric-order.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Peace Domain",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/cleric/cleric-peace.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Tempest Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-tempest.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Trickery Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-trickery.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Twilight Domain",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-twilight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "War Domain",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/cleric/cleric-war.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Solidarity Domain (Amonkhet)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/monk/monk.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Strength Domain (Amonkhet)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Ambition Domain (Amonkhet)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Zeal Domain (Amonkhet)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Fate Domain (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-fate-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "City Domain (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-city-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Protection Domain (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-protection-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Twilight Domain (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-twilight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Unity Domain (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/cleric/cleric-unity-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Circle of Dreams",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/druid/druid-dreams.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of the Land",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/druid/druid-land.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of the Moon",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/druid/druid-moon.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of the Shepherd",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/druid/druid-shepherd.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of Spores",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/druid/druid-spores.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of Stars",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/druid-stars-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Circle of Wildfire",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/druid/druid-wildfire.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Circle of the Primeval (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/druid-primeval-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Circle of Stars (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/druid-stars-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Circle of Twilight (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/druid-twilight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Circle of Wildfire (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/druid-wildlife-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Prismari (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/mage-of-prismari-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Witherbloom (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/mage-of-witherbloom-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Arcane Archer",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-arcane-archer-revised-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Banneret",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/fighter/fighter-banneret.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Battle Master",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/fighter/fighter-battle-master-maneuvers.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Cavalier",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-cavalier.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Champion",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/fighter/fighter-champion.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Echo Knight",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/fighter/fighter-echo-knight.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Eldritch Knight",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/fighter/fighter-eldritch-knight.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Psi Warrior",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-psi-warrior.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Psi Knight",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-psi-knight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Rune Knight",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-rune-knight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Samurai",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-samurai.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Arcane Archer (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-arcane-archer-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Arcane Archer Revised (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-arcane-archer-revised-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Brute (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-brute-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Cavalier (UA)",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-cavalier.html",
+    "book_code": "XGE",
+    "is_ua": true
+  },
+  {
+    "name": "Knight (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-knight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Monster Hunter (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-monster-hunter-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Psi Warrior (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-psi-warrior.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Psychic Warrior (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-psychic-warrior-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Rune Knight (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-rune-knight-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Samurai (UA)",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-samurai.html",
+    "book_code": "XGE",
+    "is_ua": true
+  },
+  {
+    "name": "Scout (UA)",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-scout.html",
+    "book_code": "XGE",
+    "is_ua": true
+  },
+  {
+    "name": "Sharpshooter (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/fighter/fighter-sharpshooter-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of the Astral Self",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-astral-self-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of the Ascendant Dragon",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-ascendant-dragon-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of the Drunken Master",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/monk/monk-drunken-master.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Way of the Four Elements",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/monk/monk-four-elements.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Way of the Kensei",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/monk/monk-kensei.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Way of the Long Death",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/monk/monk-long-death.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Way of Mercy",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-mercy-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of the Open Hand",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/monk/monk-open-hand.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Way of Shadow",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/monk/monk-shadow.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Way of the Sun Soul",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/monk/monk-sun-soul.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Way of the Ascendant Dragon (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-ascendant-dragon-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of the Astral Self (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-astral-self-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Kensei (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-kensei-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of Mercy (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-mercy-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Way of Tranquility (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/monk/monk-tranquility-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Oath of the Ancients",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/paladin/paladin-ancients.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of Conquest",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/paladin/paladin-conquest.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of the Crown",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/paladin/paladin-crown.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of Devotion",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/paladin/paladin-devotion.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of Glory",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/paladin/paladin-glory.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of the Redemption",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of Vengeance",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/paladin/paladin-vengeance.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of the Watchers",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/paladin/paladin-watchers-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Oathbreaker",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/paladin/paladin-oathbreaker.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of Treachery (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/paladin/paladin-treachery-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Oath of the Redemption (UA)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Oath of the Watchers (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/paladin/paladin-watchers-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Oath of Heroism (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/paladin/paladin-heroism-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Beast Master Conclave",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/ranger/ranger-beast-master.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Fey Wanderer",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/ranger/ranger-fey-wanderer-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Gloom Stalker Conclave",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/ranger/ranger-gloom-stalker.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Horizon Walker Conclave",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/ranger/ranger-horizon-walker.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Hunter Conclave",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/ranger/ranger-hunter.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Monster Slayer Conclave",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/ranger/ranger-monster-slayer.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Swarmkeeper",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/ranger/ranger-swarmkeeper.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Drakewarden",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/ranger/ranger-drakewarden.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Drakewarden (UA)",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/ranger/ranger-drakewarden.html",
+    "book_code": "Unknown",
+    "is_ua": true
+  },
+  {
+    "name": "Deep Stalker (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/ranger/ranger-deep-stalker-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Fey Wanderer (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/ranger/ranger-fey-wanderer-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Monster Slayer (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/ranger/ranger-monster-slayer-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Primeval Guardian (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/ranger/ranger-primeval-guardian-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Swarmkeeper (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/ranger/ranger-swarmkeeper.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Arcane Trickster",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/rogue/rogue-arcane-trickster.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Assassin",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/rogue/rogue-assassin.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Inquisitive",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-inquisitive.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Mastermind",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-mastermind.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Phantom",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-phantom.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Scout",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-scout.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Soulknife",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-soulknife.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Swashbuckler",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-swashbuckler.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Thief",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/rogue/rogue-thief.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Phantom (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-phantom.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Revived (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/rogue/rogue-revived-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Soulknife (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/rogue/rogue-soulknife.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Soulknife Revisited (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/rogue/rogue-soulknife-revisited-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Aberrant Mind",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-aberrant-mind-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Clockwork Soul",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-clockwork-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Draconic Bloodline",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-draconic-bloodline.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Divine Soul",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-divine-soul.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Lunar Sorcery",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-lunar-sorcery.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "Shadow Magic",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-shadow-magic.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Storm Sorcery",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-storm-sorcery.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Wild Magic",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/barbarian/barbarian.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Pyromancy (Plane Shift)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Lunar Magic (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-lunar-magic-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Aberrant Mind (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-aberrant-mind-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Clockwork Soul (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-clockwork-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Favored Soul (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-favored-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Favored Soul Revisited (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-favored-soul-revisited-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Giant Soul (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-giant-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Phoenix Sorcery (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-phoenix-sorcery-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Psionic Soul (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-psionic-soul-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Sea Sorcery (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-sea-sorcery-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Shadow (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-shadow-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Stone Sorcery (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/sorcerer-stone-sorcery-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Prismari (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/mage-of-prismari-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Quandrix (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/mage-of-quandrix-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Archfey",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/warlock/warlock-archfey.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "The Celestial",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-celestial-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Fathomless",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/warlock/warlock-fathomless.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "The Fiend",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/warlock/warlock-fiend.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "The Genie",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-genie-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Great Old One",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/warlock/warlock-great-old-one.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "The Hexblade",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-hexblade-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Undead",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/cleric/cleric.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "The Undying",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-undying-light-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Celestial (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-celestial-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Genie (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-genie-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Ghost In The Machine (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-ghost-in-the-machine-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Hexblade (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-hexblade-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Lurker in the Deep (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-lurker-in-the-deep-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Noble Genie (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-noble-genie-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Raven Queen (UA)",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/warlock/warlock-hexblade.html",
+    "book_code": "XGE",
+    "is_ua": true
+  },
+  {
+    "name": "The Seeker (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-seeker-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Undead (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/warlock/warlock-undead-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "The Undying Light (UA)",
+    "source": "Unknown",
+    "file": "unknown.html",
+    "book_code": "UNK",
+    "is_ua": false
+  },
+  {
+    "name": "Mage of Lorehold (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/bard/bard.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Silverquill (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/mage-of-silverquill-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Witherbloom (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/mage-of-witherbloom-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "School of Abjuration",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-abjuration.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Bladesinging",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/wizard/wizard-bladesinging.html",
+    "book_code": "TCE",
+    "is_ua": false
+  },
+  {
+    "name": "Chronurgy Magic",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/wizard/wizard-chronurgy.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "School of Conjuration",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-conjuration.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "School of Divination",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-divination.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "School of Enchantment",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-enchantment.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "School of Evocation",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/fighter/fighter-arcane-archer.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Graviturgy Magic",
+    "source": "Unknown",
+    "file": "data/raw_pages/classes/wizard/wizard-graviturgy.html",
+    "book_code": "Unknown",
+    "is_ua": false
+  },
+  {
+    "name": "School of Illusion",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-illusion.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "School of Necromancy",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-necromancy.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "Order of Scribes",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-order-of-scribes-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "School of Transmutation",
+    "source": "Player's Handbook",
+    "file": "data/raw_pages/classes/wizard/wizard-transmutation.html",
+    "book_code": "PHB",
+    "is_ua": false
+  },
+  {
+    "name": "War Magic",
+    "source": "Xanathar's Guide to Everything",
+    "file": "data/raw_pages/classes/wizard/wizard-war-magic.html",
+    "book_code": "XGE",
+    "is_ua": false
+  },
+  {
+    "name": "Runecrafter (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-runecrafter-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Artificer (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/artificer/artificer.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "School of Invention (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-invention-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Lore Mastery (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-lore-mastery-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Onomancy (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-onomancy-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Order Of Scribes (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-order-of-scribes-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Psionics (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-psionics-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Technomancy (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-technomancy-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Theurgy (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/wizard/wizard-theurgy-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Lorehold (UA)",
+    "source": "Tasha's Cauldron of Everything",
+    "file": "data/raw_pages/classes/bard/bard.html",
+    "book_code": "TCE",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Prismari (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/druid/mage-of-prismari-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Quandrix (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/sorcerer/mage-of-quandrix-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  },
+  {
+    "name": "Mage of Silverquill (UA)",
+    "source": "Unearthed Arcana",
+    "file": "data/raw_pages/classes/bard/mage-of-silverquill-ua.html",
+    "book_code": "UA",
+    "is_ua": true
+  }
+]

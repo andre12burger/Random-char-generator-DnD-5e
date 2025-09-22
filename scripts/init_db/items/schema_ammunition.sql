@@ -43,13 +43,13 @@ INSERT INTO item_ammunition (
 ) VALUES (
     'Arrows',
     1.00,                                                             -- 1 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),         -- Currency: GP
+    4 /* Gold */,         -- Currency: GP
     1.00,                                                             -- 1 lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),    -- Weight unit: Pound
+    2 /* Pounds */,    -- Weight unit: Pound
     20,                                                               -- 20 arrows per bundle
     'longbow, shortbow',                                              -- Compatible weapons
-    (SELECT id FROM items WHERE name = 'ammunitions'),               -- Item category: ammunitions
-    (SELECT id FROM core_books WHERE code = 'PHB'),                   -- Book: Player's Handbook
+    6 /* ammunitions */,               -- Item category: ammunitions
+    1 /* PHB */,                   -- Book: Player's Handbook
     'A bundle of 20 arrows for use with longbows and shortbows. Made of wood with steel tips and fletched with feathers.'
 );
 
@@ -60,13 +60,13 @@ INSERT INTO item_ammunition (
 ) VALUES (
     'Blowgun needles',
     1.00,                                                             -- 1 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),         -- Currency: GP
+    4 /* Gold */,         -- Currency: GP
     1.00,                                                             -- 1 lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),    -- Weight unit: Pound
+    2 /* Pounds */,    -- Weight unit: Pound
     50,                                                               -- 50 needles per bundle
     'blowgun',                                                        -- Compatible weapons
-    (SELECT id FROM items WHERE name = 'ammunitions'),           -- Item category: ammunitions
-    (SELECT id FROM core_books WHERE code = 'PHB'),                   -- Book: Player's Handbook
+    6 /* ammunitions */,           -- Item category: ammunitions
+    1 /* PHB */,                   -- Book: Player's Handbook
     'A bundle of 50 small needles for use with blowguns. Often used for delivering poisons or sleep agents.'
 );
 
@@ -77,13 +77,13 @@ INSERT INTO item_ammunition (
 ) VALUES (
     'Crossbow bolts',
     1.00,                                                             -- 1 gp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Gold'),         -- Currency: GP
+    4 /* Gold */,         -- Currency: GP
     1.50,                                                             -- 1½ lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),    -- Weight unit: Pound
+    2 /* Pounds */,    -- Weight unit: Pound
     20,                                                               -- 20 bolts per bundle
     'crossbow (light, hand, heavy)',                                  -- Compatible weapons
-    (SELECT id FROM items WHERE name = 'ammunitions'),           -- Item category: adventuring gear
-    (SELECT id FROM core_books WHERE code = 'PHB'),                   -- Book: Player's Handbook
+    6 /* ammunitions */,           -- Item category: adventuring gear
+    1 /* PHB */,                   -- Book: Player's Handbook
     'A bundle of 20 crossbow bolts for use with all types of crossbows. Heavier and shorter than arrows.'
 );
 
@@ -94,13 +94,13 @@ INSERT INTO item_ammunition (
 ) VALUES (
     'Sling bullets',
     4.00,                                                             -- 4 cp cost
-    (SELECT id FROM core_currency_types WHERE name = 'Copper'),       -- Currency: CP
+    1 /* Copper */,       -- Currency: CP
     1.50,                                                             -- 1½ lb weight
-    (SELECT id FROM core_measurement_units WHERE name = 'Pounds'),    -- Weight unit: Pound
+    2 /* Pounds */,    -- Weight unit: Pound
     20,                                                               -- 20 bullets per bundle
     'sling, hoopak',                                                  -- Compatible weapons
-    (SELECT id FROM items WHERE name = 'ammunitions'),           -- Item category: adventuring gear
-    (SELECT id FROM core_books WHERE code = 'PHB'),                   -- Book: Player's Handbook
+    6 /* ammunitions */,           -- Item category: adventuring gear
+    1 /* PHB */,                   -- Book: Player's Handbook
     'A bundle of 20 sling bullets made of clay or lead. Used with slings and hoopaks in ranged mode.'
 );
 

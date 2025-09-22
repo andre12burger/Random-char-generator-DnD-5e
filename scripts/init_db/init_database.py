@@ -11,6 +11,8 @@ import logging
 from pathlib import Path
 from tqdm import tqdm
 import time
+import subprocess
+import sys
 
 
 class TqdmMilliseconds(tqdm):
@@ -64,8 +66,25 @@ class DatabaseInitializer:
             "core/schema_books.sql",          # Livros fonte do conteúdo
             "core/schema_units.sql",          # Unidades de medida e moedas
             "core/schema_attributes.sql",     # Tabelas de atributos base
+            "core/schema_dices.sql",          # Tipos de dados 
             "core/schema_skills.sql",         # Skills (dependem de atributos)
             "core/schema_damage_types.sql",   # Tipos de dano (dependem de books)
+
+            # Classes - Sistema de classes D&D 5e
+            "classes/schema_classes.sql",     # Classes principais (dependem de dice e books)
+            "classes/schema_class_books.sql", # Relacionamentos many-to-many entre classes e livros
+            "classes/schema_initial_gold.sql",  # Riqueza inicial por classe (dependem de classes, dice e currency)
+            "classes/schema_class_abilities.sql",  # Habilidades por classe e nível (sistema simplificado 4 colunas)
+            "classes/schema_spell_slots.sql",  # Spell slots para classes spellcasters
+            "classes/schema_class_proficiencies.sql",  # Proficiências das classes (saving throws, armor, weapons, tools, skills)
+            "classes/schema_class_equipment.sql",  # Equipamentos iniciais das classes (dependem de classes e items)
+            "classes/schema_subclasses.sql",  # Subclasses D&D 5e com características extraídas automaticamente
+            "classes/schema_subclass_books.sql", # Relacionamentos many-to-many entre subclasses e livros
+            "classes/schema_subclass_abilities.sql",  # Habilidades por subclass e nível (sistema simplificado 4 colunas)
+
+            # Spells - Magias e feitiços
+            "spells/schema_spells.sql",        # Magias e feitiços (dependem de books, dice e damage_types)
+            "spells/schema_spells_content.sql", # conteudo das magias (livros, classes, materiais, etc)
 
             # Items - Equipamentos e itens
             "items/schema_items.sql",         # Categorias base de itens
@@ -138,7 +157,7 @@ class DatabaseInitializer:
         """
         # Adiciona uma linha separadora antes da barra
         tqdm.write("─" * 80)
-        tqdm.write("📊 Progresso da inicialização do banco de dados:")
+        tqdm.write("Progresso da inicialização do banco de dados:")
         tqdm.write("")
         
         self.progress_bar = TqdmMilliseconds(
@@ -385,7 +404,7 @@ class DatabaseInitializer:
                 # Mostra tempo final do schema antes de fechar
                 final_time = schema_progress.format_dict['elapsed']
                 schema_name = schema_file.split('/')[-1].replace('.sql', '').replace('_', ' ').title()
-                tqdm.write(f"  ✓ {schema_name} concluído em {final_time:.3f}s ({total_commands} comandos)")
+                tqdm.write(f"   {schema_name} concluído em {final_time:.3f}s ({total_commands} comandos)")
                 schema_progress.close()
 
     def initialize_database(self) -> None:
@@ -431,6 +450,7 @@ class DatabaseInitializer:
 
             # Finalização - última etapa
             self._update_progress()
+            
             self.logger.info(
                 f"Banco de dados {self.db_name} atualizado com sucesso em {self.db_path}"
             )
@@ -487,7 +507,7 @@ class DatabaseInitializer:
 def main():
     """Função principal para inicialização/atualização do banco de dados."""
     try:
-        print("🚀 Iniciando atualização do banco de dados D&D 5e...")
+        print("Iniciando atualização do banco de dados D&D 5e...")
         print()  # Linha em branco para separar da barra de progresso
         
         initializer = DatabaseInitializer()
@@ -505,9 +525,9 @@ def main():
         
         # Mensagens finais sempre por último
         if verification_success:
-            print("✅ Banco de dados atualizado com sucesso!")
+            print("Banco de dados atualizado com sucesso!")
         else:
-            print("❌ Erro na verificação do banco de dados!")
+            print("Erro na verificação do banco de dados!")
 
     except Exception as e:
         # Força flush de todas as barras de progresso antes das mensagens finais
@@ -517,7 +537,7 @@ def main():
         # Adiciona linhas em branco para separar das barras
         print()
         print()
-        print(f"❌ Erro durante a atualização: {e}")
+        print(f"Erro durante a atualização: {e}")
         raise
 
 
