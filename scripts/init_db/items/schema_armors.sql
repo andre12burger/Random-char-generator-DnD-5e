@@ -53,7 +53,7 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Padded
 (
-    2 /* armor */,
+    3 /* armor */,
     1 /* Light Armor */,
     'Padded',
     11,
@@ -69,7 +69,7 @@ INSERT INTO item_armors (
 ),
 -- Leather
 (
-    2 /* armor */,
+    3 /* armor */,
     1 /* Light Armor */,
     'Leather',
     11,
@@ -85,7 +85,7 @@ INSERT INTO item_armors (
 ),
 -- Studded Leather
 (
-    2 /* armor */,
+    3 /* armor */,
     1 /* Light Armor */,
     'Studded Leather',
     12,
@@ -109,7 +109,7 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Hide
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Hide',
     12,
@@ -125,7 +125,7 @@ INSERT INTO item_armors (
 ),
 -- Chain Shirt
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Chain Shirt',
     13,
@@ -141,7 +141,7 @@ INSERT INTO item_armors (
 ),
 -- Scale Mail
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Scale Mail',
     14,
@@ -157,7 +157,7 @@ INSERT INTO item_armors (
 ),
 -- Spiked Armor
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Spiked Armor',
     14,
@@ -173,7 +173,7 @@ INSERT INTO item_armors (
 ),
 -- Breastplate
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Breastplate',
     14,
@@ -189,7 +189,7 @@ INSERT INTO item_armors (
 ),
 -- Half Plate
 (
-    2 /* armor */,
+    3 /* armor */,
     2 /* Medium Armor */,
     'Half Plate',
     15,
@@ -213,7 +213,7 @@ INSERT INTO item_armors (
 ) VALUES 
 -- Ring Mail
 (
-    2 /* armor */,
+    3 /* armor */,
     3 /* Heavy Armor */,
     'Ring Mail',
     14,
@@ -229,7 +229,7 @@ INSERT INTO item_armors (
 ),
 -- Chain Mail
 (
-    2 /* armor */,
+    3 /* armor */,
     3 /* Heavy Armor */,
     'Chain Mail',
     16,
@@ -245,7 +245,7 @@ INSERT INTO item_armors (
 ),
 -- Splint
 (
-    2 /* armor */,
+    3 /* armor */,
     3 /* Heavy Armor */,
     'Splint',
     17,
@@ -261,7 +261,7 @@ INSERT INTO item_armors (
 ),
 -- Plate
 (
-    2 /* armor */,
+    3 /* armor */,
     3 /* Heavy Armor */,
     'Plate',
     18,
@@ -284,7 +284,7 @@ INSERT INTO item_armors (
     book_id
 ) VALUES 
 (
-    2 /* armor */,
+    3 /* armor */,
     4 /* Shield */,
     'Shield',
     2,

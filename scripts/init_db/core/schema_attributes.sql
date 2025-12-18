@@ -16,4 +16,8 @@ INSERT INTO core_attributes (name, abbreviation) VALUES
 ('Constitution', 'CON'),
 ('Intelligence', 'INT'),
 ('Wisdom', 'WIS'),
-('Charisma', 'CHA');
+('Charisma', 'CHA'),
+('Player Choice', 'CHOICE');
+
+-- ATRIBUTO ESPECIAL: Player Choice
+-- Adicionar atributo CHOICE se não existe (para ASI com escolha do jogador)

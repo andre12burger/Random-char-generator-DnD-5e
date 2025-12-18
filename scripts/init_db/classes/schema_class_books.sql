@@ -6,6 +6,8 @@
 
 -- ==================== TABELA DE RELACIONAMENTO CLASSE-LIVRO ====================
 
+DROP TABLE IF EXISTS class_books;
+
 -- Tabela para relacionar classes com múltiplos livros
 CREATE TABLE IF NOT EXISTS class_books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -69,5 +69,7 @@ INSERT OR REPLACE INTO core_books (code, name, release_date) VALUES
 ('DDB', 'Dungeons & Dragons Beyound', '2020-04-09'),
 ('BPTG', 'Bigby Presents - Glory of the Giants', '2023-08-15'),
 ('GGR', 'Guildmaster''s Guide to Ravnica', '2018-11-20'),
+('PS:K', 'Plane Shift - Kaladesh', '2017-02-0'),
+('PS:I', 'Plane Shift - Ixalan', '2018-10-0'),
 ('UA', 'Unearthed Arcana', NULL);
 
