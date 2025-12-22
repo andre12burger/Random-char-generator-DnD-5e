@@ -449,6 +449,18 @@ SELECT 'Dwarf', 'dwarf', b.id, 'Bold and hardy, dwarves are known as skilled war
 FROM core_books b, creature_types ct, core_sizes s, core_measurement_units u
 WHERE b.code = 'PHB' AND ct.name = 'Humanoid' AND s.name = 'Medium' AND u.code = 'ft';
 
+-- Dwarf (ERFW)
+INSERT OR IGNORE INTO lineages (name, slug, source_book_id, description, creature_type_id, size_id, speed_value, speed_unit_id, is_default_version, is_overlay)
+SELECT 'Dwarf', 'dwarf', b.id, NULL, ct.id, s.id, 25, u.id, 0, 0
+FROM core_books b, creature_types ct, core_sizes s, core_measurement_units u
+WHERE b.code = 'ERFW' AND ct.name = 'Humanoid' AND s.name = 'Medium' AND u.code = 'ft';
+
+-- Dwarf (PSK)
+INSERT OR IGNORE INTO lineages (name, slug, source_book_id, description, creature_type_id, size_id, speed_value, speed_unit_id, is_default_version, is_overlay)
+SELECT 'Dwarf', 'dwarf', b.id, NULL, ct.id, s.id, 25, u.id, 0, 0
+FROM core_books b, creature_types ct, core_sizes s, core_measurement_units u
+WHERE b.code = 'PSK' AND ct.name = 'Humanoid' AND s.name = 'Medium' AND u.code = 'ft';
+
 -- Elf (PHB basic)
 INSERT OR IGNORE INTO lineages (name, slug, source_book_id, description, creature_type_id, size_id, speed_value, speed_unit_id, is_default_version, is_overlay)
 SELECT 'Elf', 'elf', b.id, 'Elves are a magical people of otherworldly grace, living in the world but not entirely part of it. They live in places of ethereal beauty, in the midst of ancient forests or in silvery spires glittering with faerie light. Elves love nature and magic, art and artistry, music and poetry, and the good things of the world.', ct.id, s.id, 30, u.id, 1, 0

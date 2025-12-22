@@ -1,0 +1,1075 @@
+{
+  "classes": {
+    "columns": [
+      "-- Identificação",
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "hit_dice_id INTEGER NOT NULL",
+      "is_spellcaster INTEGER CHECK(is_spellcaster IN (0, 1)) DEFAULT 0",
+      "main_book_id INTEGER",
+      "level_subclass INTEGER DEFAULT 3,  -- Nível em que a subclasse é escolhida (padrão 3)"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_classes.sql"
+    ]
+  },
+  "class_abilities": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "level INTEGER NOT NULL",
+      "ability_name TEXT NOT NULL",
+      "subclass_specific BOOLEAN DEFAULT FALSE",
+      "-- Foreign Key",
+      "-- Constraints",
+      "-- Unique constraint"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_abilities.sql"
+    ]
+  },
+  "class_books": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_books.sql"
+    ]
+  },
+  "class_starting_equipment": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "line_number INTEGER NOT NULL,              -- Linha de equipamento (1, 2, 3, 4...)",
+      "option_letter TEXT NOT NULL,               -- Opção dentro da linha ('a', 'b', 'c', 'fixed')",
+      "quantity INTEGER DEFAULT 1,                -- Quantidade do item",
+      "equipment_text TEXT,                       -- Texto completo da linha",
+      "item_name_clean TEXT,                      -- Nome tratado do item",
+      "item_id INTEGER,                           -- ID do item na tabela específica",
+      "table_name TEXT,                           -- Nome da tabela onde o item está",
+      "-- Foreign key",
+      "-- Verificações",
+      "CHECK (option_letter IN ('a', 'b', 'c', 'fixed'))",
+      "CHECK (quantity > 0)",
+      "CHECK (table_name IS NULL OR table_name IN (",
+      "'weapon_categories', 'item_weapons', 'item_armors', 'item_ammunition'",
+      "'item_adventure_gear', 'item_tools', 'item_containers'",
+      "'item_clothes', 'item_common_items', 'item_usable_items'",
+      "'items'",
+      "))"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_equipment.sql"
+    ]
+  },
+  "class_proficiencies_saving_throws": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "attribute_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_proficiencies_armor": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "armor_type_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_proficiencies_weapons": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "weapon_category_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_proficiencies_tools": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "tool_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_proficiencies_skill_choices": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "skill_choices INTEGER NOT NULL DEFAULT 2"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_proficiencies_skill_options": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "skill_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_class_proficiencies.sql"
+    ]
+  },
+  "class_initial_gold": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL UNIQUE, -- Referência para classes (cada classe tem uma regra)",
+      "dice_count INTEGER NOT NULL, -- Quantidade de dados para rolar",
+      "dice_id INTEGER NOT NULL, -- Tipo de dado para rolar",
+      "multiplier INTEGER NOT NULL DEFAULT 1, -- Multiplicador do resultado dos dados",
+      "currency_id INTEGER NOT NULL, -- Tipo de moeda (normalmente gold pieces)",
+      "calculation_description TEXT, -- Descrição da fórmula (ex: \"4d4 × 10 gp\")",
+      "-- Chaves estrangeiras"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_initial_gold.sql"
+    ]
+  },
+  "class_spell_slots": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "class_id INTEGER NOT NULL",
+      "level INTEGER NOT NULL",
+      "-- Cantrips conhecidos (nível 0)",
+      "cantrips_known INTEGER DEFAULT 0",
+      "-- Spell slots por nível (1º ao 9º)",
+      "spell_slot_1st INTEGER DEFAULT 0",
+      "spell_slot_2nd INTEGER DEFAULT 0",
+      "spell_slot_3rd INTEGER DEFAULT 0",
+      "spell_slot_4th INTEGER DEFAULT 0",
+      "spell_slot_5th INTEGER DEFAULT 0",
+      "spell_slot_6th INTEGER DEFAULT 0",
+      "spell_slot_7th INTEGER DEFAULT 0",
+      "spell_slot_8th INTEGER DEFAULT 0",
+      "spell_slot_9th INTEGER DEFAULT 0",
+      "-- Constraints",
+      "CHECK (level >= 1 AND level <= 20)"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_spell_slots.sql"
+    ]
+  },
+  "subclasses": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL",
+      "class_id INTEGER NOT NULL",
+      "main_book_id INTEGER NOT NULL DEFAULT 1",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_subclasses.sql"
+    ]
+  },
+  "subclass_features": {
+    "columns": [
+      "id INTEGER PRIMARY KEY",
+      "subclass_id INTEGER NOT NULL",
+      "feature_name TEXT NOT NULL",
+      "level INTEGER NOT NULL",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_subclass_abilities.sql"
+    ]
+  },
+  "subclass_books": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "subclass_id INTEGER NOT NULL",
+      "book_id INTEGER NOT NULL",
+      "is_ua_version INTEGER CHECK(is_ua_version IN (0, 1)) DEFAULT 0"
+    ],
+    "files": [
+      "scripts\\init_db\\classes\\schema_subclass_books.sql"
+    ]
+  },
+  "core_alignments": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "abbreviation TEXT NOT NULL UNIQUE",
+      "alignment_order TEXT NOT NULL",
+      "alignment_morality TEXT NOT NULL",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_alignment.sql"
+    ]
+  },
+  "core_attributes": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "abbreviation TEXT NOT NULL UNIQUE"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_attributes.sql"
+    ]
+  },
+  "core_attribute_modifiers": {
+    "columns": [
+      "attribute_score INTEGER PRIMARY KEY",
+      "modifier_sign VARCHAR(1)",
+      "modifier_number INTEGER NOT NULL",
+      "modifier_value TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_attribute_modifiers.sql"
+    ]
+  },
+  "core_books": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "code TEXT NOT NULL UNIQUE,        -- Código curto do livro (ex: 'PHB', 'DMG', 'XGE')",
+      "name TEXT NOT NULL UNIQUE,        -- Nome completo do livro",
+      "release_date DATE,                -- Data de lançamento",
+      "publisher TEXT DEFAULT 'Wizards of the Coast'"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_books.sql"
+    ]
+  },
+  "core_conditions": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_conditions.sql"
+    ]
+  },
+  "core_condition_effects": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "condition_id INTEGER NOT NULL",
+      "effect_description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_conditions.sql"
+    ]
+  },
+  "core_damage_types": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,         -- Nome do tipo de dano",
+      "book_id INTEGER,                   -- Livro onde é descrito"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_damage_types.sql"
+    ]
+  },
+  "core_dice": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE, -- 'd4', 'd6', 'd8', 'd10', 'd12', 'd20', 'd100'",
+      "sides INTEGER NOT NULL UNIQUE",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_dices.sql"
+    ]
+  },
+  "core_languages": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,        -- ex: Common, Dwarvish",
+      "type TEXT NOT NULL CHECK(type IN ('standard','exotic')), -- classification",
+      "core_book_id INTEGER NOT NULL REFERENCES core_books(id), -- reference to core_books",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_languages.sql"
+    ]
+  },
+  "core_level_xp": {
+    "columns": [
+      "level INTEGER PRIMARY KEY",
+      "xp_required INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_level_experience.sql"
+    ]
+  },
+  "core_sizes": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_sizes.sql"
+    ]
+  },
+  "core_skills": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "attribute_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_skills.sql"
+    ]
+  },
+  "core_currency_types": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "code TEXT NOT NULL UNIQUE,         -- 'cp', 'sp', 'ep', 'gp', 'pp'",
+      "name TEXT NOT NULL,               -- 'Copper', 'Silver', 'Electrum', 'Gold', 'Platinum'",
+      "conversion_rate INTEGER NOT NULL   -- Quantas moedas de cobre (cp) equivalem a 1 desta moeda"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_units.sql"
+    ]
+  },
+  "core_measurement_units": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "code TEXT NOT NULL UNIQUE,         -- 'lb', 'oz'",
+      "name TEXT NOT NULL                -- 'Pounds', 'Ounces'"
+    ],
+    "files": [
+      "scripts\\init_db\\core\\schema_units.sql"
+    ]
+  },
+  "feats": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "slug TEXT NOT NULL UNIQUE",
+      "name TEXT",
+      "description TEXT",
+      "core_book_id INTEGER"
+    ],
+    "files": [
+      "scripts\\init_db\\feats\\schema_feats copy.sql",
+      "scripts\\init_db\\feats\\schema_feats.sql"
+    ]
+  },
+  "feat_prerequisites": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "feat_id INTEGER NOT NULL",
+      "raw_text TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\feats\\schema_feats copy.sql",
+      "scripts\\init_db\\feats\\schema_feats.sql"
+    ]
+  },
+  "feat_features": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "feat_id INTEGER NOT NULL",
+      "name TEXT",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\feats\\schema_feats copy.sql",
+      "scripts\\init_db\\feats\\schema_feats.sql"
+    ]
+  },
+  "item_adventure_gear": {
+    "columns": [
+      "adventure_gear_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "book_id INTEGER NOT NULL",
+      "description TEXT",
+      "contents_summary TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_adventure_gear.sql"
+    ]
+  },
+  "item_adventure_gear_contents": {
+    "columns": [
+      "content_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "adventure_gear_id INTEGER NOT NULL",
+      "item_name TEXT NOT NULL",
+      "quantity INTEGER NOT NULL DEFAULT 1",
+      "unit TEXT,                    -- \"feet\", \"days\", \"sheets\", etc. (apenas para itens não catalogados)",
+      "item_table TEXT,             -- qual tabela contém o item: \"common_items\", \"usable_items\", \"containers\", \"clothes\"",
+      "item_reference_id INTEGER,   -- ID do item na tabela específica (nullable para itens não encontrados)",
+      "notes TEXT,                  -- observações especiais"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_adventure_gear.sql"
+    ]
+  },
+  "item_ammunition": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,              -- Nome da munição",
+      "cost DECIMAL(10,2) NOT NULL,            -- Custo",
+      "cost_currency_id INTEGER NOT NULL,      -- Moeda",
+      "weight DECIMAL(10,2) NOT NULL,          -- Peso",
+      "weight_unit_id INTEGER NOT NULL,        -- Unidade de peso",
+      "quantity INTEGER NOT NULL DEFAULT 1,    -- Quantidade no pacote (20, 50, etc)",
+      "compatible_weapons TEXT,                 -- Descrição de compatibilidade",
+      "item_id INTEGER NOT NULL,               -- Categoria: adventuring-gear",
+      "book_id INTEGER NOT NULL,               -- Livro fonte",
+      "description TEXT,                        -- Descrição"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_ammunition.sql"
+    ]
+  },
+  "item_armor_types": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,     -- 'Light Armor', 'Medium Armor', 'Heavy Armor', 'Shield'",
+      "don_time TEXT NOT NULL",
+      "doff_time TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_armors.sql"
+    ]
+  },
+  "item_armors": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "category_id INTEGER NOT NULL",
+      "armor_type_id INTEGER NOT NULL",
+      "name TEXT NOT NULL UNIQUE",
+      "base_ac INTEGER NOT NULL",
+      "cost_value DECIMAL(10,2)",
+      "cost_currency_id INTEGER",
+      "weight_value DECIMAL(5,2)",
+      "weight_unit_id INTEGER",
+      "dex_bonus_allowed BOOLEAN DEFAULT 1",
+      "max_dex_bonus INTEGER",
+      "strength_requirement INTEGER",
+      "stealth_disadvantage BOOLEAN DEFAULT 0",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_armors.sql"
+    ]
+  },
+  "item_clothes": {
+    "columns": [
+      "clothing_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_clothes.sql"
+    ]
+  },
+  "item_common_items": {
+    "columns": [
+      "common_item_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "description TEXT",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_common_items.sql"
+    ]
+  },
+  "item_containers": {
+    "columns": [
+      "container_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "capacity TEXT",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_containers.sql"
+    ]
+  },
+  "item_explosive_categories": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE, -- 'Renaissance' ou 'Modern'",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_explosives.sql"
+    ]
+  },
+  "item_explosives": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "category_id INTEGER NOT NULL",
+      "item_id INTEGER NOT NULL, -- Relação com items(id=5) para explosivos",
+      "cost DECIMAL(10,2), -- Custo (NULL para itens modernos)",
+      "cost_currency_id INTEGER, -- Referência à moeda",
+      "weight DECIMAL(10,2) NOT NULL, -- Peso",
+      "weight_unit_id INTEGER NOT NULL, -- Referência à unidade",
+      "damage_dice TEXT, -- Dados de dano (ex: \"3d6\")",
+      "damage_type_id INTEGER, -- Referência ao tipo de dano",
+      "save_dc INTEGER, -- DC do teste de resistência",
+      "save_attribute_id INTEGER, -- Referência ao atributo (Dexterity, etc.)",
+      "range_value INTEGER, -- Valor do alcance",
+      "range_unit_id INTEGER, -- Unidade do alcance (feet)",
+      "area_value INTEGER, -- Valor da área de efeito",
+      "area_unit_id INTEGER, -- Unidade da área (feet)",
+      "book_id INTEGER NOT NULL, -- Livro de origem",
+      "description TEXT NOT NULL, -- Descrição completa com regras e efeitos"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_explosives.sql"
+    ]
+  },
+  "item_firearms": {
+    "columns": [
+      "firearm_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "firearm_category_id INTEGER NOT NULL",
+      "item_id INTEGER NOT NULL, -- Relação com items(id=6) para firearms",
+      "damage_dice TEXT NOT NULL",
+      "damage_type_id INTEGER",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2) NOT NULL",
+      "weight_unit_id INTEGER NOT NULL",
+      "range_normal INTEGER",
+      "range_max INTEGER",
+      "unit_id INTEGER",
+      "reload_shots INTEGER, -- Número de tiros antes de recarregar (para propriedade reload)",
+      "book_id INTEGER NOT NULL",
+      "special_notes TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_firearms.sql",
+      "scripts\\init_db\\items\\schema_firearms.sql"
+    ]
+  },
+  "item_firearm_categories": {
+    "columns": [
+      "firearm_category_id INTEGER PRIMARY KEY",
+      "category_name TEXT NOT NULL UNIQUE",
+      "category_description TEXT",
+      "book_id INTEGER NOT NULL",
+      "time_period TEXT NOT NULL, -- 'Renaissance', 'Modern', 'Futuristic'"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_firearms.sql"
+    ]
+  },
+  "item_firearm_property_relations": {
+    "columns": [
+      "firearm_id INTEGER NOT NULL",
+      "property_id INTEGER NOT NULL",
+      "PRIMARY KEY (firearm_id, property_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_firearms.sql"
+    ]
+  },
+  "item_gemstones": {
+    "columns": [
+      "gemstone_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL DEFAULT 4, -- currency",
+      "value DECIMAL(10,2) NOT NULL",
+      "value_currency_id INTEGER NOT NULL DEFAULT 4, -- gold",
+      "description TEXT",
+      "book_id INTEGER NOT NULL DEFAULT 2, -- Player's Handbook"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_gemstones.sql"
+    ]
+  },
+  "items": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,         -- 'armor', 'weapon', 'tool', 'gear', etc",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_items.sql"
+    ]
+  },
+  "item_magic_item_rarities": {
+    "columns": [
+      "rarity_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "description TEXT",
+      "typical_price_range TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_magic_items.sql"
+    ]
+  },
+  "item_magic_item_types": {
+    "columns": [
+      "type_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_magic_items.sql"
+    ]
+  },
+  "item_magic_items": {
+    "columns": [
+      "magic_item_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL",
+      "type_id INTEGER NOT NULL",
+      "rarity_id INTEGER NOT NULL",
+      "requires_attunement BOOLEAN NOT NULL DEFAULT FALSE",
+      "-- Informações básicas",
+      "book_id INTEGER NOT NULL",
+      "item_category_id INTEGER NOT NULL DEFAULT 12, -- FK para items (12 = 'wondrous-items')",
+      "-- Descrição do item",
+      "description TEXT, -- Descrição mecânica otimizada"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_magic_items.sql"
+    ]
+  },
+  "item_poison_types": {
+    "columns": [
+      "poison_type_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "type_name TEXT NOT NULL UNIQUE",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_poisons.sql"
+    ]
+  },
+  "item_poisons": {
+    "columns": [
+      "poison_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "poison_type_id INTEGER NOT NULL",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "book_id INTEGER NOT NULL",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_poisons.sql"
+    ]
+  },
+  "item_arcane_focus": {
+    "columns": [
+      "focus_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "book_id INTEGER NOT NULL",
+      "description TEXT",
+      "special_properties TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_spellcasting_focuses.sql"
+    ]
+  },
+  "item_holy_symbol": {
+    "columns": [
+      "symbol_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "book_id INTEGER NOT NULL",
+      "description TEXT",
+      "special_properties TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_spellcasting_focuses.sql"
+    ]
+  },
+  "item_druid_focus": {
+    "columns": [
+      "focus_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "book_id INTEGER NOT NULL",
+      "description TEXT",
+      "special_properties TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_spellcasting_focuses.sql"
+    ]
+  },
+  "item_tool_categories": {
+    "columns": [
+      "category_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_tools.sql"
+    ]
+  },
+  "item_tools": {
+    "columns": [
+      "tool_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "category_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2) NOT NULL",
+      "cost_currency_id INTEGER NOT NULL",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "item_id INTEGER NOT NULL DEFAULT 9, -- tools",
+      "book_id INTEGER NOT NULL",
+      "-- PHB: Descrição simples",
+      "description_simple TEXT",
+      "-- XGE: Informações detalhadas",
+      "components TEXT,           -- O que vem no kit",
+      "special_use TEXT,         -- Habilidade especial que fornece",
+      "sample_dcs TEXT,          -- DCs sugeridas para uso"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_tools.sql"
+    ]
+  },
+  "item_tool_skill_advantages": {
+    "columns": [
+      "advantage_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "tool_id INTEGER NOT NULL",
+      "skill_id INTEGER NOT NULL",
+      "advantage_description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_tools.sql"
+    ]
+  },
+  "item_trinket_categories": {
+    "columns": [
+      "trinket_category_id INTEGER PRIMARY KEY",
+      "book_id INTEGER NOT NULL",
+      "category_name TEXT NOT NULL UNIQUE",
+      "category_description TEXT",
+      "dice_type TEXT NOT NULL, -- 'd100', 'd8', etc."
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_trinkets.sql"
+    ]
+  },
+  "item_trinkets": {
+    "columns": [
+      "trinket_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "trinket_category_id INTEGER NOT NULL",
+      "item_id INTEGER NOT NULL, -- Relação com items(id=10) para trinkets",
+      "dice_min INTEGER NOT NULL,     -- Valor mínimo do dado (ex: 1 em \"1-2\")",
+      "dice_max INTEGER NOT NULL,     -- Valor máximo do dado (ex: 2 em \"1-2\")",
+      "description TEXT NOT NULL,     -- Apenas descrição (sem nome redundante)"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_trinkets.sql"
+    ]
+  },
+  "item_usable_items": {
+    "columns": [
+      "usable_item_id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE",
+      "item_id INTEGER NOT NULL",
+      "cost DECIMAL(10,2)",
+      "cost_currency_id INTEGER",
+      "weight DECIMAL(10,2)",
+      "weight_unit_id INTEGER",
+      "description TEXT",
+      "book_id INTEGER NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_usable_items.sql"
+    ]
+  },
+  "item_weapons_types": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,        -- Nome do tipo em inglês (Melee/Ranged)",
+      "description TEXT                  -- Descrição em inglês"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons_properties": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,        -- Nome da propriedade em inglês",
+      "description TEXT                  -- Descrição em inglês exata da página"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons_categories": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,        -- Nome da categoria em inglês (Simple/Martial)",
+      "description TEXT                  -- Descrição em inglês"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons_ranges": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "weapon_id INTEGER NOT NULL UNIQUE, -- Uma arma só pode ter um conjunto de alcances",
+      "normal_range INTEGER NOT NULL,     -- Alcance normal em pés",
+      "maximum_range INTEGER NOT NULL,    -- Alcance máximo em pés",
+      "unit_id INTEGER NOT NULL,          -- Unidade de medida (referência a measurement_units)"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE,        -- Nome da arma em inglês",
+      "category_id INTEGER NOT NULL,     -- Categoria (Simple/Martial)",
+      "type_id INTEGER NOT NULL,         -- Tipo (melee/ranged)",
+      "damage_dice TEXT NOT NULL,        -- Dado de dano (1d6, 2d6, etc)",
+      "damage_type_id INTEGER,           -- Tipo de dano principal (NULL para armas improvisadas)",
+      "cost DECIMAL(10,2) NOT NULL,      -- Valor base",
+      "cost_currency_id INTEGER NOT NULL, -- Tipo de moeda (referência a currency_types)",
+      "weight DECIMAL(10,2) NOT NULL,    -- Valor do peso",
+      "weight_unit_id INTEGER NOT NULL,  -- Unidade de medida do peso (referência a measurement_units)",
+      "item_id INTEGER NOT NULL,         -- Referência à tabela items para categoria",
+      "book_id INTEGER NOT NULL,         -- Livro onde a arma é descrita",
+      "special_rules TEXT,               -- Regras especiais (NULL se não tiver)"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons_relations": {
+    "columns": [
+      "weapon_id INTEGER NOT NULL",
+      "property_id INTEGER NOT NULL",
+      "property_value TEXT,  -- Para propriedades que precisam de um valor (ex: alcance para armas de alcance)",
+      "PRIMARY KEY (weapon_id, property_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "item_weapons_alt_damage": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "weapon_id INTEGER NOT NULL",
+      "damage_dice TEXT NOT NULL,        -- Dado de dano alternativo",
+      "damage_type_id INTEGER NOT NULL,  -- Tipo de dano alternativo",
+      "condition_text TEXT NOT NULL,     -- Descrição de quando usar esse dano"
+    ],
+    "files": [
+      "scripts\\init_db\\items\\schema_weapons.sql"
+    ]
+  },
+  "creature_types": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL UNIQUE"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_lineages.sql"
+    ]
+  },
+  "lineages": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "name TEXT NOT NULL",
+      "slug TEXT NOT NULL",
+      "source_book_id INTEGER NOT NULL",
+      "description TEXT",
+      "creature_type_id INTEGER NOT NULL",
+      "size_id INTEGER NOT NULL",
+      "speed_value INTEGER NOT NULL DEFAULT 30",
+      "speed_unit_id INTEGER NOT NULL DEFAULT 1",
+      "alignment_id INTEGER",
+      "alignment_description TEXT",
+      "age_max_years INTEGER",
+      "age_description TEXT",
+      "is_default_version BOOLEAN DEFAULT 1",
+      "is_overlay BOOLEAN DEFAULT 0"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_lineages.sql"
+    ]
+  },
+  "lineage_ability_score_increases": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "lineage_id INTEGER NOT NULL",
+      "attribute_id INTEGER NOT NULL",
+      "bonus_value INTEGER NOT NULL",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_lineages.sql"
+    ]
+  },
+  "lineage_languages": {
+    "columns": [
+      "--     id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "--     lineage_id INTEGER NOT NULL",
+      "--     language_id INTEGER NOT NULL",
+      "--     description TEXT",
+      "--     FOREIGN KEY (lineage_id) REFERENCES lineages(id) ON DELETE CASCADE",
+      "--     FOREIGN KEY (language_id) REFERENCES core_languages(id)",
+      "--"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_lineages.sql"
+    ]
+  },
+  "lineage_features": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "lineage_id INTEGER NOT NULL",
+      "available_at_level INTEGER NOT NULL DEFAULT 1",
+      "name TEXT NOT NULL",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_lineage_features.sql"
+    ]
+  },
+  "sublineages": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "parent_lineage_id INTEGER NOT NULL",
+      "parent_lineage_slug TEXT NOT NULL",
+      "name TEXT NOT NULL",
+      "slug TEXT NOT NULL",
+      "source_book_id INTEGER NOT NULL",
+      "description TEXT",
+      "is_default_version BOOLEAN DEFAULT 1",
+      "is_overlay BOOLEAN DEFAULT 0"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_sublineages.sql"
+    ]
+  },
+  "sublineage_ability_score_increases": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "sublineage_id INTEGER NOT NULL",
+      "attribute_id INTEGER NOT NULL",
+      "bonus_value INTEGER NOT NULL",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_sublineages.sql"
+    ]
+  },
+  "sublineage_features": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT",
+      "sublineage_id INTEGER NOT NULL",
+      "available_at_level INTEGER NOT NULL DEFAULT 1",
+      "name TEXT NOT NULL",
+      "description TEXT NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\lineages\\schema_sublineage_features.sql",
+      "scripts\\init_db\\lineages\\schema_sublineage_features_backup.sql",
+      "scripts\\init_db\\lineages\\schema_sublineage_features_old.sql"
+    ]
+  },
+  "spells": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT, slug TEXT UNIQUE, name TEXT, level INTEGER, school_id INTEGER REFERENCES spell_schools(id), casting_time TEXT, range TEXT, duration TEXT, description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_schools": {
+    "columns": [
+      "id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_components": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT, code TEXT UNIQUE NOT NULL, name TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_components_relations": {
+    "columns": [
+      "spell_id INTEGER REFERENCES spells(id), component_id INTEGER REFERENCES spell_components(id), material_text TEXT, PRIMARY KEY(spell_id, component_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_classes_relations": {
+    "columns": [
+      "spell_id INTEGER REFERENCES spells(id), class_id INTEGER REFERENCES classes(id), PRIMARY KEY(spell_id, class_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_books_relations": {
+    "columns": [
+      "spell_id INTEGER REFERENCES spells(id), book_id INTEGER REFERENCES core_books(id), page TEXT, PRIMARY KEY(spell_id, book_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_tags": {
+    "columns": [
+      "id INTEGER PRIMARY KEY AUTOINCREMENT, code TEXT UNIQUE NOT NULL, description TEXT"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  },
+  "spell_tags_relations": {
+    "columns": [
+      "spell_id INTEGER REFERENCES spells(id), tag_id INTEGER REFERENCES spell_tags(id), PRIMARY KEY(spell_id, tag_id)"
+    ],
+    "files": [
+      "scripts\\init_db\\spells\\schema_spells.sql"
+    ]
+  }
+}

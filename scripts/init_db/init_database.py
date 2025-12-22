@@ -64,6 +64,7 @@ class DatabaseInitializer:
         self.schemas: List[str] = [
             # Core - Mecânicas fundamentais
             "core/schema_books.sql",                  # Livros fonte do conteúdo
+            "core/insert_books_from_xml.sql",          # Inserts gerados a partir dos XML (fontes extras)
             "core/schema_units.sql",                  # Unidades de medida e moedas
             "core/schema_attributes.sql",             # Tabelas de atributos base
             "core/schema_attribute_modifiers.sql",    # Modificadores de atributos (dependem de attributes)

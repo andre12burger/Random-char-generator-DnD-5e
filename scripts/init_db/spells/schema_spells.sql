@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS spell_tags;
 DROP TABLE IF EXISTS spell_tags_relations;
 
 CREATE TABLE spells (id INTEGER PRIMARY KEY AUTOINCREMENT, slug TEXT UNIQUE, name TEXT, level INTEGER, school_id INTEGER REFERENCES spell_schools(id), casting_time TEXT, range TEXT, duration TEXT, description TEXT);
-CREATE TABLE spell_schools (id INTEGER PRIMARY KEY, name TEXT UNIQUE NOT NULL);
+CREATE TABLE spell_schools (id INTEGER PRIMARY KEY, code TEXT UNIQUE NOT NULL, name TEXT UNIQUE NOT NULL);
 CREATE TABLE spell_components (id INTEGER PRIMARY KEY AUTOINCREMENT, code TEXT UNIQUE NOT NULL, name TEXT);
 CREATE TABLE spell_components_relations (spell_id INTEGER REFERENCES spells(id), component_id INTEGER REFERENCES spell_components(id), material_text TEXT, PRIMARY KEY(spell_id, component_id));
 CREATE TABLE spell_classes_relations (spell_id INTEGER REFERENCES spells(id), class_id INTEGER REFERENCES classes(id), PRIMARY KEY(spell_id, class_id));
@@ -21,15 +21,15 @@ CREATE TABLE spell_books_relations (spell_id INTEGER REFERENCES spells(id), book
 CREATE TABLE spell_tags (id INTEGER PRIMARY KEY AUTOINCREMENT, code TEXT UNIQUE NOT NULL, description TEXT);
 CREATE TABLE spell_tags_relations (spell_id INTEGER REFERENCES spells(id), tag_id INTEGER REFERENCES spell_tags(id), PRIMARY KEY(spell_id, tag_id));
 -- schools
-INSERT INTO spell_schools (id, name) VALUES
-  (1, 'Abjuration'),
-  (2, 'Conjuration'),
-  (3, 'Divination'),
-  (4, 'Enchantment'),
-  (5, 'Evocation'),
-  (6, 'Illusion'),
-  (7, 'Necromancy'),
-  (8, 'Transmutation');
+INSERT INTO spell_schools (id, code, name) VALUES
+  (1, 'A', 'Abjuration'),
+  (2, 'C', 'Conjuration'),
+  (3, 'D', 'Divination'),
+  (4, 'EN', 'Enchantment'),
+  (5, 'EV', 'Evocation'),
+  (6, 'I', 'Illusion'),
+  (7, 'N', 'Necromancy'),
+  (8, 'T', 'Transmutation');
 -- components (canonical codes)
 INSERT OR IGNORE INTO spell_components (code, name) VALUES
   ('V', 'Verbal'),

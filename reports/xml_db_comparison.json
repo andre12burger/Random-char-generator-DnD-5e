@@ -1,0 +1,99 @@
+[
+  {
+    "domain": "monster",
+    "xml_count": 286688,
+    "db_related": {
+      "monsters": 0
+    },
+    "convergences": [],
+    "divergences": [
+      "Nenhum dado correspondente nas tabelas previstas."
+    ]
+  },
+  {
+    "domain": "item",
+    "xml_count": 149062,
+    "db_related": {
+      "items": 19,
+      "item_magic_items": 909,
+      "item_weapons": 37,
+      "item_armors": 14,
+      "item_trinkets": 695,
+      "item_tools": 37
+    },
+    "convergences": [],
+    "divergences": [
+      "Contagem diferente (XML=149062, DB_total=1711)"
+    ]
+  },
+  {
+    "domain": "class",
+    "xml_count": 37326,
+    "db_related": {
+      "classes": 14,
+      "subclasses": 219,
+      "class_abilities": 350,
+      "class_spell_slots": 180,
+      "class_proficiencies_saving_throws": 28
+    },
+    "convergences": [],
+    "divergences": [
+      "Contagem diferente (XML=37326, DB_total=791)"
+    ]
+  },
+  {
+    "domain": "spell",
+    "xml_count": 25755,
+    "db_related": {
+      "spells": 574,
+      "spell_schools": 8,
+      "spell_components": 3,
+      "spell_components_relations": 1341,
+      "spell_classes_relations": 1417
+    },
+    "convergences": [],
+    "divergences": [
+      "Contagem diferente (XML=25755, DB_total=3343)"
+    ]
+  },
+  {
+    "domain": "race",
+    "xml_count": 16110,
+    "db_related": {
+      "lineages": 61,
+      "lineage_features": 208,
+      "lineage_ability_score_increases": 73,
+      "sublineages": 0,
+      "sublineage_features": 25,
+      "lineage_languages": 10
+    },
+    "convergences": [],
+    "divergences": [
+      "Contagem diferente (XML=16110, DB_total=377)"
+    ]
+  },
+  {
+    "domain": "background",
+    "xml_count": 6011,
+    "db_related": {
+      "backgrounds": 0
+    },
+    "convergences": [],
+    "divergences": [
+      "Nenhum dado correspondente nas tabelas previstas."
+    ]
+  },
+  {
+    "domain": "feat",
+    "xml_count": 2528,
+    "db_related": {
+      "feats": 116,
+      "feat_features": 240,
+      "feat_prerequisites": 70
+    },
+    "convergences": [],
+    "divergences": [
+      "Contagem diferente (XML=2528, DB_total=426)"
+    ]
+  }
+]

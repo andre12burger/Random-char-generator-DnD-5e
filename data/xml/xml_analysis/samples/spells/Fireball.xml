@@ -1,0 +1,25 @@
+<spell>
+    <name>Fireball</name>
+    <level>3</level>
+    <school>EV</school>
+    <time>1 action</time>
+    <range>150 feet</range>
+    <components>V, S, M (a tiny ball of bat guano and sulfur)</components>
+    <duration>Instantaneous</duration>
+    <classes>School: Evocation, Fighter (Eldritch Knight), Sorcerer, Wizard, Cleric (Light Domain), Warlock (Fiend), Artificer (Artillerist), Warlock (Genie), Warlock (Genie Efreeti), Cleric (Zeal Domain), Druid (Conflagration (HB)), Sorcerer (Primordial Chaos (HB)), Artificer (Kobold Engineer (HB)), Warlock (Ancient Wyrm - Red (HB)), Mage (Tanares), Apothecary (Drakkenheim) (Chemist), Cleric (Destruction Domain (HB)), Warlock (The Legacy (HB)), Witch (Valda) (Red Magic), Monk (Alternate Four Elements (HB)), Rogue (Saboteur (HB)), Sorcerer (Emberheart (HB)), Magus (LaserLlama), Vessel (LaserLlama) (The Fire Cataclysm), Vessel (LaserLlama) (The Cursed), Warlock (Great Wyrm (HB)), Cleric (Samael Domain (HB)), Wizard (School of Invention (UA)), Warlock (Genie (UA))</classes>
+    <text>A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.
+	The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.
+
+ At Higher Levels: When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.
+
+ Source:	Player's Handbook (2014) p. 241</text>
+    <roll description="Fire Damage" level="3">8d6</roll>
+    <roll description="Fire Damage" level="4">9d6</roll>
+    <roll description="Fire Damage" level="5">10d6</roll>
+    <roll description="Fire Damage" level="6">11d6</roll>
+    <roll description="Fire Damage" level="7">12d6</roll>
+    <roll description="Fire Damage" level="8">13d6</roll>
+    <roll description="Fire Damage" level="9">14d6</roll>
+    <roll description="Damage Increase">1d6</roll>
+</spell>
+  

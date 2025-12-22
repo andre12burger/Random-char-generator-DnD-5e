@@ -14,6 +14,17 @@ CREATE TABLE sublineages (
     UNIQUE(parent_lineage_slug, slug, source_book_id)
 );
 
+DROP TABLE IF EXISTS sublineage_ability_score_increases;
+CREATE TABLE sublineage_ability_score_increases (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sublineage_id INTEGER NOT NULL,
+    attribute_id INTEGER NOT NULL,
+    bonus_value INTEGER NOT NULL,
+    description TEXT NOT NULL,
+    FOREIGN KEY (sublineage_id) REFERENCES sublineages(id) ON DELETE CASCADE,
+    FOREIGN KEY (attribute_id) REFERENCES core_attributes(id)
+);
+
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
 SELECT l.id, 'dwarf', 'Hill Dwarf', 'hill-dwarf', b.id, 'As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience. The gold dwarves of Faerun in their mighty southern kingdom are hill dwarves, as are the exiled Neidar and the debased Klar of Krynn in the Dragonlance setting.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'dwarf' AND b.code = 'PHB';
@@ -45,6 +56,38 @@ FROM lineages l, core_books b WHERE l.slug = 'halfling' AND b.code = 'PHB';
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
 SELECT l.id, 'tiefling', 'Asmodeus Tiefling', 'asmodeus-tiefling', b.id, 'Tieflings connected to Nessus command the power of fire and darkness, guided by a keener than normal intellect, as befits those linked to Asmodeus himself.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'PHB';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Baalzebul Tiefling', 'baalzebul-tiefling', b.id, 'Tieflings associated with Baalzebul are often arrogant and self-serving.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Dispater Tiefling', 'dispater-tiefling', b.id, 'Tieflings associated with Dispater are calculating and methodical.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Fierna Tiefling', 'fierna-tiefling', b.id, 'Tieflings associated with Fierna are passionate and ambitious.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Glasya Tiefling', 'glasya-tiefling', b.id, 'Tieflings associated with Glasya are cunning and manipulative.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Levistus Tiefling', 'levistus-tiefling', b.id, 'Tieflings associated with Levistus are cold and calculating.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Mammon Tiefling', 'mammon-tiefling', b.id, 'Tieflings associated with Mammon are greedy and materialistic.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Mephistopheles Tiefling', 'mephistopheles-tiefling', b.id, 'Tieflings associated with Mephistopheles are charismatic and ambitious.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'tiefling', 'Zariel Tiefling', 'zariel-tiefling', b.id, 'Tieflings associated with Zariel are disciplined and warlike.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
 
 -- Dragonborn sublineages
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
@@ -131,6 +174,23 @@ INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, sou
 SELECT l.id, 'aasimar', 'Fallen Aasimar', 'fallen-aasimar', b.id, 'An aasimar who was touched by dark powers as a youth or who turns to evil in early adulthood can become a fallen aasimar, suffering a fall from grace.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'aasimar' AND b.code = 'ERLW';
 
+-- Genasi sublineages
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'genasi', 'Air Genasi', 'air-genasi', b.id, 'As an air genasi, you are descended from the djinn. As changeable as the weather, your moods shift from calm to wild and violent with little warning, but these storms rarely last long. Air genasi typically have light blue skin, hair, and eyes. A faint but constant breeze accompanies them, tousling the hair and stirring the clothing. Some air genasi speak with breathy voices, marked by a faint echo. A few display odd patterns in their flesh or grow crystals from their scalps.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'genasi', 'Earth Genasi', 'earth-genasi', b.id, 'As an earth genasi, you are descended from the cruel and greedy dao, though you aren''t necessarily evil. You have inherited some measure of control over earth, reveling in superior strength and solid power. You tend to avoid rash decisions, pausing long enough to consider your options before taking action. Elemental earth manifests differently from one individual to the next. Some earth genasi always have bits of dust falling from their bodies and mud clinging to their clothes, never getting clean no matter how often they bathe. Others are as shiny and polished as gemstones, with skin tones of deep brown or black, eyes sparkling like agates. Earth genasi can also have smooth metallic flesh, dull iron skin spotted with rust, a pebbled and rough hide, or even a coating of tiny embedded crystals.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'genasi', 'Fire Genasi', 'fire-genasi', b.id, 'As a fire genasi, you have inherited the volatile mood and keen mind of the efreet. You tend toward impatience and making snap judgments. Rather than hide your distinctive appearance, you exult in it. Nearly all fire genasi are feverishly hot as if burning inside, an impression reinforced by flaming red, coal-black, or ash-gray skin tones. The more human-looking have fiery red hair that writhes under extreme emotion, while more exotic specimens sport actual flames dancing on their heads. Fire genasi voices might sound like crackling flames, and their eyes flare when angered. Some are accompanied by the faint scent of brimstone.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
+
+INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
+SELECT l.id, 'genasi', 'Water Genasi', 'water-genasi', b.id, 'The lapping of waves, the spray of sea foam on the wind, the ocean depths—all of these things call to your heart. You wander freely and take pride in your independence, though others might consider you selfish. Most water genasi look as if they just finished bathing, with beads of moisture collecting on their skin and hair. They smell of fresh rain and clean water. Blue or green skin is common, and most have somewhat overlarge eyes, blue-black in color. A water genasi''s hair might float freely, swaying and waving as if underwater. Some have voices with undertones reminiscent of whale song or trickling streams.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
+
 -- Goliath sublineages
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
 SELECT l.id, 'goliath', 'Cloud Goliath', 'cloud-goliath', b.id, 'Cloud goliaths are goliaths who live on the peaks of remote mountains, where they commune with the spirits of the sky.', 1, 0
@@ -155,23 +215,6 @@ FROM lineages l, core_books b WHERE l.slug = 'goliath' AND b.code = 'ERLW';
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
 SELECT l.id, 'goliath', 'Storm Goliath', 'storm-goliath', b.id, 'Storm goliaths are goliaths who live on mountain peaks exposed to violent storms, where they commune with the spirits of wind and lightning.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'goliath' AND b.code = 'ERLW';
-
--- Lizardfolk sublineages
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'lizardfolk', 'Green Lizardfolk', 'green-lizardfolk', b.id, 'Green lizardfolk are the most common variety, dwelling in swamps and marshes.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'lizardfolk', 'Black Lizardfolk', 'black-lizardfolk', b.id, 'Black lizardfolk dwell in swamps and marshes, often in more hostile environments.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'lizardfolk', 'Gray Lizardfolk', 'gray-lizardfolk', b.id, 'Gray lizardfolk are adapted to rocky coastal areas and islands.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'lizardfolk', 'Poison Dusk Lizardfolk', 'poison-dusk-lizardfolk', b.id, 'Poison dusk lizardfolk are adapted to desert environments.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
 
 -- Tabaxi sublineages
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
@@ -203,55 +246,22 @@ INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, sou
 SELECT l.id, 'triton', 'White Triton', 'white-triton', b.id, 'White tritons dwell in arctic waters.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'triton' AND b.code = 'ERLW';
 
--- Tiefling sublineages (additional ones)
+-- Lizardfolk sublineages
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Baalzebul Tiefling', 'baalzebul-tiefling', b.id, 'Tieflings associated with Baalzebul are often arrogant and self-serving.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+SELECT l.id, 'lizardfolk', 'Green Lizardfolk', 'green-lizardfolk', b.id, 'Green lizardfolk are the most common variety, dwelling in swamps and marshes.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
 
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Dispater Tiefling', 'dispater-tiefling', b.id, 'Tieflings associated with Dispater are calculating and methodical.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+SELECT l.id, 'lizardfolk', 'Black Lizardfolk', 'black-lizardfolk', b.id, 'Black lizardfolk dwell in swamps and marshes, often in more hostile environments.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
 
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Fierna Tiefling', 'fierna-tiefling', b.id, 'Tieflings associated with Fierna are passionate and ambitious.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
+SELECT l.id, 'lizardfolk', 'Gray Lizardfolk', 'gray-lizardfolk', b.id, 'Gray lizardfolk are adapted to rocky coastal areas and islands.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
 
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Glasya Tiefling', 'glasya-tiefling', b.id, 'Tieflings associated with Glasya are cunning and manipulative.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Levistus Tiefling', 'levistus-tiefling', b.id, 'Tieflings associated with Levistus are cold and calculating.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Mammon Tiefling', 'mammon-tiefling', b.id, 'Tieflings associated with Mammon are greedy and materialistic.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Mephistopheles Tiefling', 'mephistopheles-tiefling', b.id, 'Tieflings associated with Mephistopheles are charismatic and ambitious.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'tiefling', 'Zariel Tiefling', 'zariel-tiefling', b.id, 'Tieflings associated with Zariel are disciplined and warlike.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'tiefling' AND b.code = 'ERLW';
-
--- Genasi sublineages
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'genasi', 'Air Genasi', 'air-genasi', b.id, 'As an air genasi, you are descended from the djinn. As changeable as the weather, your moods shift from calm to wild and violent with little warning, but these storms rarely last long. Air genasi typically have light blue skin, hair, and eyes. A faint but constant breeze accompanies them, tousling the hair and stirring the clothing. Some air genasi speak with breathy voices, marked by a faint echo. A few display odd patterns in their flesh or grow crystals from their scalps.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'genasi', 'Earth Genasi', 'earth-genasi', b.id, 'As an earth genasi, you are descended from the cruel and greedy dao, though you aren''t necessarily evil. You have inherited some measure of control over earth, reveling in superior strength and solid power. You tend to avoid rash decisions, pausing long enough to consider your options before taking action. Elemental earth manifests differently from one individual to the next. Some earth genasi always have bits of dust falling from their bodies and mud clinging to their clothes, never getting clean no matter how often they bathe. Others are as shiny and polished as gemstones, with skin tones of deep brown or black, eyes sparkling like agates. Earth genasi can also have smooth metallic flesh, dull iron skin spotted with rust, a pebbled and rough hide, or even a coating of tiny embedded crystals.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'genasi', 'Fire Genasi', 'fire-genasi', b.id, 'As a fire genasi, you have inherited the volatile mood and keen mind of the efreet. You tend toward impatience and making snap judgments. Rather than hide your distinctive appearance, you exult in it. Nearly all fire genasi are feverishly hot as if burning inside, an impression reinforced by flaming red, coal-black, or ash-gray skin tones. The more human-looking have fiery red hair that writhes under extreme emotion, while more exotic specimens sport actual flames dancing on their heads. Fire genasi voices might sound like crackling flames, and their eyes flare when angered. Some are accompanied by the faint scent of brimstone.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
-
-INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
-SELECT l.id, 'genasi', 'Water Genasi', 'water-genasi', b.id, 'The lapping of waves, the spray of sea foam on the wind, the ocean depths—all of these things call to your heart. You wander freely and take pride in your independence, though others might consider you selfish. Most water genasi look as if they just finished bathing, with beads of moisture collecting on their skin and hair. They smell of fresh rain and clean water. Blue or green skin is common, and most have somewhat overlarge eyes, blue-black in color. A water genasi''s hair might float freely, swaying and waving as if underwater. Some have voices with undertones reminiscent of whale song or trickling streams.', 1, 0
-FROM lineages l, core_books b WHERE l.slug = 'genasi' AND b.code = 'PHB';
+SELECT l.id, 'lizardfolk', 'Poison Dusk Lizardfolk', 'poison-dusk-lizardfolk', b.id, 'Poison dusk lizardfolk are adapted to desert environments.', 1, 0
+FROM lineages l, core_books b WHERE l.slug = 'lizardfolk' AND b.code = 'ERLW';
 
 -- Shifter sublineages
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
@@ -269,17 +279,6 @@ FROM lineages l, core_books b WHERE l.slug = 'shifter' AND b.code = 'ERLW';
 INSERT INTO sublineages (parent_lineage_id, parent_lineage_slug, name, slug, source_book_id, description, is_default_version, is_overlay)
 SELECT l.id, 'shifter', 'Wildhunt Shifter', 'wildhunt-shifter', b.id, 'Wildhunt shifters are sharp and insightful. Some are constantly alert, ever wary for possible threats. Others focus on their intuition, searching within. Wildhunt shifters are excellent hunters, and they also tend to become the spiritual leaders of shifter communities.', 1, 0
 FROM lineages l, core_books b WHERE l.slug = 'shifter' AND b.code = 'ERLW';
-
-DROP TABLE IF EXISTS sublineage_ability_score_increases;
-CREATE TABLE sublineage_ability_score_increases (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    sublineage_id INTEGER NOT NULL,
-    attribute_id INTEGER NOT NULL,
-    bonus_value INTEGER NOT NULL,
-    description TEXT NOT NULL,
-    FOREIGN KEY (sublineage_id) REFERENCES sublineages(id) ON DELETE CASCADE,
-    FOREIGN KEY (attribute_id) REFERENCES core_attributes(id)
-);
 
 INSERT INTO sublineage_ability_score_increases (sublineage_id, attribute_id, bonus_value, description)
 SELECT s.id, a.id, 1, 'Your Wisdom score increases by 1'
