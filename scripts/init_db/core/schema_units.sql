@@ -1,14 +1,7 @@
 -- schema_units.sql
 
--- Remove tabelas antigas (sem prefixo)
-DROP TABLE IF EXISTS currency_types;
-DROP TABLE IF EXISTS measurement_units;
-
--- Apaga tabelas se existirem
-DROP TABLE IF EXISTS core_currency_types;
-DROP TABLE IF EXISTS core_measurement_units;
-
 -- Tipos de moeda (cp é a moeda base para conversões)
+DROP TABLE IF EXISTS core_currency_types;
 CREATE TABLE core_currency_types (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     code TEXT NOT NULL UNIQUE,         -- 'cp', 'sp', 'ep', 'gp', 'pp'
@@ -17,6 +10,7 @@ CREATE TABLE core_currency_types (
 );
 
 -- Unidades de medida
+DROP TABLE IF EXISTS core_measurement_units;
 CREATE TABLE core_measurement_units (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     code TEXT NOT NULL UNIQUE,         -- 'lb', 'oz'

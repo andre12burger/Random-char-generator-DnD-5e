@@ -8,7 +8,6 @@
 -- ====================================================
 
 -- Tabela de dados (d4, d6, d8, d10, d12, d20, d100)
-DROP TABLE IF EXISTS core_dices;
 DROP TABLE IF EXISTS core_dice;
 CREATE TABLE core_dice (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

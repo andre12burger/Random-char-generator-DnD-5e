@@ -1,8 +1,5 @@
 -- schema_items.sql
 
--- Remove tabelas antigas (sem prefixo)
-DROP TABLE IF EXISTS items;
-
 -- Apaga tabelas se existirem
 DROP TABLE IF EXISTS core_items;
 
@@ -27,7 +24,6 @@ INSERT INTO items (name, description) VALUES
 ('trinkets', 'When you make your character, you can roll once on the Trinkets table to gain a trinket, a simple item lightly touched by mystery.'),
 ('weapons', 'Items used to deal damage in combat'),
 ('wondrous-items', 'Wondrous items include worn items such as boots, belts, capes, gloves, and various pieces of jewelry and decoration.'),
--- Novas categorias adicionadas (spellcasting focuses e componentes de kits)
 ('arcane-focus', 'An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus.'),
 ('druid-focus', 'A druid focus is a spellcasting focus for druids. It might be a sprig of mistletoe, a yew wand, a staff, or some other focus.'),
 ('holy-symbol', 'A holy symbol is a representation of a deity or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield.'),

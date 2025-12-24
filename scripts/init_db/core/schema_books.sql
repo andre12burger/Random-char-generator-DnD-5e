@@ -8,7 +8,6 @@ CREATE TABLE core_type_books (
 
 
 DROP TABLE IF EXISTS core_books;
-
 CREATE TABLE core_books (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     code TEXT UNIQUE,        -- Código curto do livro (ex: 'PHB', 'DMG', 'XGE')
@@ -18,16 +17,7 @@ CREATE TABLE core_books (
     FOREIGN KEY (type_book_id) REFERENCES core_type_books(id)
 );
 
-
-INSERT OR IGNORE INTO core_type_books (name) VALUES
-('Wizards of the Coast'),
-('Third-Party'),
-('Unearthed Arcana'),
-('Homebrew');
-
-
 DROP TABLE IF EXISTS core_book_sources;
-
 CREATE TABLE core_book_sources (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     book_id INTEGER NOT NULL REFERENCES core_books(id) ON DELETE CASCADE,
@@ -35,6 +25,11 @@ CREATE TABLE core_book_sources (
     UNIQUE(book_id, raw_source)
 );
 
+INSERT OR IGNORE INTO core_type_books (name) VALUES
+('Wizards of the Coast'),
+('Third-Party'),
+('Unearthed Arcana'),
+('Homebrew');
 
 -- Inserções geradas automaticamente a partir de data/xml/Sources/PHB2014/WizardsOfTheCoast/collection-wizardsofthecoast.xml (Wizards of the Coast) em 2025-12-21
 INSERT OR IGNORE INTO core_books (name, release_date, type_book_id) VALUES
@@ -276,14 +271,13 @@ INSERT OR IGNORE INTO core_books (name, release_date, type_book_id) VALUES
 ('Spectre Creations', NULL, 4),
 ('Stormchaser Monsters', NULL, 4),
 ('Troll Race', NULL, 4),
-('Vianna''s Homebrew', NULL, 4),
-('The Lost Dungeon of Rickedness', NULL, 4);
+('Vianna''s Homebrew', NULL, 4);
 
--- Resumo: WotC=60, Third-Party=60, Unearthed_Arcana=61, Homebrew=47, Total=228 (gerado em 2025-12-21)
+-- Resumo: WotC=63, Third-Party=60, Unearthed_Arcana=61, Homebrew=46, Total=230 (gerado em 2025-12-22)
 
 -- Gerado em: 2025-12-22T02:33:37.787734
 -- Ordem: WotC -> Third-Party -> UA -> Homebrew
-
+-- Resumo de Citações: Brutas=30978, Normalizadas=7098 (gerado em 2025-12-22)
 INSERT OR IGNORE INTO core_book_sources (book_id, raw_source) VALUES ((SELECT id FROM core_books WHERE name = 'Phandelver and Below: Lost Mine of Phandelver'), 'Lost Mine of Phandelver p. 31');
 INSERT OR IGNORE INTO core_book_sources (book_id, raw_source) VALUES ((SELECT id FROM core_books WHERE name = 'Phandelver and Below: Lost Mine of Phandelver'), 'Lost Mine of Phandelver p. 57,');
 INSERT OR IGNORE INTO core_book_sources (book_id, raw_source) VALUES ((SELECT id FROM core_books WHERE name = 'Phandelver and Below: Lost Mine of Phandelver'), 'Lost Mine of Phandelver p. 25');

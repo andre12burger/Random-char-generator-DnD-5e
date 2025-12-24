@@ -40,6 +40,18 @@ Estamos adaptando o núcleo do sistema para consumir a base [FightClub5eXML](htt
 * **Ordem Hierárquica**: O banco de dados prioriza fontes na ordem: Wizards of the Coast ➡️ Third-Party ➡️ Unearthed Arcana ➡️ Homebrew.
 * **Schema `core_book_sources**`: Implementação de integridade referencial vinculando cada dado do jogo ao seu respectivo livro de origem.
 
+## ✅ Fase 2: Backgrounds & Normalização de Dados (Concluído)
+- [x] Extração inteligente de XML (FightClub5e format).
+- [x] Fatiamento de `Description` em colunas técnicas (Skills, Tools, Languages, Equipment).
+- [x] Sistema de tabelas de sorteio normalizadas (`background_tables` e `background_table_rows`).
+- [x] Tratamento de duplicatas via Python (Diferenciação por fonte).
+- [x] Script de inicialização automatizado (`init_db.sh`).
+
+## 🏗️ Próximos Passos (Roadmap)
+- [ ] **Fase 3: Raças (Races):** Implementar extração de bônus de atributos e habilidades raciais.
+- [ ] **Fase 4: Classes:** Estruturar progressão de níveis e Hit Dice.
+- [ ] **Fase 5: Lógica de Sorteio (Backend):** Criar as rotas Flask para gerar o personagem aleatório.
+
 ---
 
 ## 🏗️ Estado Atual e Roadmap

@@ -57,14 +57,14 @@ class DatabaseInitializer:
         self.sql_dir: Path = self.base_dir
 
         # Nome do banco de dados
-        self.db_name: str = "game_data.db"
+        self.db_name: str = "database.db"
         self.db_path: Path = self.db_dir / self.db_name
 
         # Lista de schemas em ordem de dependência
         self.schemas: List[str] = [
+            
             # Core - Mecânicas fundamentais
             "core/schema_books.sql",                  # Livros fonte do conteúdo
-            "core/insert_books_from_xml.sql",          # Inserts gerados a partir dos XML (fontes extras)
             "core/schema_units.sql",                  # Unidades de medida e moedas
             "core/schema_attributes.sql",             # Tabelas de atributos base
             "core/schema_attribute_modifiers.sql",    # Modificadores de atributos (dependem de attributes)
@@ -78,53 +78,57 @@ class DatabaseInitializer:
             "core/schema_sizes.sql",                  # Tamanhos de criaturas e objetos
 
             # Classes - Sistema de classes D&D 5e
-            "classes/schema_classes.sql",             # Classes principais (dependem de dice e books)
-            "classes/schema_class_books.sql",         # Relacionamentos many-to-many entre classes e livros
-            "classes/schema_initial_gold.sql",        # Riqueza inicial por classe (dependem de classes, dice e currency)
-            "classes/schema_class_abilities.sql",     # Habilidades por classe e nível (sistema simplificado 4 colunas)
-            "classes/schema_spell_slots.sql",         # Spell slots para classes spellcasters
-            "classes/schema_class_proficiencies.sql", # Proficiências das classes (saving throws, armor, weapons, tools, skills)
-            "classes/schema_class_equipment.sql",     # Equipamentos iniciais das classes (dependem de classes e items)
-            "classes/schema_subclasses.sql",          # Subclasses D&D 5e com características extraídas automaticamente
-            "classes/schema_subclass_books.sql",      # Relacionamentos many-to-many entre subclasses e livros
-            "classes/schema_subclass_abilities.sql",  # Habilidades por subclass e nível (sistema simplificado 4 colunas)
+            #"classes/schema_classes.sql",             # Classes principais (dependem de dice e books)
+            #"classes/schema_class_books.sql",         # Relacionamentos many-to-many entre classes e livros
+            #"classes/schema_initial_gold.sql",        # Riqueza inicial por classe (dependem de classes, dice e currency)
+            #"classes/schema_class_abilities.sql",     # Habilidades por classe e nível (sistema simplificado 4 colunas)
+            #"classes/schema_spell_slots.sql",         # Spell slots para classes spellcasters
+            #"classes/schema_class_proficiencies.sql", # Proficiências das classes (saving throws, armor, weapons, tools, skills)
+            #"classes/schema_class_equipment.sql",     # Equipamentos iniciais das classes (dependem de classes e items)
+            #"classes/schema_subclasses.sql",          # Subclasses D&D 5e com características extraídas automaticamente
+            #"classes/schema_subclass_books.sql",      # Relacionamentos many-to-many entre subclasses e livros
+            #"classes/schema_subclass_abilities.sql",  # Habilidades por subclass e nível (sistema simplificado 4 colunas)
 
             # Lineages (races/subraces)            
-            "lineages/schema_lineages.sql",           # Schema completo com todos os dados inclusos
-            "lineages/schema_lineage_features.sql",
-            "lineages/schema_sublineages.sql",
-            "lineages/schema_sublineage_features.sql",
+            #"lineages/schema_lineages.sql",           # Schema completo com todos os dados inclusos
+            #"lineages/schema_lineage_features.sql",
+            #"lineages/schema_sublineages.sql",
+            #"lineages/schema_sublineage_features.sql",
 
 
             # Feats - Talentos e habilidades especiais
-            "feats/schema_feats.sql",                 # Talentos (dependem de books)
+            #"feats/schema_feats.sql",                 # Talentos (dependem de books)
 
             # Spells - Magias e feitiços
-            "spells/schema_spells.sql",               # Magias e feitiços (dependem de books, dice e damage_types)
-            "spells/schema_spells_content.sql",       # conteudo das magias (livros, classes, materiais, etc)
+            #"spells/schema_spells.sql",               # Magias e feitiços (dependem de books, dice e damage_types)
+            #"spells/schema_spells_content.sql",       # conteudo das magias (livros, classes, materiais, etc)
 
             # Items - Equipamentos e itens
-            "items/schema_items.sql",                 # Categorias base de itens
-            "items/schema_weapons.sql",               # Armas (dependem de items, units, books e damage_types)
-            "items/schema_weapons_additional.sql",    # Armas de outros livros (dependem de weapons)
-            "items/schema_ammunition.sql",            # Munições (dependem de items, units, books e damage_types)
-            "items/schema_armors.sql",                # Armaduras (dependem de items, units e books)
-            "items/schema_trinkets.sql",              # Trinkets (dependem de books)
-            "items/schema_firearms.sql",              # Firearms (dependem de items, weapons_properties, damage_types e books)
-            "items/schema_poisons.sql",               # Poisons (dependem de items, currency_types e books)
-            "items/schema_spellcasting_focuses.sql",  # Spellcasting Focuses (dependem de items, currency_types, units e books)
+            #"items/schema_items.sql",                 # Categorias base de itens
+            #"items/schema_weapons.sql",               # Armas (dependem de items, units, books e damage_types)
+            #"items/schema_weapons_additional.sql",    # Armas de outros livros (dependem de weapons)
+            #"items/schema_ammunition.sql",            # Munições (dependem de items, units, books e damage_types)
+            #"items/schema_armors.sql",                # Armaduras (dependem de items, units e books)
+            #"items/schema_trinkets.sql",              # Trinkets (dependem de books)
+            #"items/schema_firearms.sql",              # Firearms (dependem de items, weapons_properties, damage_types e books)
+            #"items/schema_poisons.sql",               # Poisons (dependem de items, currency_types e books)
+            #"items/schema_spellcasting_focuses.sql",  # Spellcasting Focuses (dependem de items, currency_types, units e books)
             
             # Items - Componentes de kits e subcategorias
-            "items/schema_clothes.sql",               # Roupas e vestimentas (dependem de items, currency_types, units e books)
-            "items/schema_common_items.sql",          # Itens comuns diversos (dependem de items, currency_types, units e books)
-            "items/schema_containers.sql",            # Containers e recipientes (dependem de items, currency_types, units e books)
-            "items/schema_usable_items.sql",          # Itens utilizáveis/consumíveis (dependem de items, currency_types, units e books)
-            "items/schema_adventure_gear.sql",        # Adventure Gear (dependem de items, currency_types, units e books)
-            "items/schema_gemstones.sql",             # Gemstones (dependem de items, currency_types e books)
-            "items/schema_tools.sql",                 # Tools and Kits (dependem de items, currency_types, units, books e skills)
-            "items/schema_tools_skills.sql",          # Tool skills advantages (XGE - depende de tools e skills)
-            "items/schema_magic_items.sql"            # Magic Items com descrições (dependem de books)
+            #"items/schema_clothes.sql",               # Roupas e vestimentas (dependem de items, currency_types, units e books)
+            #"items/schema_common_items.sql",          # Itens comuns diversos (dependem de items, currency_types, units e books)
+            #"items/schema_containers.sql",            # Containers e recipientes (dependem de items, currency_types, units e books)
+            #"items/schema_usable_items.sql",          # Itens utilizáveis/consumíveis (dependem de items, currency_types, units e books)
+            #"items/schema_adventure_gear.sql",        # Adventure Gear (dependem de items, currency_types, units e books)
+            #"items/schema_gemstones.sql",             # Gemstones (dependem de items, currency_types e books)
+            #"items/schema_tools.sql",                 # Tools and Kits (dependem de items, currency_types, units, books e skills)
+            #"items/schema_tools_skills.sql",          # Tool skills advantages (XGE - depende de tools e skills)
+            #"items/schema_magic_items.sql"            # Magic Items com descrições (dependem de books)
             
+
+
+            "items2/schema_items.sql" ,                # Categorias base de itens
+            "backgrounds/schema_backgrounds.sql"
         ]
 
         # Configuração de logging
