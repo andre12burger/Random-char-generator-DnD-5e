@@ -50,7 +50,8 @@ INSERT OR IGNORE INTO core_books (code, name, category, cover, published, author
 ('AATM', 'Adventure Atlas: The Mortuary', 'supplement-alt', 'covers/AATM.webp', '2023-10-17', 'Wizards RPG Team', '[{"name": "Adventure Atlas: The Mortuary", "headers": ["Using This Supplement", "Heralds of Dust", "The Mortuary", "Appendix: Mortuary Creatures"]}, {"name": "Credits"}]'),
 ('HFFotM', 'Heroes'' Feast Flavors of the Multiverse', 'recipe', 'covers/HFFotM.webp', '2023-11-07', 'Kyle Newman', '[{"name": "Introduction", "headers": ["About This Book: Cooking Fantasies", "Worlds of Flavor", "The Bureau of Dark Tables"]}, {"name": "The Yawning Portal", "headers": ["Goldenstars", "Talyth", "Chopforest", "Hot River Crab Bites", "Sornstag", "Rothé Steak", "Onion Loaf", "Sour Cream-Walnut Cake", "Laumberry Pie", "Mingari-Spiced Owlbear Milk", "Neverwinter Nectar", "Butternut Beer"]}, {"name": "The Rock of Bral", "headers": ["Fried Soy with Vegetables", "Tavern Noodles", "Tamarind Balls", "Trencher Bread", "Tears of Selûne", "Duergar Smoked Herring", "Spiced Pork and Orange Peppers", "Steak of the Deep", "Green Ice Rime", "Loaf Pudding", "Undermountain Alurlyath"]}, {"name": "Solamnia", "headers": ["Boar Hock Soup", "Cloaks", "Salbread", "Kender Stumblenoodles", "Tarsis-Style Shrimp", "Plate of Silver", "Stuffed Trout", "Kender Loaf", "Kendermore Cobbler", "Irlymeyer''s Dragonfire Punch", "Tika''s Honey Mead"]}, {"name": "Lost in Realmspace", "headers": ["Beluir Poached Salmon", "Black Lotus Root", "Green Dragon Blackbread Muffins", "Thrakel-Seared Beef in Red Sauce", "Ornabra", "Blood of Vol", "Breaded Bird Cutlets", "Halfling Game Birds", "Vada''s Vanilla Buns", "Ray of Frost", "Ruby Cordial"]}, {"name": "Ravenloft", "headers": ["Halfling Iron Rations", "Tavern Crickets", "Barovian Garlic Bread", "Green Onion Pancakes", "Two Hares Inn Rabbit Stew", "Whole Roast Boar", "Quij''s Plate", "Fig Cakes", "Honey Milk", "Purple Grapemash No. 3"]}, {"name": "Sigil", "headers": ["Sensate Palate Cleanser", "Fried Bread and Spices", "Beer Bread", "Bacon-Wrapped Smoked Mussels", "Chickpea and Spicy Sausage Soup", "Fire-Wrapped Golden Fish", "Emerald Chicken", "Harmonious Barracks Meatloaf", "Chirper''s Sugar Biscuits", "Silverfruit Pie", "Kaeth"]}, {"name": "The Feywild", "headers": ["Elven Flatbread", "Seelie Court Cheese and Potato Soup", "Elfharrow Baked Goat Cheese", "Harengon Coffee Carrots", "Brackleberry Jam", "Fey Fritters", "Sprucebark Quaff", "Eldeen Banquet", "Saerloonian Glowfire", "Elverquisst"]}, {"name": "Afterword: Playing with Your Food"}, {"name": "Credits"}]'),
 ('BMT', 'The Book of Many Things', 'supplement', 'covers/BMT.webp', '2023-11-14', 'Wizards RPG Team', '[{"name": "Fool", "ordinal": {"type": "chapter", "identifier": 1}, "headers": ["The Deck in D&D", "Where to Go Next", "Using This Book"]}, {"name": "Key", "ordinal": {"type": "chapter", "identifier": 2}, "headers": ["A Deck of Many Stories", "Preparing to Use the Deck", "Introducing the Deck", "The Deck in Play"]}, {"name": "Balance", "ordinal": {"type": "chapter", "identifier": 3}, "headers": ["Advantages of Using Cards", "Card Sparks", "Inspiration Hand", "Journey Spread", "Encounter Deck"]}, {"name": "Puzzle", "ordinal": {"type": "chapter", "identifier": 4}, "headers": ["Puzzles", "Riddles", "Trap Rooms"]}, {"name": "Gem", "ordinal": {"type": "chapter", "identifier": 5}, "headers": ["Magic Items in This Book", "Sudden Riches", "Magic Items"]}, {"name": "Rogue", "ordinal": {"type": "chapter", "identifier": 6}, "headers": ["Magic Card Decks", "Heroes of Destiny", "Rogues'' Gallery"]}, {"name": "Sage", "ordinal": {"type": "chapter", "identifier": 7}, "headers": ["Character Options", "Heroes of Destiny", "Magic Card Decks"]}, {"name": "Fates", "ordinal": {"type": "chapter", "identifier": 8}, "headers": ["Backgrounds", "Heroes of Destiny", "Treasures"]}, {"name": "Knight", "ordinal": {"type": "chapter", "identifier": 9}, "headers": ["Magic Items", "Heroes of Destiny", "Drawing the Knight Card"]}, {"name": "Sun", "ordinal": {"type": "chapter", "identifier": 10}, "headers": ["The Solar Bastion"]}, {"name": "Moon", "ordinal": {"type": "chapter", "identifier": 11}, "headers": ["The Moonstalkers", "Moonstalker Guildhall", {"depth": 1, "header": "1: Crescent Antechamber"}, {"depth": 1, "header": "2: Commons"}, {"depth": 1, "header": "3: Jail"}, {"depth": 1, "header": "4: Audience Hall"}, {"depth": 1, "header": "5: Study"}, {"depth": 1, "header": "6: Guard Post"}, {"depth": 1, "header": "7: Icy Vault"}, {"depth": 1, "header": "8: Shrine to the Fallen"}, {"depth": 1, "header": "9: Boss Delour''s Quarters"}, {"depth": 1, "header": "10: Boss Augustus''s Quarters"}, {"depth": 1, "header": "11: Wanewort''s Den"}, {"depth": 1, "header": "12: Scrying Pool"}, {"depth": 1, "header": "13: Armory"}, {"depth": 1, "header": "14: Barrack"}, "Using the Moonstalkers in Your Campaign"]}, {"name": "Comet", "ordinal": {"type": "chapter", "identifier": 12}, "headers": ["Heralds of the Comet", "Omens of Apocalypse"]}, {"name": "Star", "ordinal": {"type": "chapter", "identifier": 13}, "headers": ["The Sky of Many Things", "Observatories"]}, {"name": "Jester", "ordinal": {"type": "chapter", "identifier": 14}, "headers": ["Seelie Market", "Exploring the Market"]}, {"name": "Throne", "ordinal": {"type": "chapter", "identifier": 15}, "headers": ["Introducing Harrowhall", "Exploring Harrowhall", {"depth": 1, "header": "1: Moat and Walls"}, {"depth": 1, "header": "2: Watchtower"}, {"depth": 1, "header": "3: Armory"}, {"depth": 1, "header": "4: Courtyard"}, {"depth": 1, "header": "5: Crypt Entrance"}, {"depth": 1, "header": "6: Dining Hall"}, {"depth": 1, "header": "7: Kitchen and Pantry"}, {"depth": 1, "header": "8: Western Bedrooms"}, {"depth": 1, "header": "9: Throne Room and Study"}, {"depth": 1, "header": "10: Eastern Bedrooms"}, {"depth": 1, "header": "11: Chapel"}, {"depth": 1, "header": "12: Balcony"}, {"depth": 1, "header": "13: Library"}, {"depth": 1, "header": "14: Crypt"}, {"depth": 1, "header": "15: Observatory"}, "Escaping the Ghost Trap"]}, {"name": "Ruin", "ordinal": {"type": "chapter", "identifier": 16}, "headers": ["History of Gardmore Abbey", "Exploring the Ruins", "Gardmore Abbey Locations"]}, {"name": "Donjon", "ordinal": {"type": "chapter", "identifier": 17}, "headers": ["The Donjon Sphere", "Running the Sphere", "Donjon Sphere Features", "Donjon Core Locations", {"depth": 1, "header": "1: Intake Circle"}, {"depth": 1, "header": "2: Pool"}, {"depth": 1, "header": "3: Engineer''s Quarters"}, {"depth": 1, "header": "4: Stasis Controls"}, {"depth": 1, "header": "5: Stasis Pods"}, {"depth": 1, "header": "6: Maintenance Hall"}, {"depth": 1, "header": "7: Drone Containment"}, {"depth": 1, "header": "8: Prototype Lab"}, {"depth": 1, "header": "9: Maintenance Shaft"}, {"depth": 1, "header": "10: Umber Hulk Tunnel"}, {"depth": 1, "header": "11: Archive Antechamber"}, {"depth": 1, "header": "12: Archive"}, {"depth": 1, "header": "13: Ruined Trap Room"}, {"depth": 1, "header": "14: Crash Site"}, {"depth": 1, "header": "14a: Damselfly Wreckage"}, {"depth": 1, "header": "14b: Survivor Camp"}, {"depth": 1, "header": "14c: Labyrinth Entrance"}, {"depth": 1, "header": "15: Metallurgy Lab"}, {"depth": 1, "header": "16: Observation Room"}, {"depth": 1, "header": "17: Trash Disposal"}, {"depth": 1, "header": "18: Massive Stasis Pods"}, {"depth": 1, "header": "18a: Western Pods"}, {"depth": 1, "header": "18b: Central Pods"}, {"depth": 1, "header": "18c: Southern Pods"}, {"depth": 1, "header": "19: Elevator Room"}, {"depth": 1, "header": "20: Isolation Chambers"}, {"depth": 1, "header": "20a: Dead Naga"}, {"depth": 1, "header": "20b: Q''zar''ktan"}, {"depth": 1, "header": "20f: Myconids"}, {"depth": 1, "header": "21: Brain Chamber"}, {"depth": 1, "header": "22: Workers'' Chambers"}, {"depth": 1, "header": "22a: Communal Room"}, {"depth": 1, "header": "22b: Oily Floor"}, {"depth": 1, "header": "22c: Glowing Orb"}, {"depth": 1, "header": "22d: Prisoner''s Remains"}, {"depth": 1, "header": "22e: Head Steward''s Office"}, {"depth": 1, "header": "23: Damselfly Bay"}, {"depth": 1, "header": "24: Escape Pod"}, {"depth": 1, "header": "25: Simulation Chambers"}, {"depth": 1, "header": "25a: Western Simulator"}, {"depth": 1, "header": "25b: Eastern Simulator"}, {"depth": 1, "header": "26: Observation Room"}, {"depth": 1, "header": "27: Observatory"}, {"depth": 1, "header": "28: Crusher"}, {"depth": 1, "header": "29: Forge"}, {"depth": 1, "header": "30: Shuffler"}, {"depth": 1, "header": "31: Reconstructory"}, {"depth": 1, "header": "32: Control Gems"}, {"depth": 1, "header": "33: Portal Chamber"}]}, {"name": "Void", "ordinal": {"type": "chapter", "identifier": 18}, "headers": ["Drawing the Void Card", "House of Cards", {"depth": 1, "header": "1: Entrance"}, {"depth": 1, "header": "2: Gem"}, {"depth": 1, "header": "3: Fool"}, {"depth": 1, "header": "4: Sun"}, {"depth": 1, "header": "5: Moon"}, {"depth": 1, "header": "6: Donjon"}, {"depth": 1, "header": "7: Talons"}, {"depth": 1, "header": "8: Balance"}, {"depth": 1, "header": "9: Star"}, {"depth": 1, "header": "10: Fates"}, {"depth": 1, "header": "10a: Future"}, {"depth": 1, "header": "10b: Present"}, {"depth": 1, "header": "10c: Past"}, {"depth": 1, "header": "11: Jester"}, {"depth": 1, "header": "12: Ruin"}, {"depth": 1, "header": "13: Skull"}, {"depth": 1, "header": "14: Sage"}, {"depth": 1, "header": "15: Rogue"}, {"depth": 1, "header": "16: Throne"}, {"depth": 1, "header": "17: Puzzle"}, {"depth": 1, "header": "18: Key"}, {"depth": 1, "header": "19: Knight"}, {"depth": 1, "header": "20: Flames"}, {"depth": 1, "header": "21: Euryale"}, {"depth": 1, "header": "22: Comet"}, {"depth": 1, "header": "23: Void"}, "Breath Drinker"]}, {"name": "Skull", "ordinal": {"type": "chapter", "identifier": 19}, "headers": ["The Grim Harrow", "Gardens of Decay", "Adventure Hooks", "The Grim Champions"]}, {"name": "Flames", "ordinal": {"type": "chapter", "identifier": 20}, "headers": ["Aurnozci, the Caged Worm", "Hulgaz the Tempter", "Malaxxix the Shackler"]}, {"name": "Talons", "ordinal": {"type": "chapter", "identifier": 21}, "headers": ["Monsters in This Book"]}, {"name": "Euryale", "ordinal": {"type": "chapter", "identifier": 22}, "headers": ["The Princess and the Gardener", "Cair Ophidian", "Conclusion"]}, {"name": "Credits"}]'),
-('DMTCRG', 'The Deck of Many Things: Card Reference Guide', 'supplement', 'covers/DMTCRG.webp', '2023-11-14', 'Wizards RPG Team', '[{"name": "The Deck of Many Things", "headers": ["Customizing Your Deck", "Card Meanings"]}, {"name": "Divinatory Uses", "headers": ["Divinatory Basics", "Divinatory Spreads"]}, {"name": "Adventure Spreads", "headers": ["Creating an Adventure Spread", "Example", "Variant: Dungeon Spread", "Using an Adventure Spread During Play"]}, {"name": "Reading the Cards", "headers": ["Aberration", "Balance", "Beast", "Book", "Bridge", "Campfire", "Cavern", "Celestial", "Comet", "Construct", "Corpse", "Crossroads", "Donjon", "Door", "Dragon", "Elemental", "Euryale", "Expert", "Fates", "Fey", "Fiend", "Flames", "Fool", "Gem", "Giant", "Humanoid", "Jester", "Key", "Knight", "Lance", "Mage", "Map", "Maze", "Mine", "Monstrosity", "Moon", "Ooze", "Path", "Pit", "Plant", "Priest", "Prisoner", "Puzzle", "Ring", "Rogue", "Ruin", "Sage", "Shield", "Ship", "Skull", "Staff", "Stairway", "Star", "Statue", "Sun", "Talons", "Tavern", "Temple", "Throne", "Tomb", "Tower", "Tree", "Undead", "Void", "Warrior", "Well"]}, {"name": "Credits"}]',('AITFR-AVT', 'Adventures in the Forgotten Realms: A Verdant Tomb', 'supplement-alt', 'covers/AITFR-AVT.webp', '2021-07-14', NULL, NULL),
+('DMTCRG', 'The Deck of Many Things: Card Reference Guide', 'supplement', 'covers/DMTCRG.webp', '2023-11-14', 'Wizards RPG Team', '[{"name": "The Deck of Many Things", "headers": ["Customizing Your Deck", "Card Meanings"]}, {"name": "Divinatory Uses", "headers": ["Divinatory Basics", "Divinatory Spreads"]}, {"name": "Adventure Spreads", "headers": ["Creating an Adventure Spread", "Example", "Variant: Dungeon Spread", "Using an Adventure Spread During Play"]}, {"name": "Reading the Cards", "headers": ["Aberration", "Balance", "Beast", "Book", "Bridge", "Campfire", "Cavern", "Celestial", "Comet", "Construct", "Corpse", "Crossroads", "Donjon", "Door", "Dragon", "Elemental", "Euryale", "Expert", "Fates", "Fey", "Fiend", "Flames", "Fool", "Gem", "Giant", "Humanoid", "Jester", "Key", "Knight", "Lance", "Mage", "Map", "Maze", "Mine", "Monstrosity", "Moon", "Ooze", "Path", "Pit", "Plant", "Priest", "Prisoner", "Puzzle", "Ring", "Rogue", "Ruin", "Sage", "Shield", "Ship", "Skull", "Staff", "Stairway", "Star", "Statue", "Sun", "Talons", "Tavern", "Temple", "Throne", "Tomb", "Tower", "Tree", "Undead", "Void", "Warrior", "Well"]}, {"name": "Credits"}]'),
+('AITFR-AVT', 'Adventures in the Forgotten Realms: A Verdant Tomb', 'supplement-alt', 'covers/AITFR-AVT.webp', '2021-07-14', NULL, NULL),
 ('AITFR-DN', 'Adventures in the Forgotten Realms: Deepest Night', 'supplement-alt', 'covers/AITFR-DN.webp', '2021-07-21', NULL, NULL),
 ('AITFR-FCD', 'Adventures in the Forgotten Realms: From Cyan Depths', 'supplement-alt', 'covers/AITFR-FCD.webp', '2021-07-28', NULL, NULL),
 ('AITFR-ISF', 'Adventures in the Forgotten Realms: In Scarlet Flames', 'supplement-alt', 'covers/AITFR-ISF.webp', '2021-06-30', NULL, NULL),
@@ -58,83 +59,83 @@ INSERT OR IGNORE INTO core_books (code, name, category, cover, published, author
 ('ALCURSEOFSTRAHD', 'ALCURSEOFSTRAHD', 'other', NULL, NULL, NULL, NULL),
 ('ALELEMENTALEVIL', 'ALELEMENTALEVIL', 'other', NULL, NULL, NULL, NULL),
 ('ALRAGEOFDEMONS', 'ALRAGEOFDEMONS', 'other', NULL, NULL, NULL, NULL),
-('AZFYT', 'A Zib for Your Thoughts', 'supplement-alt', 'covers/AZFYT.webp', '2019-03-05', NULL, NULL)
-('BGDIA', 'Baldur''s Gate: Descent Into Avernus', 'supplement', 'covers/BGDIA.webp', '2019-09-18', NULL, NULL)
-('CM', 'Candlekeep Mysteries', 'supplement', 'covers/CM.webp', '2021-03-16', NULL, NULL)
-('COA', 'Chains of Asmodeus', 'supplement-alt', 'covers/COA.webp', '2023-10-30', NULL, NULL)
-('COS', 'Curse of Strahd', 'supplement', 'covers/COS.webp', '2016-03-15', NULL, NULL)
-('CRCOTN', 'Critical Role: Call of the Netherdeep', 'supplement-alt', 'covers/CRCOTN.webp', '2022-03-15', NULL, NULL)
-('DC', 'Essentials Kit: Divine Contention', 'supplement', 'covers/DC.webp', '2019-09-03', NULL, NULL)
-('DD', 'Wildemount: Dangerous Designs', 'supplement-alt', NULL, '2020-03-17', NULL, NULL)
-('DIP', 'Essentials Kit: Dragon of Icespire Peak', 'supplement', 'covers/DIP.webp', '2019-06-24', NULL, NULL)
-('DITLCOT', 'Descent into the Lost Caverns of Tsojcanth', 'supplement', 'covers/DITLCOT.webp', '2024-03-26', NULL, NULL)
-('DOSI', 'Dragons of Stormwreck Isle', 'supplement', 'covers/DOSI.webp', '2022-07-31', NULL, NULL)
-('DSOTDQ', 'Dragonlance: Shadow of the Dragon Queen', 'supplement', 'covers/DSOTDQ.webp', '2022-11-22', NULL, NULL)
-('EEPC', 'EEPC', 'other', NULL, NULL, NULL, NULL)
-('EET', 'EET', 'other', NULL, NULL, NULL, NULL)
-('EFR', 'Eberron: Forgotten Relics', 'supplement', NULL, '2019-11-19', NULL, NULL)
-('ESK', 'ESK', 'other', 'covers/ESK.webp', NULL, NULL, NULL)
-('FS', 'Wildemount: Frozen Sick', 'supplement-alt', NULL, '2020-03-17', NULL, NULL)
-('GOS', 'Ghosts of Saltmarsh', 'supplement', 'covers/GOS.webp', '2019-05-21', NULL, NULL)
-('GOTSF', 'Giants of the Star Forge', 'supplement-alt', 'covers/GOTSF.webp', '2023-08-01', NULL, NULL)
-('HAT-LMI', 'HAT-LMI', 'other', NULL, NULL, NULL, NULL)
-('HFSTCM', 'Heroes'' Feast: Saving the Children''s Menu', 'supplement-alt', 'covers/HFSTCM.webp', '2023-11-21', NULL, NULL)
-('HFTT', 'Hunt for the Thessalhydra', 'supplement-alt', 'covers/HFTT.webp', '2019-05-21', NULL, NULL)
-('HOL', 'Ravenloft: The House of Lament', 'supplement', NULL, '2021-05-18', NULL, NULL)
-('HOTDQ', 'Hoard of the Dragon Queen', 'supplement', 'covers/HOTDQ.webp', '2014-08-19', NULL, NULL)
-('IDROTF', 'Icewind Dale: Rime of the Frostmaiden', 'supplement', 'covers/IDROTF.webp', '2020-09-15', NULL, NULL)
-('IMR', 'Infernal Machine Rebuild', 'supplement-alt', 'covers/IMR.webp', '2019-11-12', NULL, NULL)
-('JTTRC', 'Journeys through the Radiant Citadel', 'supplement', 'covers/JTTRC.webp', '2022-07-19', NULL, NULL)
-('KFTGV', 'Keys from the Golden Vault', 'supplement', 'covers/KFTGV.webp', '2023-02-21', NULL, NULL)
-('KKW', 'Krenko''s Way', 'supplement-alt', NULL, '2018-11-20', NULL, NULL)
-('LK', 'Lightning Keep', 'supplement-alt', 'covers/LK.webp', '2023-09-26', NULL, NULL)
-('LLK', 'Lost Laboratory of Kwalish', 'supplement-alt', 'covers/LLK.webp', '2018-11-10', NULL, NULL)
-('LMOP', 'Lost Mine of Phandelver', 'supplement', 'covers/LMOP.webp', '2014-07-15', NULL, NULL)
-('LOX', 'Light of Xaryxis', 'supplement', 'covers/LOX.webp', '2022-08-16', NULL, NULL)
-('LR', 'Locathah Rising', 'supplement-alt', 'covers/LR.webp', '2019-09-19', NULL, NULL)
-('LRDT', 'Red Dragon''s Tale: A LEGO Adventure', 'supplement-alt', 'covers/LRDT.webp', '2024-04-01', NULL, NULL)
-('MCV1SC', 'MCV1SC', 'other', NULL, NULL, NULL, NULL)
-('MCV2DC', 'MCV2DC', 'other', NULL, NULL, NULL, NULL)
-('MCV3MC', 'MCV3MC', 'other', NULL, NULL, NULL, NULL)
-('MFF', 'MFF', 'other', NULL, NULL, NULL, NULL)
-('MISMV1', 'MISMV1', 'other', NULL, NULL, NULL, NULL)
-('NRH-ASS', 'NERDS Restoring Harmony: A Sticky Situation', 'supplement-alt', 'covers/NRH-ASS.webp', '2021-09-01', NULL, NULL)
-('NRH-AT', 'NERDS Restoring Harmony: Adventure Together', 'supplement-alt', 'covers/NRH-AT.webp', '2021-09-01', NULL, NULL)
-('NRH-AVITW', 'NERDS Restoring Harmony: A Voice in the Wilderness', 'supplement-alt', 'covers/NRH-AVITW.webp', '2021-09-01', NULL, NULL)
-('NRH-AWOL', 'NERDS Restoring Harmony: A Web of Lies', 'supplement-alt', 'covers/NRH-AWOL.webp', '2021-09-01', NULL, NULL)
-('NRH-COI', 'NERDS Restoring Harmony: Circus of Illusion', 'supplement-alt', 'covers/NRH-COI.webp', '2021-09-01', NULL, NULL)
-('NRH-TCMC', 'NERDS Restoring Harmony: The Candy Mountain Caper', 'supplement-alt', 'covers/NRH-TCMC.webp', '2021-09-01', NULL, NULL)
-('NRH-TLT', 'NERDS Restoring Harmony: The Lost Tomb', 'supplement-alt', 'covers/NRH-TLT.webp', '2021-09-01', NULL, NULL)
-('OOTA', 'Out of the Abyss', 'supplement', 'covers/OOTA.webp', '2015-09-15', NULL, NULL)
-('OOW', 'The Orrery of the Wanderer', 'supplement', NULL, '2019-06-18', NULL, NULL)
-('PABTSO', 'Phandelver and Below: The Shattered Obelisk', 'supplement', 'covers/PABTSO.webp', '2023-09-19', NULL, NULL)
-('PIP', 'Peril in Pinebrook', 'supplement-alt', 'covers/PIP.webp', '2023-11-20', NULL, NULL)
-('POTA', 'Princes of the Apocalypse', 'supplement', 'covers/POTA.webp', '2015-04-07', NULL, NULL)
-('PSA', 'Plane Shift: Amonkhet', 'setting-alt', 'covers/PSA.webp', '2017-07-06', NULL, NULL)
-('PSD', 'Plane Shift: Dominaria', 'setting-alt', 'covers/PSD.webp', '2018-07-31', NULL, NULL)
-('PSI', 'Plane Shift: Innistrad', 'setting-alt', 'covers/PSI.webp', '2016-07-12', NULL, NULL)
-('PSK', 'Plane Shift: Kaladesh', 'setting-alt', 'covers/PSK.webp', '2017-02-16', NULL, NULL)
-('PSX', 'Plane Shift: Ixalan', 'setting-alt', 'covers/PSX.webp', '2018-01-09', NULL, NULL)
-('PSZ', 'Plane Shift: Zendikar', 'setting-alt', 'covers/PSZ.webp', '2016-04-27', NULL, NULL)
-('QFTIS', 'Quests from the Infinite Staircase', 'supplement', 'covers/QFTIS.webp', '2024-07-16', NULL, NULL)
-('RMBRE', 'The Lost Dungeon of Rickedness: Big Rick Energy', 'supplement-alt', NULL, '2019-11-19', NULL, NULL)
-('ROT', 'Rise of Tiamat', 'supplement', 'covers/ROT.webp', '2014-11-04', NULL, NULL)
-('ROTOS', 'ROTOS', 'other', NULL, NULL, NULL, NULL)
-('RTG', 'Return to the Glory', 'supplement-alt', 'covers/RTG.webp', '2021-05-21', NULL, NULL)
-('SADS', 'SADS', 'other', NULL, NULL, NULL, NULL)
-('SCC-ARIR', 'Strixhaven: A Reckoning in Ruins', 'supplement', NULL, '2021-12-07', NULL, NULL)
-('SCC-CK', 'Strixhaven: Campus Kerfuffle', 'supplement', NULL, '2021-12-07', NULL, NULL)
-('SCC-HFMT', 'Strixhaven: Hunt for Mage Tower', 'supplement', NULL, '2021-12-07', NULL, NULL)
-('SCC-TMM', 'Strixhaven: The Magister''s Masquerade', 'supplement', NULL, '2021-12-07', NULL, NULL)
-('SDW', 'Essentials Kit: Sleeping Dragon''s Wake', 'supplement', 'covers/SDW.webp', '2019-09-03', NULL, NULL)
-('SJA', 'Spelljammer Academy', 'supplement-alt', 'covers/SJA.webp', '2022-08-01', NULL, NULL)
-('SKT', 'Storm King''s Thunder', 'supplement', 'covers/SKT.webp', '2016-09-06', NULL, NULL)
-('SLW', 'Essentials Kit: Storm Lord''s Wrath', 'supplement', 'covers/SLW.webp', '2019-09-03', NULL, NULL)
-('TFTYP', 'TFTYP', 'other', 'covers/TFTYP.webp', NULL, NULL, NULL)
+('AZFYT', 'A Zib for Your Thoughts', 'supplement-alt', 'covers/AZFYT.webp', '2019-03-05', NULL, NULL),
+('BGDIA', 'Baldur''s Gate: Descent Into Avernus', 'supplement', 'covers/BGDIA.webp', '2019-09-18', NULL, NULL),
+('CM', 'Candlekeep Mysteries', 'supplement', 'covers/CM.webp', '2021-03-16', NULL, NULL),
+('COA', 'Chains of Asmodeus', 'supplement-alt', 'covers/COA.webp', '2023-10-30', NULL, NULL),
+('COS', 'Curse of Strahd', 'supplement', 'covers/COS.webp', '2016-03-15', NULL, NULL),
+('CRCOTN', 'Critical Role: Call of the Netherdeep', 'supplement-alt', 'covers/CRCOTN.webp', '2022-03-15', NULL, NULL),
+('DC', 'Essentials Kit: Divine Contention', 'supplement', 'covers/DC.webp', '2019-09-03', NULL, NULL),
+('DD', 'Wildemount: Dangerous Designs', 'supplement-alt', NULL, '2020-03-17', NULL, NULL),
+('DIP', 'Essentials Kit: Dragon of Icespire Peak', 'supplement', 'covers/DIP.webp', '2019-06-24', NULL, NULL),
+('DITLCOT', 'Descent into the Lost Caverns of Tsojcanth', 'supplement', 'covers/DITLCOT.webp', '2024-03-26', NULL, NULL),
+('DOSI', 'Dragons of Stormwreck Isle', 'supplement', 'covers/DOSI.webp', '2022-07-31', NULL, NULL),
+('DSOTDQ', 'Dragonlance: Shadow of the Dragon Queen', 'supplement', 'covers/DSOTDQ.webp', '2022-11-22', NULL, NULL),
+('EEPC', 'EEPC', 'other', NULL, NULL, NULL, NULL),
+('EET', 'EET', 'other', NULL, NULL, NULL, NULL),
+('EFR', 'Eberron: Forgotten Relics', 'supplement', NULL, '2019-11-19', NULL, NULL),
+('ESK', 'ESK', 'other', 'covers/ESK.webp', NULL, NULL, NULL),
+('FS', 'Wildemount: Frozen Sick', 'supplement-alt', NULL, '2020-03-17', NULL, NULL),
+('GOS', 'Ghosts of Saltmarsh', 'supplement', 'covers/GOS.webp', '2019-05-21', NULL, NULL),
+('GOTSF', 'Giants of the Star Forge', 'supplement-alt', 'covers/GOTSF.webp', '2023-08-01', NULL, NULL),
+('HAT-LMI', 'HAT-LMI', 'other', NULL, NULL, NULL, NULL),
+('HFSTCM', 'Heroes'' Feast: Saving the Children''s Menu', 'supplement-alt', 'covers/HFSTCM.webp', '2023-11-21', NULL, NULL),
+('HFTT', 'Hunt for the Thessalhydra', 'supplement-alt', 'covers/HFTT.webp', '2019-05-21', NULL, NULL),
+('HOL', 'Ravenloft: The House of Lament', 'supplement', NULL, '2021-05-18', NULL, NULL),
+('HOTDQ', 'Hoard of the Dragon Queen', 'supplement', 'covers/HOTDQ.webp', '2014-08-19', NULL, NULL),
+('IDROTF', 'Icewind Dale: Rime of the Frostmaiden', 'supplement', 'covers/IDROTF.webp', '2020-09-15', NULL, NULL),
+('IMR', 'Infernal Machine Rebuild', 'supplement-alt', 'covers/IMR.webp', '2019-11-12', NULL, NULL),
+('JTTRC', 'Journeys through the Radiant Citadel', 'supplement', 'covers/JTTRC.webp', '2022-07-19', NULL, NULL),
+('KFTGV', 'Keys from the Golden Vault', 'supplement', 'covers/KFTGV.webp', '2023-02-21', NULL, NULL),
+('KKW', 'Krenko''s Way', 'supplement-alt', NULL, '2018-11-20', NULL, NULL),
+('LK', 'Lightning Keep', 'supplement-alt', 'covers/LK.webp', '2023-09-26', NULL, NULL),
+('LLK', 'Lost Laboratory of Kwalish', 'supplement-alt', 'covers/LLK.webp', '2018-11-10', NULL, NULL),
+('LMOP', 'Lost Mine of Phandelver', 'supplement', 'covers/LMOP.webp', '2014-07-15', NULL, NULL),
+('LOX', 'Light of Xaryxis', 'supplement', 'covers/LOX.webp', '2022-08-16', NULL, NULL),
+('LR', 'Locathah Rising', 'supplement-alt', 'covers/LR.webp', '2019-09-19', NULL, NULL),
+('LRDT', 'Red Dragon''s Tale: A LEGO Adventure', 'supplement-alt', 'covers/LRDT.webp', '2024-04-01', NULL, NULL),
+('MCV1SC', 'MCV1SC', 'other', NULL, NULL, NULL, NULL),
+('MCV2DC', 'MCV2DC', 'other', NULL, NULL, NULL, NULL),
+('MCV3MC', 'MCV3MC', 'other', NULL, NULL, NULL, NULL),
+('MFF', 'MFF', 'other', NULL, NULL, NULL, NULL),
+('MISMV1', 'MISMV1', 'other', NULL, NULL, NULL, NULL),
+('NRH-ASS', 'NERDS Restoring Harmony: A Sticky Situation', 'supplement-alt', 'covers/NRH-ASS.webp', '2021-09-01', NULL, NULL),
+('NRH-AT', 'NERDS Restoring Harmony: Adventure Together', 'supplement-alt', 'covers/NRH-AT.webp', '2021-09-01', NULL, NULL),
+('NRH-AVITW', 'NERDS Restoring Harmony: A Voice in the Wilderness', 'supplement-alt', 'covers/NRH-AVITW.webp', '2021-09-01', NULL, NULL),
+('NRH-AWOL', 'NERDS Restoring Harmony: A Web of Lies', 'supplement-alt', 'covers/NRH-AWOL.webp', '2021-09-01', NULL, NULL),
+('NRH-COI', 'NERDS Restoring Harmony: Circus of Illusion', 'supplement-alt', 'covers/NRH-COI.webp', '2021-09-01', NULL, NULL),
+('NRH-TCMC', 'NERDS Restoring Harmony: The Candy Mountain Caper', 'supplement-alt', 'covers/NRH-TCMC.webp', '2021-09-01', NULL, NULL),
+('NRH-TLT', 'NERDS Restoring Harmony: The Lost Tomb', 'supplement-alt', 'covers/NRH-TLT.webp', '2021-09-01', NULL, NULL),
+('OOTA', 'Out of the Abyss', 'supplement', 'covers/OOTA.webp', '2015-09-15', NULL, NULL),
+('OOW', 'The Orrery of the Wanderer', 'supplement', NULL, '2019-06-18', NULL, NULL),
+('PABTSO', 'Phandelver and Below: The Shattered Obelisk', 'supplement', 'covers/PABTSO.webp', '2023-09-19', NULL, NULL),
+('PIP', 'Peril in Pinebrook', 'supplement-alt', 'covers/PIP.webp', '2023-11-20', NULL, NULL),
+('POTA', 'Princes of the Apocalypse', 'supplement', 'covers/POTA.webp', '2015-04-07', NULL, NULL),
+('PSA', 'Plane Shift: Amonkhet', 'setting-alt', 'covers/PSA.webp', '2017-07-06', NULL, NULL),
+('PSD', 'Plane Shift: Dominaria', 'setting-alt', 'covers/PSD.webp', '2018-07-31', NULL, NULL),
+('PSI', 'Plane Shift: Innistrad', 'setting-alt', 'covers/PSI.webp', '2016-07-12', NULL, NULL),
+('PSK', 'Plane Shift: Kaladesh', 'setting-alt', 'covers/PSK.webp', '2017-02-16', NULL, NULL),
+('PSX', 'Plane Shift: Ixalan', 'setting-alt', 'covers/PSX.webp', '2018-01-09', NULL, NULL),
+('PSZ', 'Plane Shift: Zendikar', 'setting-alt', 'covers/PSZ.webp', '2016-04-27', NULL, NULL),
+('QFTIS', 'Quests from the Infinite Staircase', 'supplement', 'covers/QFTIS.webp', '2024-07-16', NULL, NULL),
+('RMBRE', 'The Lost Dungeon of Rickedness: Big Rick Energy', 'supplement-alt', NULL, '2019-11-19', NULL, NULL),
+('ROT', 'Rise of Tiamat', 'supplement', 'covers/ROT.webp', '2014-11-04', NULL, NULL),
+('ROTOS', 'ROTOS', 'other', NULL, NULL, NULL, NULL),
+('RTG', 'Return to the Glory', 'supplement-alt', 'covers/RTG.webp', '2021-05-21', NULL, NULL),
+('SADS', 'SADS', 'other', NULL, NULL, NULL, NULL),
+('SCC-ARIR', 'Strixhaven: A Reckoning in Ruins', 'supplement', NULL, '2021-12-07', NULL, NULL),
+('SCC-CK', 'Strixhaven: Campus Kerfuffle', 'supplement', NULL, '2021-12-07', NULL, NULL),
+('SCC-HFMT', 'Strixhaven: Hunt for Mage Tower', 'supplement', NULL, '2021-12-07', NULL, NULL),
+('SCC-TMM', 'Strixhaven: The Magister''s Masquerade', 'supplement', NULL, '2021-12-07', NULL, NULL),
+('SDW', 'Essentials Kit: Sleeping Dragon''s Wake', 'supplement', 'covers/SDW.webp', '2019-09-03', NULL, NULL),
+('SJA', 'Spelljammer Academy', 'supplement-alt', 'covers/SJA.webp', '2022-08-01', NULL, NULL),
+('SKT', 'Storm King''s Thunder', 'supplement', 'covers/SKT.webp', '2016-09-06', NULL, NULL),
+('SLW', 'Essentials Kit: Storm Lord''s Wrath', 'supplement', 'covers/SLW.webp', '2019-09-03', NULL, NULL),
+('TFTYP', 'TFTYP', 'other', 'covers/TFTYP.webp', NULL, NULL, NULL),
 ('TFTYP-ATG', 'Tales from the Yawning Portal: Against the Giants', 'supplement', NULL, '2017-03-24', NULL, NULL),
 ('TFTYP-DIT', 'Tales from the Yawning Portal: Dead in Thay', 'supplement', NULL, '2017-03-24', NULL, NULL),
 ('TFTYP-TFOF', 'Tales from the Yawning Portal: The Forge of Fury', 'supplement', NULL, '2017-03-24', NULL, NULL),
-('TFTYP-THSOT', 'Tales from the Yawning Portal: The Hidden Shrine of Tamoachan', 'supplement', NULL, '2017-03-24', NULL, NULL)
+('TFTYP-THSOT', 'Tales from the Yawning Portal: The Hidden Shrine of Tamoachan', 'supplement', NULL, '2017-03-24', NULL, NULL),
 ('TFTYP-TOH', 'Tales from the Yawning Portal: Tomb of Horrors', 'supplement', NULL, '2017-03-24', NULL, NULL),
 ('TFTYP-TSC', 'Tales from the Yawning Portal: The Sunless Citadel', 'supplement', NULL, '2017-03-24', NULL, NULL),
 ('TFTYP-WPM', 'Tales from the Yawning Portal: White Plume Mountain', 'supplement', NULL, '2017-03-24', NULL, NULL),
@@ -153,5 +154,5 @@ INSERT OR IGNORE INTO core_books (code, name, category, cover, published, author
 ('WDH', 'Waterdeep: Dragon Heist', 'supplement', 'covers/WDH.webp', '2018-09-18', NULL, NULL),
 ('WDMM', 'Waterdeep: Dungeon of the Mad Mage', 'supplement', 'covers/WDMM.webp', '2018-11-13', NULL, NULL),
 ('WGE', 'WGE', 'other', NULL, NULL, NULL, NULL),
-('XMTS', 'X Marks the Spot', 'supplement-alt', 'covers/XMTS.webp', '2017-12-11', NULL, NULL));
+('XMTS', 'X Marks the Spot', 'supplement-alt', 'covers/XMTS.webp', '2017-12-11', NULL, NULL);
 COMMIT;
