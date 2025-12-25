@@ -7,7 +7,7 @@ from datetime import datetime
 # Ajuste do ROOT: scripts/scraping/import_items.py -> parents[2]
 ROOT = Path(__file__).resolve().parents[2]
 XML_PATH = ROOT / "data" / "xml" / "Sources" / "PHB2014" / "Complete_Compendium_2014.xml"
-OUTPUT_DIR = ROOT / "scripts" / "init_db" / "items2"
+OUTPUT_DIR = ROOT / "scripts" / "init_db" / "items"
 OUTPUT_SQL = OUTPUT_DIR / "schema_items.sql"
 
 SOURCE_RE = re.compile(r"Source:\s*(.+)$", re.MULTILINE)

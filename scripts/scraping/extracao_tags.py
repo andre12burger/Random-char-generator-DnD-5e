@@ -57,8 +57,8 @@ if __name__ == "__main__":
     PASTA_DESTINO = ROOT_DIR / "data" / "xml" / "xml_analysis" / "samples"
     
     # MUDE AQUI A TAG QUE DESEJA EXTRAIR
-    TAG_PARA_PEGAR = "background" 
-    NOME_DO_ARQUIVO = "all_backgrounds.xml"
+    TAG_PARA_PEGAR = "feat" 
+    NOME_DO_ARQUIVO = "all_feats.xml"
     
     # EXECUÇÃO
     extrair_tags_para_arquivo(TAG_PARA_PEGAR, ARQUIVO_ORIGEM, PASTA_DESTINO, NOME_DO_ARQUIVO)
