@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Character Builder — Random Char Generator (5etools)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css">
+    <style>
+        body { padding: 20px; }
+        .card-preview { border: 1px solid #ddd; padding: 12px; background: #fff; }
+        .controls { margin-bottom: 12px; }
+        #log { height: 120px; overflow: auto; border: 1px solid #eee; padding: 8px; background:#fafafa; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Builder — Random Char Generator (5etools)</h1>
+        <p class="text-muted">Protótipo para validar DataUtil, FilterBox, StatGenUi, lifegen e Renderer (usa código local do 5etools). Não modifica 5etools.</p>
+
+        <div class="controls d-flex gap-2">
+            <button id="btnLoad" class="btn btn-primary">Carregar dados</button>
+            <button id="btnInitFilters" class="btn btn-secondary" disabled>Init FilterBox</button>
+            <button id="btnGenerate" class="btn btn-success" disabled>Gerar Personagem</button>
+            <button id="btnExport" class="btn btn-outline-primary" disabled>Exportar PNG</button>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Configurações</h5>
+                <div id="config" class="mb-3">
+                    <label>Source (Source code filter)</label>
+                    <select id="selSource" class="form-control"><option value="">(qualquer)</option></select>
+                </div>
+                <h5>Logs</h5>
+                <div id="log"></div>
+            </div>
+            <div class="col-md-8">
+                <h5>Preview</h5>
+                <div id="preview" class="card-preview">Nenhum personagem gerado ainda.</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/character-builder.js"></script>
+</body>
+</html>
